@@ -1,23 +1,23 @@
-# TÍTULO DO PROJETO
+# Chefe Fitness
 
-`CURSO`
+`Analise e Desenvolvimento de Sistemas`
 
-`DISCIPLINA`
+`Eixo 3 - Desenvolvimento de uma Aplicação Móvel em um Ambiente de Negócio`
 
-`SEMESTRE`
+`2023.2`
 
 Descrever resumidamente, em um ou dois parágrafos, o projeto que está sendo desenvolvido.
 
 ## Integrantes
 
-* Nome completo do aluno 1
-* Nome completo do aluno 2
-* Nome completo do aluno 3
-* Nome completo do aluno 4
+* Gabriel Augusto Alves Lourenço
+* Lucas Marcelo Dias Souza
+* Nayra Alessandra Simao Reis
+* Roberta Gomes de Freitas
 
 ## Orientador
 
-* Nome completo do professor 1
+* Professor: Mateus Curcino de Lima
 
 ## Instruções de utilização
 
