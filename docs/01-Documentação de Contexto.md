@@ -1,46 +1,39 @@
 # Introdução
 
-Texto descritivo com a visão geral do projeto abordado. Inclui o contexto, o problema, os objetivos, a justificativa e o público-alvo do projeto.
+
+No cenário contemporâneo, a saúde assume um papel mais crucial do que nunca, refletindo a crescente conscientização sobre o bem-estar individual e coletivo. Em meio ao ritmo acelerado da vida moderna, onde demandas profissionais, sociais e tecnológicas são constantes, nunca foi tão vital reconhecer a importância de cuidar do nosso corpo e mente. No entanto, apesar dessa crescente atenção à saúde, ainda existem aqueles que negligenciam os cuidados essenciais, muitas vezes cedendo às tentações da conveniência e adiando o investimento em seu próprio bem-estar.
+
+É uma realidade preocupante que em um mundo repleto de informações sobre hábitos saudáveis, uma parte significativa da população permaneça indiferente aos impactos de um estilo de vida negligente. A falta de atividade física regular, dietas desequilibradas e a ausência de atenção às necessidades de hidratação podem resultar em consequências graves para a saúde. Doenças crônicas como diabetes, doenças cardiovasculares e obesidade estão cada vez mais associadas a escolhas insalubres de estilo de vida, lembrando-nos de que nossas decisões diárias podem moldar nosso destino a longo prazo.
+
+Enfrentar essa realidade requer não apenas conscientização, mas também ações concretas. A jornada rumo a um futuro mais saudável começa com a valorização da saúde como um ativo precioso. Cada passo em direção a uma dieta balanceada, hidratação adequada e prática de atividade física contribui não apenas para uma qualidade de vida melhor, mas também para a prevenção de doenças potencialmente debilitantes. Neste contexto, a educação desempenha um papel vital, capacitando indivíduos a tomarem decisões informadas e positivas para si mesmos.
 
 ## Problema
-Nesse momento você deve apresentar o problema que a sua aplicação deve  resolver. No entanto, não é a hora de comentar sobre a aplicação.
 
-Descreva também o contexto em que essa aplicação será usada, se  houver: empresa, tecnologias, etc. Novamente, descreva apenas o que de  fato existir, pois ainda não é a hora de apresentar requisitos  detalhados ou projetos.
+Conforme foi contextualizado, o cenário contemporâneo, a sociedade enfrenta um desafio premente: a falta generalizada de consciência e ação em relação à saúde e ao bem-estar.  Em meio a um mundo cheio de compromissos e hábitos sedentários, muitos indivíduos encontram dificuldades para manter um controle eficaz sobre suas escolhas alimentares, níveis de hidratação e rotinas de exercícios.
+Nesse contexto, o objetivo deste projeto é simplificar e tornar mais acessível a busca por um estilo de vida que promova a saúde e o bem-estar diários dos usuários.
 
-Nesse momento, o grupo pode optar por fazer uso  de ferramentas como Design Thinking, que permite um olhar de ponta a ponta para o problema.
-
-> **Links Úteis**:
-> - [Objetivos, Problema de pesquisa e Justificativa](https://medium.com/@versioparole/objetivos-problema-de-pesquisa-e-justificativa-c98c8233b9c3)
-> - [Matriz Certezas, Suposições e Dúvidas](https://medium.com/educa%C3%A7%C3%A3o-fora-da-caixa/matriz-certezas-suposi%C3%A7%C3%B5es-e-d%C3%BAvidas-fa2263633655)
-> - [Brainstorming](https://www.euax.com.br/2018/09/brainstorming/)
 
 ## Objetivos
 
-Aqui você deve descrever os objetivos do trabalho indicando que o objetivo geral é desenvolver um software para solucionar o problema apresentado acima. 
-
-Apresente também alguns (pelo menos 2) objetivos específicos dependendo de onde você vai querer concentrar a sua prática investigativa, ou como você vai aprofundar no seu trabalho.
- 
-> **Links Úteis**:
-> - [Objetivo geral e objetivo específico: como fazer e quais verbos utilizar](https://blog.mettzer.com/diferenca-entre-objetivo-geral-e-objetivo-especifico/)
+O desenvolvimento do aplicativo de saúde e bem-estar tem o potencial de abordar esse problema de maneira abrangente. Através de uma interface simples e envolvente, ele transformará o monitoramento de escolhas alimentares, ingestão de água e atividade física em tarefas mais gerenciáveis e empolgantes.
 
 ## Justificativa
 
-Descreva a importância ou a motivação para trabalhar com esta aplicação que você escolheu. Indique as razões pelas quais você escolheu seus objetivos específicos ou as razões para aprofundar em certos aspectos do software.
-
-O grupo de trabalho pode fazer uso de questionários, entrevistas e dados estatísticos, que podem ser apresentados, com o objetivo de esclarecer detalhes do problema que será abordado pelo grupo.
-
-> **Links Úteis**:
-> - [Como montar a justificativa](https://guiadamonografia.com.br/como-montar-justificativa-do-tcc/)
+Além disso, a integração de tecnologia inovadora e estratégias de engajamento proporcionará um ambiente propício para a mudança de hábitos. Isso é especialmente relevante em um mundo onde dispositivos móveis desempenham um papel central na vida cotidiana. Ao combinar conhecimento nutricional, monitoramento prático e estímulo positivo, o projeto tem o potencial de melhorar a saúde de muitos e contribuir para uma sociedade mais saudável e resiliente.
 
 ## Público-Alvo
 
-Descreva quem serão as pessoas que usarão a sua aplicação indicando os diferentes perfis. O objetivo aqui não é definir quem serão os clientes ou quais serão os papéis dos usuários na aplicação. A ideia é, dentro do possível, conhecer um pouco mais sobre o perfil dos usuários: conhecimentos prévios, relação com a tecnologia, relações
-hierárquicas, etc.
+O aplicativo se destina a um público diversificado, incluindo:
 
-Adicione informações sobre o público-alvo por meio de uma descrição textual, diagramas de personas e mapa de stakeholders.
+* Indivíduos que buscam melhorar sua saúde geral, mas que enfrentam desafios na manutenção de uma dieta equilibrada e hidratação adequada;
 
-> **Links Úteis**:
-> - [Público-alvo](https://blog.hotmart.com/pt-br/publico-alvo/)
-> - [Como definir o público alvo](https://exame.com/pme/5-dicas-essenciais-para-definir-o-publico-alvo-do-seu-negocio/)
-> - [Público-alvo: o que é, tipos, como definir seu público e exemplos](https://klickpages.com.br/blog/publico-alvo-o-que-e/)
-> - [Qual a diferença entre público-alvo e persona?](https://rockcontent.com/blog/diferenca-publico-alvo-e-persona/)
+* Profissionais Atarefados: Indivíduos com agendas ocupadas e estilo de vida acelerado que enfrentam dificuldades para manter uma rotina saudável devido às demandas de trabalho e compromissos diários;
+
+* Pessoas em Busca de Saúde: Aqueles que desejam adotar uma abordagem mais consciente em relação à saúde, incluindo a melhoria dos hábitos alimentares, aumento da hidratação e incorporação de exercícios físicos regulares;
+
+* Pessoas com Metas de Bem-Estar: Indivíduos que buscam perder peso, ganhar massa muscular ou atingir outras metas específicas relacionadas à saúde e ao condicionamento físico;
+
+* Idosos Preocupados com a Saúde: Pessoas mais velhas que desejam manter sua saúde e vitalidade ao longo do tempo, adaptando suas rotinas às necessidades de envelhecimento;
+
+* Profissionais de Saúde e Nutricionistas: Profissionais que desejam usar a aplicação como uma ferramenta para monitorar e acompanhar o progresso de seus pacientes em direção a um estilo de vida mais saudável.
+
