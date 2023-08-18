@@ -1,44 +1,41 @@
 # Especificações do Projeto
 
-<span style="color:red">Pré-requisitos: <a href="1-Documentação de Contexto.md"> Documentação de Contexto</a></span>
-
-Definição do problema e ideia de solução a partir da perspectiva do usuário. É composta pela definição do  diagrama de personas, histórias de usuários, requisitos funcionais e não funcionais além das restrições do projeto.
-
-Apresente uma visão geral do que será abordado nesta parte do documento, enumerando as técnicas e/ou ferramentas utilizadas para realizar a especificações do projeto
+A definição do problema e os pontos mais relevantes a serem tratados neste projeto foram consolidados com a participação dos usuários de outros aplicativo, por meio de interações, conversas e entrevistas. As informações coletadas foram organizadas e resumidas em personas e histórias de usuários.
 
 ## Personas
 
-Pedro Paulo tem 26 anos, é arquiteto recém-formado e autônomo. Pensa em se desenvolver profissionalmente através de um mestrado fora do país, pois adora viajar, é solteiro e sempre quis fazer um intercâmbio. Está buscando uma agência que o ajude a encontrar universidades na Europa que aceitem alunos estrangeiros.
+As personas levantadas durante o processo de entendimento do problema são apresentadas nas tabelas que se seguem. 
 
-Enumere e detalhe as personas da sua solução. Para tanto, baseie-se tanto nos documentos disponibilizados na disciplina e/ou nos seguintes links:
+| **Camilla Silva** |      |      |
+|------------------------------|------|------|
+|![persona1](img/persona5.jpg) | **Idade:** 32 anos  | **Ocupação:** Gerente de Marketing em uma agência de publicidade. |
+| **Motivações:** Camilla busca manter um equilíbrio entre sua carreira e saúde. Quer ter mais energia e disposição para lidar com seu trabalho exigente.	| **Frustrações:** Sente-se culpada por não conseguir seguir uma rotina saudável. A falta de tempo a impede de dedicar atenção suficiente à alimentação e atividade física. | **Hobbies, História:** Gosta de ler livros de autoajuda, fazer caminhadas curtas e relaxar assistindo a filmes. |
 
-> **Links Úteis**:
-> - [Rock Content](https://rockcontent.com/blog/personas/)
-> - [Hotmart](https://blog.hotmart.com/pt-br/como-criar-persona-negocio/)
-> - [O que é persona?](https://resultadosdigitais.com.br/blog/persona-o-que-e/)
-> - [Persona x Público-alvo](https://flammo.com.br/blog/persona-e-publico-alvo-qual-a-diferenca/)
-> - [Mapa de Empatia](https://resultadosdigitais.com.br/blog/mapa-da-empatia/)
-> - [Mapa de Stalkeholders](https://www.racecomunicacao.com.br/blog/como-fazer-o-mapeamento-de-stakeholders/)
->
-Lembre-se que você deve ser enumerar e descrever precisamente e personalizada todos os clientes ideais que sua solução almeja.
+| **Lucas Pereira** |      |      |
+|------------------------------|------|------|
+|![persona2](img/persona7.jpg) | **Idade:** 27  anos  | **Ocupação:** Estudante universitário de engenharia. |
+| **Motivações:** Lucas quer ter mais energia e concentração para seus estudos. Além disso, deseja melhorar sua aparência física e autoestima.	| **Frustrações:** A falta de conhecimento sobre nutrição e a tentação de escolhas alimentares rápidas e não saudáveis. | **Hobbies, História:** Gosta de praticar esportes como futebol e assistir a séries de TV. |
+
+| **Maria Izabel** |      |      |
+|------------------------------|------|------|
+|![persona3](img/persona6.jpg) | **Idade:** 45 anos  | **Ocupação:** Nutricionista clínica e esportiva. |
+| **Motivações:** Deseja oferecer aos pacientes orientações práticas e acompanhamento eficaz para alcançar suas metas de saúde.	| **Frustrações:** Enfrenta desafios ao manter o contato constante com seus pacientes para fornecer orientações e motivação.| **Hobbies, História:** Gosta de praticar ioga e ler artigos relacionados à saúde e nutrição.|
+
 
 ## Histórias de Usuários
 
 Com base na análise das personas forma identificadas as seguintes histórias de usuários:
-
 |EU COMO... `PERSONA`| QUERO/PRECISO ... `FUNCIONALIDADE` |PARA ... `MOTIVO/VALOR`                 |
 |--------------------|------------------------------------|----------------------------------------|
-|Usuário do sistema  | Registrar minhas tarefas           | Não esquecer de fazê-las               |
-|Administrador       | Alterar permissões                 | Permitir que possam administrar contas |
-
-Apresente aqui as histórias de usuário que são relevantes para o projeto de sua solução. As Histórias de Usuário consistem em uma ferramenta poderosa para a compreensão e elicitação dos requisitos funcionais e não funcionais da sua aplicação. Se possível, agrupe as histórias de usuário por contexto, para facilitar consultas recorrentes à essa parte do documento.
-
-> **Links Úteis**:
-> - [Histórias de usuários com exemplos e template](https://www.atlassian.com/br/agile/project-management/user-stories)
-> - [Como escrever boas histórias de usuário (User Stories)](https://medium.com/vertice/como-escrever-boas-users-stories-hist%C3%B3rias-de-usu%C3%A1rios-b29c75043fac)
-> - [User Stories: requisitos que humanos entendem](https://www.luiztools.com.br/post/user-stories-descricao-de-requisitos-que-humanos-entendem/)
-> - [Histórias de Usuários: mais exemplos](https://www.reqview.com/doc/user-stories-example.html)
-> - [9 Common User Story Mistakes](https://airfocus.com/blog/user-story-mistakes/)
+|Camilla Silva       | Deseja uma plataforma onde consiga monitorar sua ingestão diária de água. | Para garantir que está hidratada e mantendo uma dieta equilibrada. |
+|Camilla Silva        | Deseja criar metas de passos diários e receber notificações quando atingir essas metas. | Para incorporar mais atividade física em sua rotina, mesmo com a agenda de estudos, ajudando  a manter um estilo de vida mais ativo.|
+|Camilla Silva     |Deseja uma plataforma onde consiga realizar cadastro no aplicativo  | Para garantir a precisão das informações do seu dia a dia.|
+|Lucas Pereira     | Deseja ter acesso a planos de refeições simples e saudáveis para cada semana.| Para Facilitar o planejamento de minhas refeições e evitar a tentação de optar por opções não saudáveis por falta de tempo. |
+|Lucas Pereira      | Deseja uma plataforma onde consiga registrar suas refeições de forma rápida e fácil.| Para se manter organizado e evitar fast food. |
+|Lucas Pereira      | Deseja deixar como favoritos suas metas atingidas no dia. | Para comparação do seu progresso ao longo do meses. |
+|Maria Izabel       | Deseja uma plataforma onde seja enviados lembretes personalizados para os pacientes para incentivar a hidratação adequada.| Para garantir que os pacientes estejam seguindo as recomendações e mantendo-se hidratados entre as consultas. |
+|Maria Izabel    |   Deseja que os pacientes recebam notificações quando atingirem marcos importantes em seus objetivos de saúde. | Para celebrar as conquistas dos pacientes e fornecer motivação adicional para continuar em direção a um estilo de vida mais saudável.|
+|Maria Izabel       |Deseja que seu pacientes tenham acesso a um contador de calorias que me mostre o valor nutricional de refeições. | Para tomar decisões informadas sobre porções e ingredientes, mantendo o controle de minha ingestão calórica.  |
 
 ## Modelagem do Processo de Negócio 
 
@@ -79,30 +76,25 @@ As tabelas que se seguem apresentam os requisitos funcionais e não funcionais q
 
 |ID    | Descrição do Requisito  | Prioridade |
 |------|-----------------------------------------|----|
-|RF-001| Permitir que o usuário cadastre tarefas | ALTA | 
-|RF-002| Emitir um relatório de tarefas no mês   | MÉDIA |
+|RF-01| O sistema deve permitir que os usuário criem uma conta no App| Alta |
+|RF-02| O sistema deve permitir que os usuário criem metas de passos diários, e sejam notificados quando atigirem essas metas. | Alta |  
+|RF-03| O sistema deve permitir que os usuário monitorem suas ingestão diárias de água	| Média |
+|RF-04| O sistema deve permitir que os usuário registrar suas refeições de forma rápida e fácil.| Baixa | 
+|RF-05| O sistema deve permitir que os usuário tenham acesso a um contador de calorias que me mostre o valor nutricional de refeições.  | Alta |
+|RF-06| O sistema deve permitir que os usuário recebam notificações quando atingirem marcos importantes em seus objetivos de saúde. | Alta | 
+|RF-07| O sistema deve permitir que os usuário deixem como favoritos suas metas atingidas no dia. | Baixa | 
+
 
 ### Requisitos não Funcionais
 
 |ID     | Descrição do Requisito  |Prioridade |
 |-------|-------------------------|----|
-|RNF-001| O sistema deve ser responsivo para rodar em um dispositivos móvel | MÉDIA | 
-|RNF-002| Deve processar requisições do usuário em no máximo 3s |  BAIXA | 
-
-Com base nas Histórias de Usuário, enumere os requisitos da sua solução. Classifique esses requisitos em dois grupos:
-
-- [Requisitos Funcionais
- (RF)](https://pt.wikipedia.org/wiki/Requisito_funcional):
- correspondem a uma funcionalidade que deve estar presente na
-  plataforma (ex: cadastro de usuário).
-- [Requisitos Não Funcionais
-  (RNF)](https://pt.wikipedia.org/wiki/Requisito_n%C3%A3o_funcional):
-  correspondem a uma característica técnica, seja de usabilidade,
-  desempenho, confiabilidade, segurança ou outro (ex: suporte a
-  dispositivos iOS e Android).
-Lembre-se que cada requisito deve corresponder à uma e somente uma
-característica alvo da sua solução. Além disso, certifique-se de que
-todos os aspectos capturados nas Histórias de Usuário foram cobertos.
+|RNF-01| O sistema deve ser fácil de usar, intuitivo e ter uma interface amigável para os usuários | Alta | 
+|RNF-02| O sistema deve ser responsivo permitindo a visualização em diferentes tamanhos de telas.  |  Médio | 
+|RNF-03| O sistema deve ser publicado em um ambiente acessível publicamente na Internet | Alta | 
+|RNF-04| O sistema deve garantir a privacidade e a segurança das informações dos usuários |  Alta | 
+|RNF-05| O sistema deve ser fácil de manter, atualizar e corrigir, sem afetar a disponibilidade ou a qualidade do serviço  | Média | 
+|RNF-06| O sistema deve ser compatível com os principais sistemas operacionais (Android e o iOS)  |  Média | 
 
 ## Restrições
 
@@ -110,14 +102,10 @@ O projeto está restrito pelos itens apresentados na tabela a seguir.
 
 |ID| Restrição                                             |
 |--|-------------------------------------------------------|
-|01| O projeto deverá ser entregue até o final do semestre |
-|02| Não pode ser desenvolvido um módulo de backend        |
+|RE-01| O projeto deverá ser entregue no final do semestre letivo, não podendo extrapolar a data de 04/12/2023 |
+|RE-02| O sistema deve se restringir às tecnologias de React Native Json|
+|RE-03| A equipe não pode subcontratar o desenvolvimento do trabalho   |
 
-Enumere as restrições à sua solução. Lembre-se de que as restrições geralmente limitam a solução candidata.
-
-> **Links Úteis**:
-> - [O que são Requisitos Funcionais e Requisitos Não Funcionais?](https://codificar.com.br/requisitos-funcionais-nao-funcionais/)
-> - [O que são requisitos funcionais e requisitos não funcionais?](https://analisederequisitos.com.br/requisitos-funcionais-e-requisitos-nao-funcionais-o-que-sao/)
 
 ## Diagrama de Casos de Uso
 
