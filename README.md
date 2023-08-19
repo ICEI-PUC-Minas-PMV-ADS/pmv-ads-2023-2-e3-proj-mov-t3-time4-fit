@@ -9,15 +9,13 @@
 Descrever resumidamente, em um ou dois parágrafos, o projeto que está sendo desenvolvido.
 
 ## Integrantes
-
-* Gabriel Augusto Alves Lourenço
-* Lucas Marcelo Dias Souza
-* Nayra Alessandra Simao Reis
-* Roberta Gomes de Freitas
+| [<img src="https://github.com/gabriellourenco12.png" width=115><br><sub>Gabriel Augusto Alves Lourenço</sub>](https://github.com/gabriellourenco12) | [<img src="https://github.com/lucasmarcelods.png" width=115><br><sub>Lucas Marcelo Dias Souza</sub>](https://github.com/lucasmarcelods) | [<img src="https://github.com/Nayra-Reis.png" width=115><br><sub>Nayra Alessandra Simao Reis</sub>](https://github.com/Nayra-Reis) | [<img src="https://github.com/robertagdf.png" width=115><br><sub>Roberta Gomes de Freitas</sub>](https://github.com/robertagdf) |
+| -- | -- | -- | -- |
 
 ## Orientador
 
-* Professor: Mateus Curcino de Lima
+| [<img src="https://github.com/mateuscurcino.png" width=115><br><sub>Mateus Curcino de Lima</sub>](https://github.com/mateuscurcino) |
+| :---: |
 
 ## Instruções de utilização
 
