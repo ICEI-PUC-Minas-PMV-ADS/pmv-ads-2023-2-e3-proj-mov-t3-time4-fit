@@ -74,15 +74,15 @@ As tabelas que se seguem apresentam os requisitos funcionais e não funcionais q
 
 ### Requisitos Funcionais
 
-|ID    | Descrição do Requisito  | Prioridade |
-|------|-----------------------------------------|----|
-|RF-01| Os usuários devem poder fazer cadastro e login usando suas credenciais.| Alta |
-|RF-02| Os usuários devem ser capazes de criar e salvar seus planos alimentares, incluindo refeições, alimentos consumidos e quantidades. | Alta |  
+|ID     | Descrição do Requisito  |Prioridade |
+|-------|-------------------------|----|
+|RF-01| Os usuários devem poder fazer cadastro e login usando suas credenciais. | Alta |
+|RF-02| Os usuários devem ser capazes de criar e salvar seus planos alimentares, incluindo refeições, alimentos consumidos e quantidades. | Alta |
 |RF-03| O aplicativo deve calcular e exibir a contagem total de calorias para o dia com base nos alimentos registrados.	| Alta |
-|RF-04| Os usuários devem poder pesquisar e visualizar os planos alimentares de outros usuários.| Alta | 
+|RF-04| Os usuários devem poder pesquisar e visualizar os planos alimentares de outros usuários. | Alta |
 |RF-05| O aplicativo deve enviar notificações push para lembrar os usuários das refeições. | Média |
-|RF-06| Os usuários podem definir metas de consumo calórico diário. | Baixa | 
-|RF-07| Os usuários devem ter acesso a um histórico de planos alimentares anteriores e informações nutricionais. | Baixa | 
+|RF-06| Os usuários podem definir metas de consumo calórico diário. | Baixa |
+|RF-07| Os usuários devem ter acesso a um histórico de planos alimentares anteriores e informações nutricionais. | Baixa |
 |RF-08| Os usuários podem compartilhar seus planos alimentares ou conquistas nas redes sociais. | Baixa | 
 
 
@@ -123,16 +123,15 @@ As referências abaixo irão auxiliá-lo na geração do artefato “Diagrama de
 
 # Matriz de Rastreabilidade
 
-A matriz de rastreabilidade é uma ferramenta usada para facilitar a visualização dos relacionamento entre requisitos e outros artefatos ou objetos, permitindo a rastreabilidade entre os requisitos e os objetivos de negócio. 
-
-A matriz deve contemplar todos os elementos relevantes que fazem parte do sistema, conforme a figura meramente ilustrativa apresentada a seguir.
-
-![Exemplo de matriz de rastreabilidade](img/02-matriz-rastreabilidade.png)
-
-> **Links Úteis**:
-> - [Artigo Engenharia de Software 13 - Rastreabilidade](https://www.devmedia.com.br/artigo-engenharia-de-software-13-rastreabilidade/12822/)
-> - [Verificação da rastreabilidade de requisitos usando a integração do IBM Rational RequisitePro e do IBM ClearQuest Test Manager](https://developer.ibm.com/br/tutorials/requirementstraceabilityverificationusingrrpandcctm/)
-> - [IBM Engineering Lifecycle Optimization – Publishing](https://www.ibm.com/br-pt/products/engineering-lifecycle-optimization/publishing/)
+|                     | Cadastro e Login | Registro de Plano Alimentar | Pesquisar Planos de Usuário | Definir Metas e Restrições | Visualizar Histórico | Compartilhar em Redes Sociais | Receber Notificações |
+|---------------------|:----------------:|:---------------------------:|:---------------------------:|:------------------------:|:-------------------:|:---------------------------:|:-------------------:|
+| Cadastro e Login |-|-|-|-|-|-|-|
+| Registro de Plano Alimentar |-|-|X|-|X|X|X|
+| Pesquisar Planos de Usuário |-|X|-|-|-|-|-|
+| Definir Metas e Restrições  |-|-|-|-|-|-|X|
+| Visualizar Histórico |-|X|-|-|-|-|-|
+| Compartilhar em Redes Sociais |-|X|-|-|-|-|-|
+| Receber Notificações |-|X|-|X|-|-|-|
 
 
 # Gerenciamento de Projeto
