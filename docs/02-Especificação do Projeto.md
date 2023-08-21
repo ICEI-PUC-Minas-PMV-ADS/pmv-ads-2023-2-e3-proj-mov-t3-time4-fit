@@ -76,13 +76,14 @@ As tabelas que se seguem apresentam os requisitos funcionais e não funcionais q
 
 |ID    | Descrição do Requisito  | Prioridade |
 |------|-----------------------------------------|----|
-|RF-01| O sistema deve permitir que os usuário criem uma conta no App| Alta |
-|RF-02| O sistema deve permitir que os usuário criem metas de passos diários, e sejam notificados quando atigirem essas metas. | Alta |  
-|RF-03| O sistema deve permitir que os usuário monitorem suas ingestão diárias de água	| Média |
-|RF-04| O sistema deve permitir que os usuário registrar suas refeições de forma rápida e fácil.| Baixa | 
-|RF-05| O sistema deve permitir que os usuário tenham acesso a um contador de calorias que me mostre o valor nutricional de refeições.  | Alta |
-|RF-06| O sistema deve permitir que os usuário recebam notificações quando atingirem marcos importantes em seus objetivos de saúde. | Alta | 
-|RF-07| O sistema deve permitir que os usuário deixem como favoritos suas metas atingidas no dia. | Baixa | 
+|RF-01| Os usuários devem poder fazer cadastro e login usando suas credenciais.| Alta |
+|RF-02| Os usuários devem ser capazes de criar e salvar seus planos alimentares, incluindo refeições, alimentos consumidos e quantidades. | Alta |  
+|RF-03| O aplicativo deve calcular e exibir a contagem total de calorias para o dia com base nos alimentos registrados.	| Alta |
+|RF-04| Os usuários devem poder pesquisar e visualizar os planos alimentares de outros usuários.| Alta | 
+|RF-05| O aplicativo deve enviar notificações push para lembrar os usuários das refeições. | Média |
+|RF-06| Os usuários podem definir metas de consumo calórico diário. | Baixa | 
+|RF-07| Os usuários devem ter acesso a um histórico de planos alimentares anteriores e informações nutricionais. | Baixa | 
+|RF-08| Os usuários podem compartilhar seus planos alimentares ou conquistas nas redes sociais. | Baixa | 
 
 
 ### Requisitos não Funcionais
