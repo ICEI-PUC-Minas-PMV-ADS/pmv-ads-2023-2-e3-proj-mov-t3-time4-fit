@@ -91,8 +91,8 @@ As tabelas que se seguem apresentam os requisitos funcionais e não funcionais q
 |ID     | Descrição do Requisito  |Prioridade |
 |-------|-------------------------|----|
 |RNF-01| O sistema deve ser fácil de usar, intuitivo e ter uma interface amigável para os usuários | Alta | 
-|RNF-02| O sistema deve ser responsivo permitindo a visualização em diferentes tamanhos de telas.  |  Médio | 
-|RNF-03| O sistema deve ser publicado em um ambiente acessível publicamente na Internet | Alta | 
+|RNF-02| O sistema deve ser responsivo permitindo a visualização em diferentes tamanhos de telas.  |  Média | 
+|RNF-03| O sistema deve ser publicado em um ambiente acessível publicamente na Internet | Média | 
 |RNF-04| O sistema deve garantir a privacidade e a segurança das informações dos usuários |  Alta | 
 |RNF-05| O sistema deve ser fácil de manter, atualizar e corrigir, sem afetar a disponibilidade ou a qualidade do serviço  | Média | 
 |RNF-06| O sistema deve ser compatível com os principais sistemas operacionais (Android e o iOS)  |  Média | 
@@ -104,7 +104,7 @@ O projeto está restrito pelos itens apresentados na tabela a seguir.
 |ID| Restrição                                             |
 |--|-------------------------------------------------------|
 |RE-01| O projeto deverá ser entregue no final do semestre letivo, não podendo extrapolar a data de 04/12/2023 |
-|RE-02| O sistema deve se restringir às tecnologias de React Native Json|
+|RE-02| O sistema deve se restringir às tecnologias de React Native |
 |RE-03| A equipe não pode subcontratar o desenvolvimento do trabalho   |
 
 
