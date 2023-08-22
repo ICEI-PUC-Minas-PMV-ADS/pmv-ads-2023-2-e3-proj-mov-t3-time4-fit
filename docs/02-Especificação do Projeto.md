@@ -164,11 +164,17 @@ O gerenciamento adequado de tarefas contribuirá para que o projeto alcance alto
 
 ## Gestão de Orçamento
 
-| Grupo           | Valor          |
-|-----------------|----------------|
-| Recursos Humanos| R$270.000,00   |
-| Hardware        | R$20.000,00    |
-| Rede            | R$5.000,00     |
-| Software        | R$10.000,00    |
-| Serviços        | R$30.000,00    |
-| **Total**       |**R$335.000,00**|
+| ID | Recurso | Quantidade | Custo Unitário | Custo Mensal | Custo Semestral |
+|--|--|--|--|--|--|
+| 1 | Recursos Humanos |  |  |  |  |
+|  | Gestor de Projetos |  |  |  |  |
+|  | Desenvolvedor React Sr. |  |  |  |  |
+|  | Designer UX/UI |  |  |  |  |
+| 2 | Hardware |  |  |  |  |
+|  | Notebook |  |  |  |  |
+| 3 | Software |  |  |  |  |
+|  | Licenças |  |  |  |  |
+|  | Ferramentas |  |  |  |  |
+| 4 | Serviços|  |  |  |  |
+|  | Azure |  |  |  |  |
+|  |  |  | **Total** | R$ | R$ |
