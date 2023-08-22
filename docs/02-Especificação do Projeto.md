@@ -80,10 +80,11 @@ As tabelas que se seguem apresentam os requisitos funcionais e não funcionais q
 |RF-02| Os usuários devem ser capazes de criar e salvar seus planos alimentares, incluindo refeições, alimentos consumidos e quantidades. | Alta |
 |RF-03| O aplicativo deve calcular e exibir a contagem total de calorias para o dia com base nos alimentos registrados.	| Alta |
 |RF-04| Os usuários devem poder pesquisar e visualizar os planos alimentares de outros usuários. | Alta |
-|RF-05| O aplicativo deve enviar notificações push para lembrar os usuários das refeições. | Média |
-|RF-06| Os usuários podem definir metas de consumo calórico diário. | Baixa |
-|RF-07| Os usuários devem ter acesso a um histórico de planos alimentares anteriores e informações nutricionais. | Baixa |
-|RF-08| Os usuários podem compartilhar seus planos alimentares ou conquistas nas redes sociais. | Baixa | 
+|RF-05| Os usuários devem poder pesquisar alimentos e suas calorias. | Média |
+|RF-06| O aplicativo deve enviar notificações push para lembrar os usuários das refeições. | Média |
+|RF-07| Os usuários podem definir metas de consumo calórico diário. | Baixa |
+|RF-08| Os usuários devem ter acesso a um histórico de planos alimentares anteriores e informações nutricionais. | Baixa |
+|RF-09| Os usuários podem compartilhar seus planos alimentares ou conquistas nas redes sociais. | Baixa | 
 
 
 ### Requisitos não Funcionais
