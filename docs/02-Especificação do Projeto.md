@@ -27,13 +27,13 @@ As personas levantadas durante o processo de entendimento do problema são apres
 Com base na análise das personas forma identificadas as seguintes histórias de usuários:
 |EU COMO... `PERSONA`| QUERO/PRECISO ... `FUNCIONALIDADE` |PARA ... `MOTIVO/VALOR`                 |
 |--------------------|------------------------------------|----------------------------------------|
-|Camilla Silva       | Deseja uma plataforma onde consiga monitorar sua ingestão diária de água. | Para garantir que está hidratada e mantendo uma dieta equilibrada. |
-|Camilla Silva        | Deseja criar metas de passos diários e receber notificações quando atingir essas metas. | Para incorporar mais atividade física em sua rotina, mesmo com a agenda de estudos, ajudando  a manter um estilo de vida mais ativo.|
+|Camilla Silva       | Deseja uma plataforma onde consiga encontrar a tabela nutricional de vários alimentos. | Para garantir que sua dieta está sendo seguida corretamente. |
+|Camilla Silva        | Deseja poder compartilhar suas metas e dietas nas redes sociais. | Para que seus amigos possam acompanhar seu progresso.|
 |Camilla Silva     |Deseja uma plataforma onde consiga realizar cadastro no aplicativo  | Para garantir a precisão das informações do seu dia a dia.|
 |Lucas Pereira     | Deseja ter acesso a planos de refeições simples e saudáveis para cada semana.| Para Facilitar o planejamento de minhas refeições e evitar a tentação de optar por opções não saudáveis por falta de tempo. |
 |Lucas Pereira      | Deseja uma plataforma onde consiga registrar suas refeições de forma rápida e fácil.| Para se manter organizado e evitar fast food. |
 |Lucas Pereira      | Deseja deixar como favoritos suas metas atingidas no dia. | Para comparação do seu progresso ao longo do meses. |
-|Maria Izabel       | Deseja uma plataforma onde seja enviados lembretes personalizados para os pacientes para incentivar a hidratação adequada.| Para garantir que os pacientes estejam seguindo as recomendações e mantendo-se hidratados entre as consultas. |
+|Maria Izabel       | Deseja uma plataforma onde seja enviados lembretes personalizados para os pacientes para incentivar a alimentação adequada.| Para garantir que os pacientes estejam seguindo as recomendações. |
 |Maria Izabel    |   Deseja que os pacientes recebam notificações quando atingirem marcos importantes em seus objetivos de saúde. | Para celebrar as conquistas dos pacientes e fornecer motivação adicional para continuar em direção a um estilo de vida mais saudável.|
 |Maria Izabel       |Deseja que seu pacientes tenham acesso a um contador de calorias que me mostre o valor nutricional de refeições. | Para tomar decisões informadas sobre porções e ingredientes, mantendo o controle de minha ingestão calórica.  |
 
