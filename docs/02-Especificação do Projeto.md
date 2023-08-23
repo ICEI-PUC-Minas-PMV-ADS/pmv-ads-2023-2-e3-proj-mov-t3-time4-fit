@@ -223,7 +223,7 @@ gantt
     section Time de QA
     Testes da aplicação : 2023-09-18  , 63d
 
-    section Time de entrega
+    section Time de Suporte
     Entrega da solução  :2023-11-20  , 14d
 ```
 
