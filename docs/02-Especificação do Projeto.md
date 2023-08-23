@@ -123,7 +123,7 @@ graph TD
     A --> D
     A --> F
 
-    subgraph Meal Planner App
+    subgraph Casos de Uso
        B[Cadastro e Login]
        C[Gerenciar plano <br>alimentar]
        D[Seguir plano <br> de outro usuário] -->|includes| I[Buscar plano]
@@ -163,7 +163,7 @@ O gráfico de Gantt ou diagrama de Gantt também é uma ferramenta visual utiliz
 
 ```mermaid
 gantt
-    title Gerenciamento de Tempo
+    title Diagrama de Gantt
     todayMarker off
     dateFormat  YYYY-MMM-DD
     axisFormat %d/%b/%y
