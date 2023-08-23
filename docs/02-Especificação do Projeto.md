@@ -204,7 +204,28 @@ gantt
 
 O gerenciamento adequado de tarefas contribuirá para que o projeto alcance altos níveis de produtividade. Por isso, é fundamental que ocorra a gestão de tarefas e de pessoas, de modo que os times envolvidos no projeto possam ser facilmente gerenciados. 
 
-![Simple Project Timeline](img/02-project-timeline.png)
+```mermaid
+gantt
+    title Diagrama de Gantt
+    todayMarker off
+    dateFormat  YYYY-MMM-DD
+    axisFormat %d/%b/%y
+
+    section Gerente de Projetos
+    Definição do problema : 2023-08-01, 14d
+    Especificação do projeto    : 2023-08-07, 21d
+    Alinhamentos  : 2023-08-28, 14d
+
+    section Time de Desenvolvedores
+    Projeto de Interface      : 2023-08-28, 14d
+    Desenvolvimento da solução    : 63d
+
+    section Time de QA
+    Testes da aplicação : 2023-09-18  , 63d
+
+    section Time de entrega
+    Entrega da solução  :2023-11-20  , 14d
+```
 
 ## Gestão de Orçamento
 
