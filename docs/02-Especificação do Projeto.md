@@ -100,26 +100,9 @@ As tabelas que se seguem apresentam os requisitos funcionais e não funcionais q
 ### Priorização de Requisitos
 
 A técnica para priorização de requisitos utilizada foi a Escala de Três Níveis e a imagem abaixo retrata a análise realizada.
+    
+[![Priorização de Requisitos](https://mermaid.ink/img/pako:eNp1kk1qwzAUhK8itI6LLdlO7EWhPxS6SAkp3bTO4hGpiWhsJbIMSUNO00UPkotVlpxgGeqFsN43M7wBHfFSMo5zvGuAKaj0wxqULipkPi30hqOZElKJbzj_nn8kYhzN-a4RtdCydrJ9AHtRo5lslhI9l1uptMnhKAhu0bQxut7QOQ59x5tacV_eTZz2slcQdZswMDvcbTQMOOnzKWdiKKB9wT2I_VAQ_5Mwf0IBCqMcfYQ3k2SEzBku-ohYlIUtynxEncuiNPNQbNHYorHvSpyLtIjGHkotSrMWEeKhsUWUtij2AycWERsYJR7KLIptL3pxdYKXXvPUdaALj7nqiXXHA-a6Z5Ylic9ceWJ3pQNf135iM6MFHuGSqxIEM8_02CoLrNe85AXOzS8D9VXgojoZHTRavh6qJc4_YVPzEW62DDR_FLBSUF6nW6jepbzcT3-RLNXb?type=png)](https://mermaid.live/edit#pako:eNp1kk1qwzAUhK8itI6LLdlO7EWhPxS6SAkp3bTO4hGpiWhsJbIMSUNO00UPkotVlpxgGeqFsN43M7wBHfFSMo5zvGuAKaj0wxqULipkPi30hqOZElKJbzj_nn8kYhzN-a4RtdCydrJ9AHtRo5lslhI9l1uptMnhKAhu0bQxut7QOQ59x5tacV_eTZz2slcQdZswMDvcbTQMOOnzKWdiKKB9wT2I_VAQ_5Mwf0IBCqMcfYQ3k2SEzBku-ohYlIUtynxEncuiNPNQbNHYorHvSpyLtIjGHkotSrMWEeKhsUWUtij2AycWERsYJR7KLIptL3pxdYKXXvPUdaALj7nqiXXHA-a6Z5Ylic9ceWJ3pQNf135iM6MFHuGSqxIEM8_02CoLrNe85AXOzS8D9VXgojoZHTRavh6qJc4_YVPzEW62DDR_FLBSUF6nW6jepbzcT3-RLNXb)
 
-```mermaid
-quadrantChart
-    title Priorização de Requisitos
-    x-axis Pouco Importante --> Muito Importante
-    y-axis Pouco Urgente --> Muito Urgente
-    quadrant-1 Prioridade Alta
-    quadrant-2 Prioridade Media
-    quadrant-3 Prioridade Baixa
-    quadrant-4 Prioridade Media
-    RF - 01: [0.85, 0.80]
-    RF - 02: [0.90, 0.90]
-    RF - 03: [0.80, 0.69]
-    RF - 04: [0.70, 0.70]
-    RF - 05: [0.82, 0.34]
-    RF - 06: [0.69, 0.22]
-    RF - 07: [0.33, 0.40]
-    RF - 08: [0.22, 0.15]
-    RF - 09: [0.45, 0.30]
-```
 
 ## Restrições
 
