@@ -93,10 +93,39 @@ As tabelas que se seguem apresentam os requisitos funcionais e não funcionais q
 |-------|-------------------------|----|
 |RNF-01| O sistema deve ser fácil de usar, intuitivo e ter uma interface amigável para os usuários | Alta | 
 |RNF-02| O sistema deve ser responsivo permitindo a visualização em diferentes tamanhos de telas.  |  Média | 
-|RNF-03| O sistema deve ser publicado em um ambiente acessível publicamente na Internet | Média | 
-|RNF-04| O sistema deve garantir a privacidade e a segurança das informações dos usuários |  Alta | 
-|RNF-05| O sistema deve ser fácil de manter, atualizar e corrigir, sem afetar a disponibilidade ou a qualidade do serviço  | Média | 
-|RNF-06| O sistema deve ser compatível com os principais sistemas operacionais (Android e o iOS)  |  Média | 
+|RNF-03| O sistema deve garantir a privacidade e a segurança das informações dos usuários |  Alta | 
+|RNF-04| O sistema deve ser fácil de manter, atualizar e corrigir, sem afetar a disponibilidade ou a qualidade do serviço  | Baixa | 
+|RNF-05| O sistema deve ser compatível com os principais sistemas operacionais (Android e o iOS)  |  Média | 
+
+### Priorização de Requisitos
+
+A técnica para priorização de requisitos utilizada foi a Escala de Três Níveis e a imagem abaixo retrata a análise realizada.
+
+```mermaid
+quadrantChart
+    title Priorização de Requisitos
+    x-axis Pouco Importante --> Muito Importante
+    y-axis Pouco Urgente --> Muito Urgente
+    quadrant-1 Prioridade Alta
+    quadrant-2 Prioridade Media
+    quadrant-3 Prioridade Baixa
+    quadrant-4 Prioridade Media
+    RF - 01: [0.85, 0.80]
+    RF - 02: [0.90, 0.90]
+    RF - 03: [0.80, 0.69]
+    RF - 04: [0.70, 0.70]
+    RF - 05: [0.82, 0.34]
+    RF - 06: [0.69, 0.22]
+    RF - 07: [0.33, 0.40]
+    RF - 08: [0.22, 0.15]
+    RF - 09: [0.45, 0.30]
+    
+    RNF - 01: [0.60, 0.63]
+    RNF - 02: [0.55, 0.43]
+    RNF - 03: [0.95, 0.55]
+    RNF - 04: [0.23, 0.33]
+    RNF - 05: [0.88, 0.41]
+```
 
 ## Restrições
 
