@@ -163,7 +163,7 @@ O gráfico de Gantt ou diagrama de Gantt também é uma ferramenta visual utiliz
 
 ```mermaid
 gantt
-    title Diagrama de Gantt
+    title Gerenciamento de Tempo
     todayMarker off
     dateFormat  YYYY-MMM-DD
     axisFormat %d/%b/%y
@@ -206,24 +206,24 @@ O gerenciamento adequado de tarefas contribuirá para que o projeto alcance alto
 
 ```mermaid
 gantt
-    title Diagrama de Gantt
+    title Gerenciamento de Equipe
     todayMarker off
     dateFormat  YYYY-MMM-DD
     axisFormat %d/%b/%y
 
-    section Gerente de Projetos
+    section Gerente de Projetos <br>(Gabriel)
     Definição do problema : 2023-08-01, 14d
     Especificação do projeto    : 2023-08-07, 21d
     Alinhamentos  : 2023-08-28, 14d
 
-    section Time de Desenvolvedores
+    section Time de Desenvolvedores <br>(Lucas, Roberta)
     Projeto de Interface      : 2023-08-28, 14d
     Desenvolvimento da solução    : 63d
 
-    section Time de QA
+    section Time de QA <br>(Nayra)
     Testes da aplicação : 2023-09-18  , 63d
 
-    section Time de Suporte
+    section Time de Suporte <br>(Gabriel)
     Entrega da solução  :2023-11-20  , 14d
 ```
 
