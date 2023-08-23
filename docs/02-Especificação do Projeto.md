@@ -131,6 +131,8 @@ graph TD
 
 # Matriz de Rastreabilidade
 
+A matriz de rastreabilidade é uma ferramenta usada para facilitar a visualização dos relacionamento entre requisitos e outros artefatos ou objetos, permitindo a rastreabilidade entre os requisitos e os objetivos de negócio.
+
 |                     | Cadastro e Login | Registro de Plano Alimentar | Pesquisar Planos de Usuário | Definir Metas e Restrições | Visualizar Histórico | Compartilhar em Redes Sociais | Receber Notificações |
 |---------------------|:----------------:|:---------------------------:|:---------------------------:|:------------------------:|:-------------------:|:---------------------------:|:-------------------:|
 | Cadastro e Login |-|-|-|-|-|-|-|
@@ -141,6 +143,7 @@ graph TD
 | Compartilhar em Redes Sociais |-|X|-|-|-|-|-|
 | Receber Notificações |-|X|-|X|-|-|-|
 
+A matriz ainda não rastreou todos os artefatos da aplicação pois existem documentações e codificações pendentes. Assuntos como casos de teste e diagramas ainda não estão previstos nessa versão da matriz, mas serão implementados ao serem criados.
 
 # Gerenciamento de Projeto
 
@@ -150,11 +153,46 @@ De acordo com o PMBoK v6 as dez áreas que constituem os pilares para gerenciar 
 
 Com diagramas bem organizados que permitem gerenciar o tempo nos projetos, o gerente de projetos agenda e coordena tarefas dentro de um projeto para estimar o tempo necessário de conclusão.
 
-![Diagrama de rede simplificado notação francesa (método francês)](img/02-diagrama-rede-simplificado.png)
-
 O gráfico de Gantt ou diagrama de Gantt também é uma ferramenta visual utilizada para controlar e gerenciar o cronograma de atividades de um projeto. Com ele, é possível listar tudo que precisa ser feito para colocar o projeto em prática, dividir em atividades e estimar o tempo necessário para executá-las.
 
-![Gráfico de Gantt](img/02-grafico-gantt.png)
+```mermaid
+gantt
+    title Gerenciamento de Tempo
+    todayMarker off
+    dateFormat  YYYY-MMM-DD
+    axisFormat %d/%b/%y
+
+    section 1ª Etapa
+    Encontro inicial :done, 2023-08-01, 1d
+    Definição do tema     :done, 7d
+    Contextualização    :done, 9d
+    Especificação do Projeto   :active, 10d
+
+    section 2ª Etapa
+    Metodologia      :a1, 2023-08-28  , 7d
+    Projeto de Interface    :after a1, 11d
+    Arquitetura da solução :after a1, 11d 
+    Início desenvolvimento : 10d
+    Funcionalidades novas  :milestone, 2023-09-25, 0d 
+
+    section 3ª Etapa
+    Programação de Funcionalidades : 2023-09-25  , 17d
+    Registro de Testes      :4d
+    Funcionalidades novas  :milestone, 2023-10-16, 0d 
+
+    section 4ª Etapa
+    Programação de Funcionalidades :2023-10-16  , 15d
+    Registro de Testes      :3d
+    Funcionalidades novas  :milestone, 0d 
+    Programação de Funcionalidades :15d
+    Registro de Testes      :2d
+    Funcionalidades novas  :milestone, 0d
+
+    section 5ª Etapa
+    Considerações finais  :2023-11-20  , 2d
+    Entrega da solução :6d
+    Apresentação :6d
+```
 
 ## Gerenciamento de Equipe
 
