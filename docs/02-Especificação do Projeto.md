@@ -233,7 +233,7 @@ gantt
 |--|--|--|--|--|--|
 | 1 | Recursos Humanos |  |  |  |  |
 |  | Gestor de Projetos |  |  |  |  |
-|  | Desenvolvedor React Sr. |  |  |  |  |
+|  | Desenvolvedor React Sr. | 4 | R$ 25.000 |R$ 20.000 | R$ 100.000 |
 |  | Designer UX/UI |  |  |  |  |
 | 2 | Hardware |  |  |  |  |
 |  | Notebook |  |  |  |  |
