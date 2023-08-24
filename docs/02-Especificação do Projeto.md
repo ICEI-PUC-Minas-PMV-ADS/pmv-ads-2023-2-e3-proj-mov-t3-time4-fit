@@ -231,15 +231,15 @@ gantt
 
 | ID | Recurso | Quantidade | Custo Unitário | Custo Mensal | Custo Semestral |
 |--|--|--|--|--|--|
-| 1 | Recursos Humanos |  |  |  |  |
-|  | Gestor de Projetos |  |  |  |  |
-|  | Desenvolvedor React Sr. | 4 | R$ 25.000 |R$ 20.000 | R$ 100.000 |
-|  | Designer UX/UI |  |  |  |  |
-| 2 | Hardware |  |  |  |  |
-|  | Notebook |  |  |  |  |
-| 3 | Software |  |  |  |  |
-|  | Licenças |  |  |  |  |
-|  | Ferramentas |  |  |  |  |
-| 4 | Serviços|  |  |  |  |
-|  | Azure |  |  |  |  |
-|  |  |  | **Total** | R$ | R$ |
+| 1 | Recursos Humanos | 1 | R$ 4.093,74 |  R$ 4.093,74 |R$ 40.937,40|
+|  | Gestor de Projetos | 2 | R$ 6.843,00 | R$ 13.686,00 | R$ 68.430,00 |
+|  | Desenvolvedor React Sr. | 4 | R$ 9.000,00  |R$ 36.000,00| R$ 180.000,00 |
+|  | Designer UX/UI | 1 | R$ 5.000,00 |  R$ 10.000,00 | R$ 50.000,00 |
+| 2 | Hardware | - | R$ 10.602,80|  R$ 63.616,80 | R$ 381.700,80 |
+|  | Notebook | 8 |  R$ 4.500 | 0 | R$ 36.000|
+| 3 | Software | - | R$ 4.500 |R$ 21.876,5 | R$ 80.875,00 |
+|  | Licenças | - | R$ 2.440 | R$ 24.000 | R$ 120.800 |
+|  | Ferramentas | - | R$ 3.085,00| R$ 13.085| R$ 65.425 |
+| 4 | Serviços| - | 0 | R$ 13.175 | R$ 65.875  |
+|  | Azure | 2 | R$ 706,54| R$ 706,54| R$ 3.532,70 |
+|  |  |  | **Total** | R$ 200.539,58|  R$ 1.088.771,90 |
