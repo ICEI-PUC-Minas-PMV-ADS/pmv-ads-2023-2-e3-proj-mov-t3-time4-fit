@@ -1,4 +1,4 @@
-# EatSmart
+# Eat Smart
 
 `Analise e Desenvolvimento de Sistemas`
 
@@ -6,7 +6,7 @@
 
 `2023.2`
 
-O **EatSmart** é um aplicativo mobile que simplifica o planejamento de refeições e o controle calórico. Usuários podem criar planos personalizados, cadastrando seu plano alimentar, incluindo metas de calorias e lembretes que facilitam a gestão da dieta, tornando a busca por um estilo de vida saudável mais acessível e eficaz.
+O **Eat Smart** é um aplicativo mobile que simplifica o planejamento de refeições e o controle calórico. Usuários podem criar planos personalizados, cadastrando seu plano alimentar, incluindo metas de calorias e lembretes que facilitam a gestão da dieta, tornando a busca por um estilo de vida saudável mais acessível e eficaz.
 
 ## Integrantes
 | [<img src="https://github.com/gabriellourenco12.png" width=115><br><sub>Gabriel Augusto Alves Lourenço</sub>](https://github.com/gabriellourenco12) | [<img src="https://github.com/lucasmarcelods.png" width=115><br><sub>Lucas Marcelo Dias Souza</sub>](https://github.com/lucasmarcelods) | [<img src="https://github.com/Nayra-Reis.png" width=115><br><sub>Nayra Alessandra Simao Reis</sub>](https://github.com/Nayra-Reis) | [<img src="https://github.com/robertagdf.png" width=115><br><sub>Roberta Gomes de Freitas</sub>](https://github.com/robertagdf) |
