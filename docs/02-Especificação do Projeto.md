@@ -229,19 +229,19 @@ gantt
 
 ## Gestão de Orçamento
 
-| ID | Recurso | Quantidade | Custo Unitário | Custo Mensal | Custo Semestral |
-|--|--|--|--|--|--|
-| 1 | Recursos Humanos | 1 | R$ 4.093,74 |  R$ 4.093,74 |R$ 40.937,40|
-|  | Gestor de Projetos | 1 | R$ 6.843,00 | R$ 6.837,00 | R$ 34.185 |
-|  | Desenvolvedor React Sr. | 2 | R$ 9.000,00  |R$ 27.000| R$ 135.000,00 |
-|  | Designer UX/UI | 1 | R$ 5.000,00 |  R$ 10.000,00 | R$ 50.000,00 |
-|  | Educador Empresarial | 1 | R$ 2.460,00 | R$ 2.460,00 | R$ 12.300 |
-| 2 | Hardware | - | -|  - | - |
-|  | Notebook | 4 |  R$ 4.500 | R$ 0 | R$ 22.500,00|
-|  | Headset | 4 | R$ 278,09| R$ 0 | R$ 1.112,36|
-| 3 | Software | - | - |- | - |
-|  | Licenças | - | R$ 2.440 | R$ 21.560 | 107.800|
-|  | Ferramentas | - | R$ 3.085,00| R$ 13.085| R$ 65.425 |
-| 4 | Serviços| - | 0 | R$ 13.175 | R$ 65.875  |
-|  | Azure | 1 | R$ 706,54| R$ 706,54| R$ 3.532,70 |
-|  |  |  | **Total** | R$ 88.917,28|  R$ 538.667,46 |
+| ID | Recurso               | Quantidade | Custo Unitário | Custo Mensal | Custo Semestral |
+|----|-----------------------|------------|----------------|--------------|-----------------|
+| 1  | Recursos Humanos      |            |                |              |                 |   
+|    | Gestor de Projetos    | 1          | R$ 15.000,00   | R$ 15.000,00 | R$ 90.000,00    |   
+|    | Desenvolvedor / QA    | 2          | R$ 10.000,00   | R$ 20.000,00 | R$ 120.000,00   |   
+|    | Designer UX/UI        | 1          | R$ 6.000,00    | R$ 6.000,00  | R$ 36.000,00    |   
+|    | Cursos e Treinamentos | 4          | R$ 500,00      | R$ 2.000,00  | R$ 12.000,00    |   
+| 2  | Hardware              |            |                |              |                 |  
+|    | Notebook              | 4          | R$ 5.000,00    | -            | R$ 20.000,00    |   
+|    | Periféricos           | 4          | R$ 500,00      | -            | R$ 2.000,00     |   
+| 3  | Software              |            |                |              |                 |   
+|    | Licenças              | 4          | R$ 400,00      | R$ 1.600,00  | R$ 9.600,00     |   
+| 4  | Serviços              |            |                |              |                 |   
+|    | Azure                 | 1          | R$ 2.500,00    | R$ 2.500,00  | R$ 15.000,00    |
+|    |                       |            | Total          | R$ 47.100,00 | R$ 304.600,00   |
+
