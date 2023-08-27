@@ -5,7 +5,7 @@ No cenário contemporâneo, a saúde assume um papel mais crucial do que nunca, 
 
 É uma realidade preocupante que em um mundo repleto de informações sobre hábitos saudáveis, uma parte significativa da população permaneça indiferente aos impactos de um estilo de vida negligente. A falta de atividade física regular, dietas desequilibradas e a ausência de atenção às necessidades de hidratação podem resultar em consequências graves para a saúde. Doenças crônicas como diabetes, doenças cardiovasculares e obesidade estão cada vez mais associadas a escolhas insalubres de estilo de vida, lembrando-nos de que nossas decisões diárias podem moldar nosso destino a longo prazo.
 
-Enfrentar essa realidade requer não apenas conscientização, mas também ações concretas. A jornada rumo a um futuro mais saudável começa com a valorização da saúde como um ativo precioso. Cada passo em direção a uma dieta balanceada, hidratação adequada e prática de atividade física contribui não apenas para uma qualidade de vida melhor, mas também para a prevenção de doenças potencialmente debilitantes. Neste contexto, a educação desempenha um papel vital, capacitando indivíduos a tomarem decisões informadas e positivas para si mesmos.
+Enfrentar essa realidade requer não apenas conscientização, mas também ações concretas. A jornada rumo a um futuro mais saudável começa com a valorização da saúde como um ativo precioso. Cada passo em direção a uma dieta balanceada, hidratação adequada e prática de atividade física contribui não apenas para uma qualidade de vida melhor, mas também para a prevenção de doenças potencialmente debilitantes. Neste contexto, a educação desempenha um papel vital, capacitando indivíduos a tomarem decisões informadas e positivas para si.
 
 ## Problema
 
@@ -15,7 +15,7 @@ Nesse contexto, o objetivo deste projeto é simplificar e tornar mais acessível
 
 ## Objetivos
 
-O desenvolvimento do aplicativo de saúde e bem-estar tem o potencial de abordar esse problema de maneira abrangente. Através de uma interface simples e envolvente, ele transformará o monitoramento de escolhas alimentares, ingestão de água e atividade física em tarefas mais gerenciáveis e empolgantes.
+O desenvolvimento do aplicativo de saúde e bem-estar tem o potencial de abordar esse problema de maneira abrangente. Por meio de uma interface simples e envolvente, ele transformará o monitoramento de escolhas alimentares, ingestão de água e atividade física em tarefas mais gerenciáveis e empolgantes.
 
 ## Justificativa
 
