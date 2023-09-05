@@ -50,7 +50,6 @@ Com nosso aplicativo, os usuários podem fazer escolhas alimentares mais informa
 
 ### Processo 1 – Login de Usuário
 
-Apresente aqui o nome e as oportunidades de melhorias para o processo 1. Em seguida, apresente o modelo do processo 1, descrito no padrão BPMN. 
 ![login](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-2-e3-proj-mov-t3-time4-fit/assets/70116762/642ed3d6-bd12-4585-9be4-7cfeb107a65c)
 
 ### Processo 2 – Planejamento de refeições
@@ -65,12 +64,14 @@ Apresente aqui o nome e as oportunidades de melhorias para o processo 1. Em segu
 
 ## Indicadores de Desempenho
 
-Apresente aqui os principais indicadores de desempenho e algumas metas para o processo. Atenção: as informações necessárias para gerar os indicadores devem estar contempladas no diagrama de classe. Colocar no mínimo 5 indicadores. 
+| # | Indicador                                | Objetivos                                 | Descrição                                                | Cálculo                                  | Fonte                                      | Meta                   |
+| --- | ---------------------------------------- | ----------------------------------------- | -------------------------------------------------------- | ---------------------------------------- | ------------------------------------------ | ---------------------- |
+| 1   | Número de Downloads                      | Aumentar o alcance do aplicativo          | Acompanha o número total de downloads do aplicativo.     | Contagem direta                          | Dados da loja de aplicativos                | Aumento mensal         |
+| 2   | Taxa de Retenção de Usuários             | Melhorar a retenção de usuários          | Mede a porcentagem de usuários que retornam ao app.      | [(Usuários Ativos no Mês Atual / Usuários Ativos no Mês Anterior) x 100] | Dados de análise de uso do aplicativo  | > 50%                   |
+| 3   | Taxa de Conversão de Cadastro            | Aumentar a conversão de cadastros         | Avalia quantos usuários registrados completam o perfil. | [(Usuários com Perfil Completo / Usuários Registrados) x 100] | Dados de análise de uso do aplicativo  | > 25%                   |
+| 4   | Tempo Médio de Uso por Sessão            | Melhorar o envolvimento dos usuários      | Mede quanto tempo, em média, um usuário passa no aplicativo por sessão. | [Tempo Total Gasto no App / Número de Sessões] | Dados de análise de uso do aplicativo  | Aumento mensal         |
+| 5   | Taxa de Cumprimento de Metas Diárias     | Aumentar o uso das funcionalidades de metas | Avalia quantos usuários definem e cumprem suas metas diárias. | [(Usuários Cumprindo Metas / Usuários Definindo Metas) x 100] | Dados do aplicativo                     | > 50%                   |
 
-Usar o seguinte modelo: 
-
-![Indicadores de Desempenho](img/02-indic-desemp.png)
-Obs.: todas as informações para gerar os indicadores devem estar no diagrama de classe a ser apresentado a posteriori. 
 
 ## Requisitos
 
