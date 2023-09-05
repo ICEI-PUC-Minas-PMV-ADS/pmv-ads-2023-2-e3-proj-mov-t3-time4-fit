@@ -41,11 +41,12 @@ Com base na análise das personas forma identificadas as seguintes histórias de
 
 ### Análise da Situação Atual
 
-Apresente aqui os problemas existentes que viabilizam sua proposta. Apresente o modelo do sistema como ele funciona hoje. Caso sua proposta seja inovadora e não existam processos claramente definidos, apresente como as tarefas que o seu sistema pretende implementar são executadas atualmente, mesmo que não se utilize tecnologia computacional. 
+Nos últimos anos, o Brasil tem observado um aumento significativo no número de pessoas preocupadas com a saúde e buscando manter uma alimentação saudável e equilibrada. Muitas vezes isso se torna um grande desafio para a maioria dessas pessoas, visto que, acompanhar o consumo calórico ao longo do dia é difícil, e geralmente, as pessoas não têm uma visão clara de suas metas e realizações. Além de que a falta de organização e o acompanhamento impreciso de calorias e nutrientes podem prejudicar muito o objetivo de um plano alimentar. Senso assim, sem ferramentas adequadas é muito difícil acompanhar o cumprimento das metas nutricionais, visto que, o acompanhamento tradicional é feito de maneira manual e tediosa.
 
 ### Descrição Geral da Proposta
 
-Apresente aqui uma descrição da sua proposta abordando seus limites e suas ligações com as estratégias e objetivos do negócio. Apresente aqui as oportunidades de melhorias.
+Resolvemos esses problemas fornecendo aos usuários uma maneira organizada e eficaz de planejar, rastrear e alcançar seus objetivos alimentares e de saúde. Oferecemos um banco de dados de alimentos com informações nutricionais precisas, funcionalidades para registro fácil de refeições, cálculos automáticos de calorias e nutrientes, definição de metas e acompanhamento visual do progresso.
+Com nosso aplicativo, os usuários podem fazer escolhas alimentares mais informadas e atingir seus objetivos de saúde de forma mais eficiente do que nas abordagens manuais tradicionais.
 
 ### Processo 1 – NOME DO PROCESSO
 
