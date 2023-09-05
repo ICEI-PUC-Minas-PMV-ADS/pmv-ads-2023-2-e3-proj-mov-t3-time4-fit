@@ -48,17 +48,20 @@ Nos últimos anos, o Brasil tem observado um aumento significativo no número de
 Resolvemos esses problemas fornecendo aos usuários uma maneira organizada e eficaz de planejar, rastrear e alcançar seus objetivos alimentares e de saúde. Oferecemos um banco de dados de alimentos com informações nutricionais precisas, funcionalidades para registro fácil de refeições, cálculos automáticos de calorias e nutrientes, definição de metas e acompanhamento visual do progresso.
 Com nosso aplicativo, os usuários podem fazer escolhas alimentares mais informadas e atingir seus objetivos de saúde de forma mais eficiente do que nas abordagens manuais tradicionais.
 
-### Processo 1 – NOME DO PROCESSO
+### Processo 1 – Login de Usuário
 
 Apresente aqui o nome e as oportunidades de melhorias para o processo 1. Em seguida, apresente o modelo do processo 1, descrito no padrão BPMN. 
+![login](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-2-e3-proj-mov-t3-time4-fit/assets/70116762/642ed3d6-bd12-4585-9be4-7cfeb107a65c)
 
-![Processo 1](img/02-bpmn-proc1.png)
+### Processo 2 – Planejamento de refeições
+![refeicao](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-2-e3-proj-mov-t3-time4-fit/assets/70116762/0829567d-7ef3-4311-a343-520c5cca8769)
 
-### Processo 2 – NOME DO PROCESSO
+### Processo 3 – Acompanhamento de metas
+![metas](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-2-e3-proj-mov-t3-time4-fit/assets/70116762/3bcf2a63-4a6e-4eeb-a86d-9887aa03fa07)
 
-Apresente aqui o nome e as oportunidades de melhorias para o processo 2. Em seguida, apresente o modelo do processo 2, descrito no padrão BPMN.
+### Processo 4 – Seguir usuários
+![seguir](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-2-e3-proj-mov-t3-time4-fit/assets/70116762/a49fb732-3d19-4715-ac48-dca4fabb7f3e)
 
-![Processo 2](img/02-bpmn-proc2.png)
 
 ## Indicadores de Desempenho
 
