@@ -100,9 +100,57 @@ classDiagram
 
 O Modelo ER representa através de um diagrama como as entidades (coisas, objetos) se relacionam entre si na aplicação interativa.]
 
-As referências abaixo irão auxiliá-lo na geração do artefato “Modelo ER”.
+```mermaid
 
-> - [Como fazer um diagrama entidade relacionamento | Lucidchart](https://www.lucidchart.com/pages/pt/como-fazer-um-diagrama-entidade-relacionamento)
+erDiagram
+  USER {
+      int id
+      string username
+      string email
+      string password
+  }
+  DIARY {
+      int id
+      int user_id
+      date date
+  }
+  MEAL {
+      int id
+      int diary_id
+      string time_of_day
+  }
+  FOOD {
+      int id
+      string name
+  }
+  FOOD_NUTRIENTS {
+      int id
+      int food_id
+      string nutrient_name
+      float value
+  }
+  DAILY_GOAL {
+      int id
+      int user_id
+      date date
+      float calories_goal
+  }
+  REMINDER {
+      int id
+      int user_id
+      string content
+      datetime reminder_date
+  }
+
+USER ||--o{ DIARY : owns
+DIARY ||--o{ MEAL : contains
+MEAL ||--o{ FOOD : contains
+FOOD_NUTRIENTS ||--o{ FOOD : sets
+USER ||--o{ DAILY_GOAL : sets
+USER ||--o{ REMINDER : sets
+
+```
+
 
 ## Esquema Relacional
 
