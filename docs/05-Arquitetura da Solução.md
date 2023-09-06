@@ -14,82 +14,64 @@ O diagrama de classes ilustra graficamente como será a estrutura do software, e
 classDiagram
   class User {
     - id: int
+    - name: string
     - username: string
+    - phone: string
     - email: string
-    - password: string (hashed)
-    - created_at: datetime
-    - updated_at: datetime
+    - password: string
+    - private: boolean
     + createAccount()
     + login()
     + updateProfile()
-    + setPassword()
   }
 
   class Diary {
     - id: int
-    - user_id: int (foreign key)
     - date: date
-    - created_at: datetime
-    - updated_at: datetime
+    - calories_consumed: float
     + addMeal()
+    + calculateCalories()
   }
 
   class Meal {
     - id: int
-    - diary_id: int (foreign key)
+    - name: string
     - time_of_day: string
-    - created_at: datetime
-    - updated_at: datetime
     + addFood()
   }
 
   class Food {
     - id: int
     - name: string
-    - created_at: datetime
+    - quantity: float
+    - total_calories: float
+    + calculateCalories()
   }
 
   class FoodNutrients {
     - id: int
-    - food_id: int (foreign key)
-    - nutrient_name: string
-    - value: float
+    - calories: float
+    - calories_unit: int
+    - calories_unit_name: string
   }
 
   class DailyGoal {
     - id: int
-    - user_id: int (foreign key)
     - date: date
     - calories_goal: float
-    - created_at: datetime
-    - updated_at: datetime
     + setCaloriesGoal()
-  }
-
-  class DiaryHistory {
-    - id: int
-    - user_id: int (foreign key)
-    - food_name: string
-    - calories: float
-    - date: date
-    - created_at: datetime
-    + addFoodToHistory()
-    + removeFoodFromHistory()
   }
 
   class Reminder {
     - id: int
-    - user_id: int (foreign key)
     - content: string
     - reminder_date: datetime
-    - created_at: datetime
-    - updated_at: datetime
+    + setReminder()
   }
 
   User "1" *-- "1" DailyGoal
   User "1" *-- "1..*" Reminder
   User "1" *-- "1..*" Diary
-  Diary "1" *-- "1..*" DiaryHistory
   Diary "1" *-- "1..*" Meal
   Meal "1" *-- "1..*" Food
   Food "1" --* "1..*" FoodNutrients
