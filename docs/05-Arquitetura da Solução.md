@@ -84,42 +84,46 @@ O Modelo ER representa através de um diagrama como as entidades (coisas, objeto
 
 ```mermaid
 
+
 erDiagram
   USER {
       int id
+      string name
       string username
+      string phone
       string email
       string password
+      boolean private
   }
   DIARY {
       int id
-      int user_id
       date date
+      float calories_consumed
   }
   MEAL {
       int id
-      int diary_id
+      string name
       string time_of_day
   }
   FOOD {
       int id
       string name
+      float quantity
+      float total_calories
   }
   FOOD_NUTRIENTS {
       int id
-      int food_id
-      string nutrient_name
-      float value
+      float calories
+      int calories_unit
+      string calories_unit_name
   }
   DAILY_GOAL {
       int id
-      int user_id
       date date
       float calories_goal
   }
   REMINDER {
       int id
-      int user_id
       string content
       datetime reminder_date
   }
