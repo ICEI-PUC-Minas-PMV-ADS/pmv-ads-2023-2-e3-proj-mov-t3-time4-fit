@@ -40,16 +40,16 @@ classDiagram
     + addFood()
   }
 
-  class Food {
+  class FoodMeal {
     - id: int
-    - name: string
     - quantity: float
     - total_calories: float
     + calculateCalories()
   }
 
-  class FoodNutrients {
+  class Food {
     - id: int
+    - name: string
     - calories: float
     - calories_unit: int
     - calories_unit_name: string
@@ -73,8 +73,8 @@ classDiagram
   User "1" *-- "1..*" Reminder
   User "1" *-- "1..*" Diary
   Diary "1" *-- "1..*" Meal
-  Meal "1" *-- "1..*" Food
-  Food "1" --* "1..*" FoodNutrients
+  Meal "1" *-- "1..*" FoodMeal
+  FoodMeal "1" --* "1..*" Food
 
 ```
 
@@ -105,14 +105,14 @@ erDiagram
       string name
       string time_of_day
   }
-  FOOD {
+  FOOD_MEAL {
       int id
-      string name
       float quantity
       float total_calories
   }
-  FOOD_NUTRIENTS {
+  FOOD {
       int id
+      string name
       float calories
       int calories_unit
       string calories_unit_name
@@ -130,8 +130,8 @@ erDiagram
 
 USER ||--o{ DIARY : owns
 DIARY ||--o{ MEAL : contains
-MEAL ||--o{ FOOD : contains
-FOOD_NUTRIENTS ||--o{ FOOD : sets
+MEAL ||--o{ FOOD_MEAL : contains
+FOOD ||--o{ FOOD_MEAL : sets
 USER ||--o{ DAILY_GOAL : sets
 USER ||--o{ REMINDER : sets
 
@@ -142,9 +142,66 @@ USER ||--o{ REMINDER : sets
 
 O Esquema Relacional corresponde à representação dos dados em tabelas juntamente com as restrições de integridade e chave primária.
  
-As referências abaixo irão auxiliá-lo na geração do artefato “Esquema Relacional”.
+```mermaid
 
-> - [Criando um modelo relacional - Documentação da IBM](https://www.ibm.com/docs/pt-br/cognos-analytics/10.2.2?topic=designer-creating-relational-model)
+
+erDiagram
+  USER {
+      int id
+      string name
+      string username
+      string phone
+      string email
+      string password
+      boolean private
+  }
+  DIARY {
+      int id PK
+      int id_user FK
+      date date
+      float calories_consumed
+  }
+  MEAL {
+      int id PK
+      int id_diary FK
+      string name
+      string time_of_day
+  }
+  FOOD_MEAL {
+      int id_meal PK, FK
+      int id_food PK, FK
+      float quantity
+      float total_calories
+  }
+  FOOD {
+      int id PK
+      string name
+      float calories
+      int calories_unit
+      string calories_unit_name
+  }
+  DAILY_GOAL {
+      int id PK
+      int id_user FK
+      date date
+      float calories_goal
+  }
+  REMINDER {
+      int id PK
+      int id_user FK
+      string content
+      datetime reminder_date
+  }
+
+USER ||--o{ DIARY : owns
+DIARY ||--o{ MEAL : contains
+MEAL ||--o{ FOOD_MEAL : contains
+FOOD ||--o{ FOOD_MEAL : sets
+USER ||--o{ DAILY_GOAL : sets
+USER ||--o{ REMINDER : sets
+
+
+```
 
 ## Modelo Físico
 
