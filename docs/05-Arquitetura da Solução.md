@@ -10,10 +10,91 @@ Definição de como o software é estruturado em termos dos componentes que faze
 
 O diagrama de classes ilustra graficamente como será a estrutura do software, e como cada uma das classes da sua estrutura estarão interligadas. Essas classes servem de modelo para materializar os objetos que executarão na memória.
 
-As referências abaixo irão auxiliá-lo na geração do artefato “Diagrama de Classes”.
+```mermaid
+classDiagram
+  class User {
+    - id: int
+    - username: string
+    - email: string
+    - password: string (hashed)
+    - created_at: datetime
+    - updated_at: datetime
+    + createAccount()
+    + login()
+    + updateProfile()
+    + setPassword()
+  }
 
-> - [Diagramas de Classes - Documentação da IBM](https://www.ibm.com/docs/pt-br/rational-soft-arch/9.6.1?topic=diagrams-class)
-> - [O que é um diagrama de classe UML? | Lucidchart](https://www.lucidchart.com/pages/pt/o-que-e-diagrama-de-classe-uml)
+  class Diary {
+    - id: int
+    - user_id: int (foreign key)
+    - date: date
+    - created_at: datetime
+    - updated_at: datetime
+    + addMeal()
+  }
+
+  class Meal {
+    - id: int
+    - diary_id: int (foreign key)
+    - time_of_day: string
+    - created_at: datetime
+    - updated_at: datetime
+    + addFood()
+  }
+
+  class Food {
+    - id: int
+    - name: string
+    - created_at: datetime
+  }
+
+  class FoodNutrients {
+    - id: int
+    - food_id: int (foreign key)
+    - nutrient_name: string
+    - value: float
+  }
+
+  class DailyGoal {
+    - id: int
+    - user_id: int (foreign key)
+    - date: date
+    - calories_goal: float
+    - created_at: datetime
+    - updated_at: datetime
+    + setCaloriesGoal()
+  }
+
+  class DiaryHistory {
+    - id: int
+    - user_id: int (foreign key)
+    - food_name: string
+    - calories: float
+    - date: date
+    - created_at: datetime
+    + addFoodToHistory()
+    + removeFoodFromHistory()
+  }
+
+  class Reminder {
+    - id: int
+    - user_id: int (foreign key)
+    - content: string
+    - reminder_date: datetime
+    - created_at: datetime
+    - updated_at: datetime
+  }
+
+  User "1" *-- "1" DailyGoal
+  User "1" *-- "1..*" Reminder
+  User "1" *-- "1..*" Diary
+  Diary "1" *-- "1..*" DiaryHistory
+  Diary "1" *-- "1..*" Meal
+  Meal "1" *-- "1..*" Food
+  Food "1" --* "1..*" FoodNutrients
+
+```
 
 ## Modelo ER
 
