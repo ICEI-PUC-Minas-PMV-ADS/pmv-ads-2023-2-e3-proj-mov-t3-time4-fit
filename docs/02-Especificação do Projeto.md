@@ -43,6 +43,11 @@ Com base na análise das personas forma identificadas as seguintes histórias de
 
 Nos últimos anos, o Brasil tem observado um aumento significativo no número de pessoas preocupadas com a saúde e buscando manter uma alimentação saudável e equilibrada. Muitas vezes isso se torna um grande desafio para a maioria dessas pessoas, visto que, acompanhar o consumo calórico ao longo do dia é difícil, e geralmente, as pessoas não têm uma visão clara de suas metas e realizações. Além de que a falta de organização e o acompanhamento impreciso de calorias e nutrientes podem prejudicar muito o objetivo de um plano alimentar. Senso assim, sem ferramentas adequadas é muito difícil acompanhar o cumprimento das metas nutricionais, visto que, o acompanhamento tradicional é feito de maneira manual e tediosa.
 
+### Processo Atual
+
+![atual](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-2-e3-proj-mov-t3-time4-fit/assets/70116762/8ae426ac-8551-410c-b488-3925a780db5a)
+
+
 ### Descrição Geral da Proposta
 
 Resolvemos esses problemas fornecendo aos usuários uma maneira organizada e eficaz de planejar, rastrear e alcançar seus objetivos alimentares e de saúde. Oferecemos um banco de dados de alimentos com informações nutricionais precisas, funcionalidades para registro fácil de refeições, cálculos automáticos de calorias e nutrientes, definição de metas e acompanhamento visual do progresso.
