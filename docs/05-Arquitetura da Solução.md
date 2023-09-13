@@ -209,9 +209,28 @@ Entregar um arquivo banco.sql contendo os scripts de criação das tabelas do ba
 
 ## Tecnologias Utilizadas
 
-Descreva aqui qual(is) tecnologias você vai usar para resolver o seu problema, ou seja, implementar a sua solução. Liste todas as tecnologias envolvidas, linguagens a serem utilizadas, serviços web, frameworks, bibliotecas, IDEs de desenvolvimento, e ferramentas.
 
-Apresente também uma figura explicando como as tecnologias estão relacionadas ou como uma interação do usuário com o sistema vai ser conduzida, por onde ela passa até retornar uma resposta ao usuário.
+1.  **Linguagem de Programação**:
+    -   React Native: Para o desenvolvimento de aplicativos móveis multiplataforma.
+
+2.  **Banco de Dados**:
+    -   Firebase Realtime Database ou Firestore: Para armazenar dados de usuários, planos alimentares, alimentos, metas, registros de alimentos, etc.
+   
+3.  **Autenticação**:
+    -   Firebase Authentication: Para gerenciar a autenticação de usuários com segurança.
+    
+4.  **IDE de Desenvolvimento**:
+    -   Visual Studio Code: Uma IDE popular para o desenvolvimento React Native.
+    
+5.  **Framework**:
+    -   React Native: Para o desenvolvimento de interfaces de usuário móveis.
+    
+6.  **Bibliotecas**:
+    -   Redux: Para gerenciamento de estado no aplicativo.
+    -   React Navigation: Para a navegação entre telas no aplicativo.
+  
+7.  **Ferramentas de Design**:
+    -   Figma, para criar protótipos e layouts de interface de usuário.
 
 ## Hospedagem
 
