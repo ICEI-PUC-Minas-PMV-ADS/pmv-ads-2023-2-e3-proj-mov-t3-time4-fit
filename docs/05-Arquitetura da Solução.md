@@ -214,7 +214,7 @@ Entregar um arquivo banco.sql contendo os scripts de criação das tabelas do ba
     -   React Native: Para o desenvolvimento de aplicativos móveis multiplataforma.
 
 2.  **Banco de Dados**:
-    -   Firebase Realtime Database ou Firestore: Para armazenar dados de usuários, planos alimentares, alimentos, metas, registros de alimentos, etc.
+    -   Firebase: Para armazenar dados de usuários, planos alimentares, alimentos, metas, registros de alimentos, etc.
    
 3.  **Autenticação**:
     -   Firebase Authentication: Para gerenciar a autenticação de usuários com segurança.
@@ -230,7 +230,7 @@ Entregar um arquivo banco.sql contendo os scripts de criação das tabelas do ba
     -   React Navigation: Para a navegação entre telas no aplicativo.
   
 7.  **Ferramentas de Design**:
-    -   Figma, para criar protótipos e layouts de interface de usuário.
+    -   Figma: Para criar protótipos e layouts de interface de usuário.
 
 ## Hospedagem
 
