@@ -231,6 +231,21 @@ Entregar um arquivo banco.sql contendo os scripts de criação das tabelas do ba
   
 7.  **Ferramentas de Design**:
     -   Figma: Para criar protótipos e layouts de interface de usuário.
+  
+```mermaid
+sequenceDiagram
+    actor User as Usuário
+    participant App as Aplicativo
+    participant Server as Servidor Backend
+    participant Database as Banco de Dados
+
+    User ->> App: Interage com a interface
+    App ->> Server: Envia solicitações
+    Server ->> Database: Acessa dados
+    Database -->> Server: Recupera informações
+    Server -->> App: Processa solicitações
+    App -->> User: Apresenta resultados
+```
 
 ## Hospedagem
 
