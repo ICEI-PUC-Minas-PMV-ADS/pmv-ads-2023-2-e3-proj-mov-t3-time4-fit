@@ -8,8 +8,7 @@ Visão geral da interação do usuário pelas telas do sistema e protótipo inte
 O Diagrama de fluxo traz um modelo de como o usuário pode fluir através do sistema pelas telas de acordo com o planejamento da aplicação interativa, seguindo os requisitos funcionais, não funcionais, restrições e histórias das personas.
 
 
-
-![image](https://github.com/robertagdf/pmv-ads-2023-2-e3-proj-mov-t3-time4-fit/assets/93801572/0fae8cd6-4bac-4642-b9e6-accb4606436d)
+![image](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-2-e3-proj-mov-t3-time4-fit/assets/93801572/3a982612-9fba-471c-9b4a-00520a23c951)
 
 
 
@@ -21,38 +20,44 @@ O Diagrama de fluxo traz um modelo de como o usuário pode fluir através do sis
 A tela de login deve conter os campos e-mail e password para acessar o contéudo, um botão de cadastro caso o usuário não for cadastrado edois botões de logar com Gmail ou Facebook.
 A Tela de cadastro deve conter os campos para as informações necessárias para a realização do cadastro e a opção de selecionar qual o seu objetivo com o app.
 
-![image](https://github.com/robertagdf/pmv-ads-2023-2-e3-proj-mov-t3-time4-fit/assets/93801572/bec33ed4-acc6-4cff-ac53-ffa6123e4222)
+![image](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-2-e3-proj-mov-t3-time4-fit/assets/93801572/ed57ca2a-f5ba-4e84-908e-f899c9959caf)
+
 
 
 ## Tela - Home-Page 
 
 A tela de Home-Page mostra a tela inicial do App, trazendo o calendario que indica o dia atual, perfil, e a opções de refeições como Café da manhã, Lanche da manhã dentr outros.
 
-![image](https://github.com/robertagdf/pmv-ads-2023-2-e3-proj-mov-t3-time4-fit/assets/93801572/28ad95b6-4685-4b46-b5c2-b9802afbaa17)
+![image](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-2-e3-proj-mov-t3-time4-fit/assets/93801572/2c43d8ed-3b04-4d05-8249-091f36d5e7a8)
 
-## Tela - Cadastro de Alimento 
+
+## Tela - Cadastro de Refeição
 
 A tela de cadastro de alimentos permite que você crie sua lista de alimentos do dia a dia através do botão de "+". Permitindo que o usuario crie o nome da sua refeição,
 Incluindo Porção do alimento, Tabela Nutricional Quantidade e Unidades consumidas.
 
-![image](https://github.com/robertagdf/pmv-ads-2023-2-e3-proj-mov-t3-time4-fit/assets/93801572/13ba88f9-c65b-4585-8de0-e0f489fe27ea)
+![image](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-2-e3-proj-mov-t3-time4-fit/assets/93801572/a6e7523e-5d8d-470e-92b3-998f674c6bb8)
 
-## Tela - Remover e Editar Alimento
+
+## Tela - Remover e Editar Refeição
 
 A tela de remover e editar é apresentada na tela de 'Lista de Alimentos' atráves do menu, fornecendo a opção de trocas de alimentos.
-![image](https://github.com/robertagdf/pmv-ads-2023-2-e3-proj-mov-t3-time4-fit/assets/93801572/66743289-315d-4a3b-9f6e-428ef1460e4e)
 
-## Tela - Editar Alimento 
+![image](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-2-e3-proj-mov-t3-time4-fit/assets/93801572/72dcc081-2d20-482a-8a22-307aa7455594)
+
+
+## Tela - Editar Refeição
 
 A tela de Editar permite que o usuario edite suas refeições criadas anterimente na tela de cadastro de alimentos, adaptando uma nova rotina de alimentação.
 
-![image](https://github.com/robertagdf/pmv-ads-2023-2-e3-proj-mov-t3-time4-fit/assets/93801572/086879fe-0427-4dbc-b6ea-c68a80801227)
+![image](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-2-e3-proj-mov-t3-time4-fit/assets/93801572/43ec9b0f-191b-4b82-bf9e-3d671eef09f3)
 
 
 
-## Tela - Remover Alimento 
+## Tela - Remover Refeição
 
 A tela de permite que o usuario remova suas refeições de acordo com suas preferencias do dia a dia.
 
-![image](https://github.com/robertagdf/pmv-ads-2023-2-e3-proj-mov-t3-time4-fit/assets/93801572/875631f0-a40f-4bbc-aea0-b2846283fc57)
+![image](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-2-e3-proj-mov-t3-time4-fit/assets/93801572/07608d39-97c7-4422-ad4d-cd997fb73aca)
+
 
