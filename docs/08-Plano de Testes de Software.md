@@ -5,6 +5,77 @@
 Apresente os cenários de testes utilizados na realização dos testes da sua aplicação. Escolha cenários de testes que demonstrem os requisitos sendo satisfeitos.
 
 Enumere quais cenários de testes foram selecionados para teste. Neste tópico o grupo deve detalhar quais funcionalidades avaliadas, o grupo de usuários que foi escolhido para participar do teste e as ferramentas utilizadas.
+
+
+ 
+| **Caso de Teste** 	| **CT-01 – Cadastro e login usando credenciais. ** 	|
+|:---:	|:---:	|
+|	Requisito Associado 	| RF-01 - Os usuários devem poder fazer cadastro e login usando suas credenciais. |
+| Objetivo do Teste 	| Verificar se o usuário consegue se cadastrar e logar na aplicação. |
+| Passos 	| - Acessar o serviço <br> - Clicar em "Criar Perfil" <br> - Preencher os campos obrigatórios (e-mail, nome, sobrenome, celular, senha, confirmação de senha) <br> - Aceitar os termos de uso <br> - Clicar em "Registrar" <br> - Fechar a aplicação e realizar a iniciação dela novamente. <br> - Logar com seu usuário e senha cadastrados e verificar se o usuário foi logado.|
+|Critério de Êxito | - O cadastro foi realizado com sucesso e salvo no sistema |
+|  	|  	|
+
+| **Caso de Teste** 	| **CT-02 – Criação e salvamento de planos alimentares, incluindo refeições, alimentos consumidos e quantidades.**	|
+|:---:	|:---:	|
+|Requisito Associado | RF-02	-Os usuários devem ser capazes de criar e salvar seus planos alimentares, incluindo refeições, alimentos consumidos e quantidades. |
+| Objetivo do Teste 	| Verificar se o usuário serão capazes de criar e salvar seus planos alimentares, incluindo refeições, alimentos consumidos e quantidades. |
+| Passos 	| - Acessar a aplicação <br> - Logar com seu usuário e senha cadastrados <br> - Na página "home" do app, clicar em cadastrar refeição  <br> - Cadastrar as informações básicas sobre a refeição, informações sobre porção e tabela nutrucional, e logo após, clicar em adicionar a lista. <br> - Após adicionar, o aplicativo redireciona para a página home, já com as informações sobre refeições atualizados. <br> - Clicar nos três pontinhos ao lado da refeição cadastrada e selecionar a opção editar. <be> - Editar alguma informação sobre o alimento anterior e clicar em salvar. <br> - Na página Home, clicar na refeição editada e conferir se as alterações foram salvas. <br> - Clicar nos três pontinhos ao lado da refeição cadastrada, e selecionar a opção excluir. <br> - Verificar se a refeição foi excluído corretamente da lista de refeições. |
+|Critério de Êxito | - Os cadastros e alterações das refeições e alimentos foram realizados com sucesso. |
+|  	|  	|
+
+| **Caso de Teste** 	| **CT-03 – Verificação do cálculo das calorias consumidas no dia pelo usuário.**	|
+|:---:	|:---:	|
+|Requisito Associado | RF-03	O aplicativo deve calcular e exibir a contagem total de calorias para o dia com base nos alimentos registrados. |
+| Objetivo do Teste 	| Verificar se o aplicativo irá realizar o cálculo das calorias consumidas no dia pelo usuário. |
+| Passos 	| - Acessar a aplicação <br> - Logar com seu usuário e senha cadastrados <br> - Na página "home" do app, será apresentado um painel contendo as informações sobre calorias consumidas pelo usuário durante o dia. <br> - "Rolar" pelas refeições consumidas no dia e realizar o cálculo manual das calorias consumidas e verificar se o valor mostrado no painel está correto. |
+|Critério de Êxito | - Apresentação das calorias consumidas no dia de acordo com as refeições listadas. |
+|  	|  	|
+
+
+| **Caso de Teste** 	| **CT-04 – Pesquisa e visualização os planos alimentares de outros usuários.**	|
+|:---:	|:---:	|
+|Requisito Associado | RF-04	Os usuários devem poder pesquisar e visualizar os planos alimentares de outros usuários. |
+| Objetivo do Teste 	| Acessar os planos alimentares dos outros usuários do aplicativo. |
+| Passos 	| - Acessar a aplicação <br> - Logar com seu usuário e senha cadastrados <br> - Na página "home" do app, clicar no campo de busca. <br> - Escrever o nome ou email do usuário a qual gostaria de saber. <br> - Clicar no perfil que aparecer na busca. <br> - Se o perfil deste usuário for público (ele permitir que os outros usuários vejam seus planos alimentares e informaçõess) aparecerá a lista de refeições e o plano alimentar desde usuário na tela. | 
+|Critério de Êxito | - Apresentação das calorias consumidas, planos alimentares e refeições do usuário pesquisado. |
+|  	|  	|
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
  
 ## Ferramentas de Testes (Opcional)
 
