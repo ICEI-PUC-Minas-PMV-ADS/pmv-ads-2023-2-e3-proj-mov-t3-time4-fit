@@ -38,24 +38,33 @@ Enumere quais cenários de testes foram selecionados para teste. Neste tópico o
 |Requisito Associado | RF-04	Os usuários devem poder pesquisar e visualizar os planos alimentares de outros usuários. |
 | Objetivo do Teste 	| Acessar os planos alimentares dos outros usuários do aplicativo. |
 | Passos 	| - Acessar a aplicação <br> - Logar com seu usuário e senha cadastrados <br> - Na página "home" do app, clicar no campo de busca. <br> - Escrever o nome ou email do usuário a qual gostaria de saber. <br> - Clicar no perfil que aparecer na busca. <br> - Se o perfil deste usuário for público (ele permitir que os outros usuários vejam seus planos alimentares e informaçõess) aparecerá a lista de refeições e o plano alimentar deste usuário na tela. | 
-|Critério de Êxito | - Apresentação das calorias consumidas, planos alimentares e refeições do usuário pesquisado. |
+|Critério de Êxito | - Apresentação das calorias consumidas, planos alimentares e refeições do usuário pesquisado com sucesso. |
 |  	|  	|
 
 | **Caso de Teste** 	| **CT-05 – Pesquisa e visualização de alimentos e suas calorias**	|
 |:---:	|:---:	|
 |Requisito Associado | RF-05	Os usuários devem poder pesquisar alimentos e suas calorias. |
-| Objetivo do Teste 	| Acessar os planos alimentares dos outros usuários do aplicativo. |
+| Objetivo do Teste 	| Acessar informações sobre alimentos pesquisados no app. |
 | Passos 	| - Acessar a aplicação <br> - Logar com seu usuário e senha cadastrados <br> - Na página "home" do app, clicar no campo de busca. <br> - Escrever o nome do alimento pesquisado. <br> Clicar no alimento pesquisado. <br> Verificar na tela as informações sobre o alimento selecionado. |
-|Critério de Êxito | - Apresentação das informações sobre o alimento pesquisado pelo usuário. |
+|Critério de Êxito | - Apresentação das informações sobre o alimento pesquisado pelo usuário com sucesso. |
+|  	|  	|
+
+| **Caso de Teste** 	| **CT-06 – Histórico dos planos alimentares**	|
+|:---:	|:---:	|
+|Requisito Associado | RF-08	Os usuários devem ter acesso a um histórico de planos alimentares anteriores e informações nutricionais. |
+| Objetivo do Teste 	| Acessar o histórico dos planos e registros alimentares. |
+| Passos 	| - Acessar a aplicação <br> - Logar com seu usuário e senha cadastrados <br> - Clicar na seção perfil. <br> - Acessar opção histórico. <br> Selecionar o dia no qual gostaria de ver seu histórico de alimentação.|
+|Critério de Êxito | - Histórico aberto com sucesso no dia selecionado e informações salvas e mostradas no aplicativo com sucesso.|
 |  	|  	|
 
 
-
-
-
-
-
-
+| **Caso de Teste** 	| **CT-07 – Compartilhação dos planos alimentares**	|
+|:---:	|:---:	|
+|Requisito Associado | RF-09	Os usuários podem compartilhar seus planos alimentares ou conquistas nas redes sociais.  |
+| Objetivo do Teste 	| Compartilhar os planos e registros alimentares na rede social escolhida. |
+| Passos 	| - Acessar a aplicação <br> - Logar com seu usuário e senha cadastrados <br> - Clicar na seção perfil. <br> - Acessar opção compartilhar. <br> Selecionar o(s) dia(s) no qual gostaria de compartilhar seu histórico de alimentação. <br> - Selecionar a rede social na qual gostaria de compartilhar. <br> -Editar a mensagem pré-feita e clicar em postar.
+|Critério de Êxito | - Compartilhamento dos planos alimentares dos dias selecionados com sucesso.|
+|  	|  	|
 
 
 
