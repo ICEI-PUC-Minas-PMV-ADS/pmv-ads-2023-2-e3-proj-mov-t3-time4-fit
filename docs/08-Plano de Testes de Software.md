@@ -26,10 +26,10 @@ Enumere quais cenários de testes foram selecionados para teste. Neste tópico o
 
 | **Caso de Teste** 	| **CT-03 – Verificação do cálculo das calorias consumidas no dia pelo usuário.**	|
 |:---:	|:---:	|
-|Requisito Associado | RF-03	O aplicativo deve calcular e exibir a contagem total de calorias para o dia com base nos alimentos registrados. |
+|Requisito Associado | RF-03	O aplicativo deve calcular e exibir a contagem total de calorias para o dia com base nos alimentos registrados. ,br> - RF-07	Os usuários podem definir metas de consumo calórico diário.|
 | Objetivo do Teste 	| Verificar se o aplicativo irá realizar o cálculo das calorias consumidas no dia pelo usuário. |
-| Passos 	| - Acessar a aplicação <br> - Logar com seu usuário e senha cadastrados <br> - Na página "home" do app, será apresentado um painel contendo as informações sobre calorias consumidas pelo usuário durante o dia. <br> - "Rolar" pelas refeições consumidas no dia e realizar o cálculo manual das calorias consumidas e verificar se o valor mostrado no painel está correto. |
-|Critério de Êxito | - Apresentação das calorias consumidas no dia de acordo com as refeições listadas. |
+| Passos 	| - Acessar a aplicação <br> - Logar com seu usuário e senha cadastrados <br> - Na página "home" do app, será apresentado um painel contendo as informações sobre calorias consumidas pelo usuário durante o dia. <br> clicar no painel e selecionar a opção de editar metas de consumo calórico. <br> - Inserir a quantidade calórica que deseja adotar como meta. <br> - Clicar em salvar e voltar a página "home" <br> - "Rolar" pelas refeições consumidas no dia e realizar o cálculo manual das calorias consumidas e verificar se os valores mostrados no painel (Calorias consumidas, calorias que faltam ser consumidas, meta) estão corretos. |
+|Critério de Êxito | - Apresentação das calorias consumidas, meta, e quantidade de caloria a ser consumida no dia de acordo com as refeições listadas. |
 |  	|  	|
 
 
@@ -37,9 +37,19 @@ Enumere quais cenários de testes foram selecionados para teste. Neste tópico o
 |:---:	|:---:	|
 |Requisito Associado | RF-04	Os usuários devem poder pesquisar e visualizar os planos alimentares de outros usuários. |
 | Objetivo do Teste 	| Acessar os planos alimentares dos outros usuários do aplicativo. |
-| Passos 	| - Acessar a aplicação <br> - Logar com seu usuário e senha cadastrados <br> - Na página "home" do app, clicar no campo de busca. <br> - Escrever o nome ou email do usuário a qual gostaria de saber. <br> - Clicar no perfil que aparecer na busca. <br> - Se o perfil deste usuário for público (ele permitir que os outros usuários vejam seus planos alimentares e informaçõess) aparecerá a lista de refeições e o plano alimentar desde usuário na tela. | 
+| Passos 	| - Acessar a aplicação <br> - Logar com seu usuário e senha cadastrados <br> - Na página "home" do app, clicar no campo de busca. <br> - Escrever o nome ou email do usuário a qual gostaria de saber. <br> - Clicar no perfil que aparecer na busca. <br> - Se o perfil deste usuário for público (ele permitir que os outros usuários vejam seus planos alimentares e informaçõess) aparecerá a lista de refeições e o plano alimentar deste usuário na tela. | 
 |Critério de Êxito | - Apresentação das calorias consumidas, planos alimentares e refeições do usuário pesquisado. |
 |  	|  	|
+
+| **Caso de Teste** 	| **CT-05 – Pesquisa e visualização de alimentos e suas calorias**	|
+|:---:	|:---:	|
+|Requisito Associado | RF-05	Os usuários devem poder pesquisar alimentos e suas calorias. |
+| Objetivo do Teste 	| Acessar os planos alimentares dos outros usuários do aplicativo. |
+| Passos 	| - Acessar a aplicação <br> - Logar com seu usuário e senha cadastrados <br> - Na página "home" do app, clicar no campo de busca. <br> - Escrever o nome do alimento pesquisado. <br> Clicar no alimento pesquisado. <br> Verificar na tela as informações sobre o alimento selecionado. |
+|Critério de Êxito | - Apresentação das informações sobre o alimento pesquisado pelo usuário. |
+|  	|  	|
+
+
 
 
 
