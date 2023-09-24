@@ -246,7 +246,7 @@ Entregar um arquivo banco.sql contendo os scripts de criação das tabelas do ba
 
 ## Hospedagem
 
-O aplicativo **Eat Smart** foi hospedado e lançado no Firebase. 
+O aplicativo **Eat Smart** será hospedado e lançado no Firebase. 
 Primeiro, configuramos um projeto Firebase e vinculamos nosso aplicativo React Native a ele. 
 
 Utilizamos o Firebase Hosting para implantar o aplicativo e garantir que ele seja acessível aos usuários. Além disso, aproveitamos os recursos de segurança do Firebase, como autenticação de usuários e configurações de segurança, para proteger os dados e a comunicação. Após o lançamento, implementamos estratégias de marketing para atrair usuários e continuamos a oferecer suporte e atualizações para melhorar a experiência do usuário. O Firebase simplificou o processo de hospedagem e permitiu um lançamento suave do aplicativo "Meal Planner".
