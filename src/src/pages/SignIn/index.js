@@ -26,13 +26,12 @@ export default function SignIn() {
             style={styles.input}
             />
 
-            <TouchableOpacity style={styles.button}>
+            <TouchableOpacity style={styles.button} onPress={ () => navigation.navigate('Objective')}>
                 <Text style={styles.buttonText}>Acessar</Text>
             </TouchableOpacity>
 
             <TouchableOpacity style={styles.buttonRegister}onPress={ () => navigation.navigate('Register')}>
-                <Text style={styles.registerText}>Não possui uma conta? Cadastre-se.</Text>
-
+                <Text style={styles.registerText}>Cadastre-se.</Text>
             </TouchableOpacity>
 
         </Animatable.View>
@@ -69,7 +68,7 @@ const styles = StyleSheet.create({
     },
     input:{
         padding:9,
-        borderRadius: 6,
+        borderRadius: 20,
         backgroundColor: '#F3F6F6',
         height: 40,
         marginBottom: 12,
@@ -91,8 +90,16 @@ const styles = StyleSheet.create({
         fontWeight: "bold"
     },
     buttonRegister:{
-        marginTop: 14,
+        backgroundColor: '#F3F6F6',
+        width: '40%',
+        borderRadius: 100,
+        paddingVertical: 8,
+        marginTop: 19,
+        justifyContent: 'center',
+        alignItems: 'center',
         alignSelf: 'center'
+        //marginTop: 
+        //alignSelf: 
     },
     registerText:{
         color: '#a1a1a1',
