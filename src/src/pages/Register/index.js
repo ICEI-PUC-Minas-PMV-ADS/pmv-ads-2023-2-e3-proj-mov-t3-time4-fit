@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, Text, StyleSheet, TextInput, TouchableOpacity } from 'react-native';
-
+import {useNavigation} from '@react-navigation/native'
 import * as Animatable from 'react-native-animatable'
 import {useForm, Controller} from 'react-hook-form'
 import {yupResolver} from '@hookform/resolvers/yup'
@@ -14,15 +14,19 @@ const schema = yup.object({
     confirmaSenha: yup.string().min(8, "As senhas não conferem").required("Informe a senha conforme o campo anterior")
 })
 
+
+
 export default function Register(){
+    const navigation = useNavigation();
+
     const {control, handleSubmit, formState:{errors}} = useForm({
         resolver:yupResolver(schema)
-    })
+    }) //esta pode ser chamada quando o usuario clicar no botão de finalizar cadastro, utilizada para teste
 
     function handleRegister(data){
         console.log(data)
     }
-
+    
     return (
         <View style={styles.container}>
             <Animatable.View animation="fadeInLeft" delay={500} style={styles.containerHeader}/* BLOCO DE CAMPO */>
@@ -105,10 +109,12 @@ export default function Register(){
                         )}
                     />
                 {errors.confirmaSenha && <Text style={styles.labelError}>{errors.confirmaSenha?.message}</Text>}
-
-                <TouchableOpacity onPress={handleSubmit(handleRegister)}style={styles.button}>
-                    <Text>Finalizar Cadastro</Text>    
+               
+                <TouchableOpacity onPress={ () => navigation.navigate('Objective')}style={styles.button}>
+                    <Text style={styles.buttonText}>Finalizar Cadastro</Text>    
                 </TouchableOpacity>
+                
+
             </Animatable.View>
         </View>
     )
@@ -140,7 +146,9 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         alignSelf: 'center',
-        fontWeight: 'bold'
+    },
+    buttonText:{
+        fontWeight:'bold',
     },
     containerForm:{
         flex: 1,
@@ -151,11 +159,14 @@ const styles = StyleSheet.create({
     },
     campo:{
         padding:9,
-        borderRadius: 6,
+        borderRadius: 20,
         backgroundColor: '#F3F6F6',
         height: 40,
         marginBottom: 12,
         fontSize: 16,
+        borderWidth: 1,
+        borderColor: "#7D9C3E"
+
     },
     labelError:{
         alignSelf: 'flex-start',
