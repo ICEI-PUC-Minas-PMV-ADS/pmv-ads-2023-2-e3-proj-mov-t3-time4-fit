@@ -6,7 +6,7 @@ import {
     Image,
     TouchableOpacity
 } from 'react-native';
-import { MaterialCommunityIcons } from '@expo/vector-icons';
+import { Ionicons } from '@expo/vector-icons';
 import { FontAwesome5 } from '@expo/vector-icons';
 import * as Animatable from 'react-native-animatable'
 import {useNavigation} from '@react-navigation/native'
@@ -27,28 +27,28 @@ export default function Objective() {
     </View>
 
     <Animatable.View delay={600} animation="fadeInUp" style={styles.containerForm} /* direcionamento */> 
-        <Text style={styles.title}>Qual o seu objetivo?</Text>
+        <Text style={styles.title}>Qual seu nível de atividade física diário?</Text>
 
         <TouchableOpacity style={styles.buttonText}
         onPress={ () => navigation.navigate('levelActivity')}
         >
-            <Text style={styles.principalText}> <FontAwesome5 name="weight" size={24} color="blue" /> Emagrecer</Text>
-            <Text>Perder peso de uma forma saudável</Text>
+            <Text style={styles.principalText}> <FontAwesome5 name="meh" size={24} color="yellow"/>  Leve</Text>
+            <Text>Trabalho em pé ou caminhadas leves</Text>
             
         </TouchableOpacity>
 
         <TouchableOpacity style={styles.buttonText}
         onPress={ () => navigation.navigate('levelActivity')}
         >
-            <Text style={styles.principalText}> <MaterialCommunityIcons name="weight-lifter" size={24} color="black"/> Ganhar Peso</Text>
-            <Text>Aumentar massa muscular</Text>
+            <Text style={styles.principalText}><Ionicons name="happy-outline" size={24} color="yellow" /> Moderado</Text>
+            <Text>Trabalho pesado e/ou atividades físicas regulares</Text>
         </TouchableOpacity>
 
         <TouchableOpacity style={styles.buttonText}
         onPress={ () => navigation.navigate('levelActivity')}
         >
-            <Text style={styles.principalText}> <MaterialCommunityIcons name="food-apple" size={24} color="red"/>Manter Peso</Text>
-            <Text>Manter peso com saúde</Text>
+            <Text style={styles.principalText}><FontAwesome5 name="grin-beam-sweat" size={24} color="yellow" /> Intenso</Text>
+            <Text>Atividades físicas intensas todos os dias</Text>
         </TouchableOpacity>
 
     </Animatable.View>
