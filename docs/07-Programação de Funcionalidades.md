@@ -4,4 +4,4 @@ Implementação do sistema descritas por meio dos requisitos funcionais e/ou nã
 
 |ID    | Descrição do Requisito  | Artefato(s) produzido(s) |
 |------|-----------------------------------------|----|
-|RF-01| Os usuários devem poder fazer cadastro e login usando suas credenciais | Welcome / SignIn / Register / Objective | 
+|RF-01| Os usuários devem poder fazer cadastro e login usando suas credenciais | Welcome / SignIn / Register / Home | 
