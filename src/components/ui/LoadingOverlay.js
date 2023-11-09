@@ -3,7 +3,7 @@ import {ActivityIndicator, StyleSheet, View} from "react-native";
 function LoadingOverlay() {
     return (
         <View style={styles.loadingContainer}>
-            <ActivityIndicator size={'large'} color={'white'}/>
+            <ActivityIndicator size={'large'} color={'#7D9C3E'}/>
         </View>
     )
 }
@@ -16,5 +16,6 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         padding: 24,
+        backgroundColor: 'white',
     },
 })

@@ -4,7 +4,8 @@ import {AnimatedCircularProgress} from 'react-native-circular-progress';
 function CaloriasDiario({caloriasConsumidas, caloriasMeta}) {
     let caloriasConsumidasNumber = parseFloat(caloriasConsumidas);
     let caloriasMetaNumber = parseFloat(caloriasMeta);
-    let caloriasRestantesNumber = caloriasMetaNumber - caloriasConsumidasNumber;
+    let caloriasRestantesNumber = (caloriasMetaNumber > caloriasConsumidasNumber) ?
+        caloriasMetaNumber - caloriasConsumidasNumber : 0;
     let caloriasConsumidasPercent = caloriasConsumidasNumber / caloriasMetaNumber * 100;
 
     return (
@@ -53,7 +54,8 @@ const styles = StyleSheet.create({
     container: {
         backgroundColor: "#7D9C3E",
         justifyContent: 'center',
-        margin: '5%',
+        marginVertical: 10,
+        marginHorizontal: '5%',
         padding: '5%',
         borderRadius: 20,
     },

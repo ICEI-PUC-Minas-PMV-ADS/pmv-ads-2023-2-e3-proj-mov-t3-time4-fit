@@ -19,6 +19,9 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     padding: 4,
+    backgroundColor: '#7D9C3E',
+    borderRadius: 10,
+    elevation: 4,
   },
   pressed: {
     opacity: 0.7,

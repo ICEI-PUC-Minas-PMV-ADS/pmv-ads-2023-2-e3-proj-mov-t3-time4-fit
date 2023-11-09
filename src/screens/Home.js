@@ -1,24 +1,37 @@
-import {useContext, useEffect, useState} from 'react';
-import {StyleSheet, View} from 'react-native';
-import {ScrollView} from 'react-native-virtualized-view';
+import {useContext, useEffect, useLayoutEffect, useState} from 'react';
+import {StyleSheet, View, ScrollView, Text} from 'react-native';
 
 import {AuthContext} from "../store/auth-context";
 import CaloriasDiario from "../components/Home/CaloriasDiario";
 import RefeicoesList from "../components/Home/RefeicoesList";
 import {RefeicaoContext} from "../store/refeicao-context";
-import {fetchRefeicoes} from "../gateway/http-refeicoes";
 import LoadingOverlay from "../components/ui/LoadingOverlay";
+import {fetchRefeicoes} from "../gateway/http-refeicoes";
 import {fetchUsuario} from "../gateway/http-usuarios";
+import {fetchRefeicoesDiarias} from "../gateway/http-refeicoes-diarias";
+import {getFormattedDate} from "../util/date";
+import {UsuarioContext} from "../store/usuario-context";
+import {RefeicoesDiariasContext} from "../store/refeicoes-diarias-context";
 
 function Home({navigation}) {
     const [isLoading, setIsLoading] = useState(true);
     const [selectedDate, setSelectedDate] = useState(new Date());
-    const [usuario, setUsuario] = useState(null);
 
     const refeicaoCtx = useContext(RefeicaoContext);
+    const refeicoesDiariasCtx = useContext(RefeicoesDiariasContext);
+    const usuarioCtx = useContext(UsuarioContext);
     const authCtx = useContext(AuthContext);
 
-    useEffect(() => {
+    useLayoutEffect(() => {
+        async function getUsuario() {
+            try {
+                const usuario = await fetchUsuario(authCtx.token);
+                usuarioCtx.fetchUsuario(usuario);
+            } catch (error) {
+                console.log(error);
+            }
+        }
+
         async function getRefeicoes() {
             try {
                 const refeicoes = await fetchRefeicoes(authCtx.token);
@@ -28,45 +41,66 @@ function Home({navigation}) {
             }
         }
 
-        async function getUsuario() {
+        async function getRefeicoesDiarias() {
             try {
-                const usuario = await fetchUsuario(authCtx.token);
-                setUsuario(usuario);
+                const refeicoesDiarias = await fetchRefeicoesDiarias(authCtx.token, getFormattedDate(selectedDate));
+                refeicoesDiariasCtx.setRefeicoesDiarias(refeicoesDiarias);
             } catch (error) {
                 console.log(error);
             }
         }
 
-        setIsLoading(true);
-        getRefeicoes();
-        getUsuario();
-        setIsLoading(false);
-    }, []);
+        async function fetchData() {
+            setIsLoading(true);
+            await Promise.all([getUsuario(), getRefeicoes(), getRefeicoesDiarias()]);
+        }
+
+        fetchData().then(() => setIsLoading(false));
+    }, [selectedDate]);
 
     if (isLoading) {
-        return <LoadingOverlay />
+        return <LoadingOverlay/>
     }
 
-    const metaCalorica = usuario.metaCalorica;
+    function maisOpcoesHandler() {
+        navigation.navigate('ManageRefeicao', {
+            id: 1,
+            idUsuario: 1,
+            data: getFormattedDate(selectedDate),
+        });
+    }
+
+    const refeicoesDiarias = refeicoesDiariasCtx.refeicoesDiarias;
+
+    const caloriasMeta = usuarioCtx.usuario.metaCalorica;
+    const caloriasConsumidas = refeicoesDiarias.reduce((total, refeicaoDiaria) => total + refeicaoDiaria.calorias, 0);
 
     return (
         <ScrollView style={styles.container}>
             {/*Calendário aqui*/}
             {/*Pelo valor selecionado no calendário obter a data*/}
 
-            {/*Buscar os dados do usuario para ter a meta*/}
-            {/*Bucar os dados do diario*/}
-            {/*Buscar dados das de diarios-refeicoes*/}
+            <View style={styles.textoContainer}>
+                <Text>Resumo</Text>
+            </View>
 
-            {/*Montar componente Card com os dados somados do diario-refeicoes*/}
             <View style={styles.caloriasContainer}>
-                <CaloriasDiario caloriasMeta={metaCalorica} caloriasConsumidas={1200}/>
+                <CaloriasDiario
+                    caloriasMeta={caloriasMeta}
+                    caloriasConsumidas={caloriasConsumidas}/>
             </View>
 
             {/*Incluir botão que leva para a tela de editar refeicoes e lembretes*/}
+            <View style={styles.textoContainer}>
+                <Text>Refeições</Text>
+                <Text style={styles.textoBotao} onPress={maisOpcoesHandler}>Mais opções</Text>
+            </View>
 
             <View style={styles.refeicoesContainer}>
-                <RefeicoesList refeicoes={refeicaoCtx.refeicoes}/>
+                <RefeicoesList
+                    refeicoes={refeicaoCtx.refeicoes}
+                    refeicoesDiarias={refeicoesDiarias}
+                    data={getFormattedDate(selectedDate)}/>
             </View>
 
         </ScrollView>
@@ -80,8 +114,17 @@ const styles = StyleSheet.create({
         flex: 1,
         backgroundColor: 'white',
     },
-    caloriasContainer:{
-        marginVertical: 20,
+    caloriasContainer: {
+        marginBottom: 30,
+    },
+    textoContainer: {
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        marginHorizontal: '7%',
+    },
+    textoBotao: {
+        color: '#38A69D',
+        fontWeight: 'bold',
     },
     refeicoesContainer: {
         marginBottom: 10,

@@ -2,13 +2,14 @@ import {StyleSheet, Text, View} from "react-native";
 import IconButton from "../ui/IconButton";
 import {useNavigation} from "@react-navigation/native";
 
-function RefeicaoItem({id, idUsuario, nome, horario}) {
+function RefeicaoItem({id, idUsuario, nome, horario, data, calorias}) {
     const navigation = useNavigation();
 
     function addRefeicaoHandler() {
         navigation.navigate('ManageRefeicao', {
             id: id,
             idUsuario: idUsuario,
+            data: data,
         });
     }
 
@@ -17,6 +18,7 @@ function RefeicaoItem({id, idUsuario, nome, horario}) {
             <View style={styles.texts}>
                 <Text>{nome}</Text>
                 <Text>{horario}</Text>
+                {calorias > 0 && <Text>{calorias} kcal</Text>}
             </View>
             <View style={styles.icon}>
                 <IconButton icon={'add'} size={36} color={'white'} onPress={addRefeicaoHandler}/>
@@ -43,8 +45,5 @@ const styles = StyleSheet.create({
     },
     icon: {
         justifyContent: 'center',
-        backgroundColor: '#7D9C3E',
-        borderRadius: 10,
-        elevation: 4,
     },
 })
