@@ -1,34 +1,75 @@
-import React from 'react';
-import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
+import {useContext, useEffect, useState} from 'react';
+import {StyleSheet, View} from 'react-native';
+import {ScrollView} from 'react-native-virtualized-view';
 
-import * as Animatable from 'react-native-animatable'
+import {AuthContext} from "../store/auth-context";
+import CaloriasDiario from "../components/Home/CaloriasDiario";
+import RefeicoesList from "../components/Home/RefeicoesList";
+import {RefeicaoContext} from "../store/refeicao-context";
+import {fetchRefeicoes} from "../gateway/http-refeicoes";
+import LoadingOverlay from "../components/ui/LoadingOverlay";
+import {fetchUsuario} from "../gateway/http-usuarios";
 
 function Home({navigation}) {
-    return (
-        <View style={styles.container}>
+    const [isLoading, setIsLoading] = useState(true);
+    const [selectedDate, setSelectedDate] = useState(new Date());
+    const [usuario, setUsuario] = useState(null);
 
-            <View style={styles.containerLogo}>
-                <Animatable.Image
-                    animation="flipInY"
-                    source={require('../assets/logo.png')}
-                    style={{width: '100%'}}
-                    resizeMode="contain"
-                />
+    const refeicaoCtx = useContext(RefeicaoContext);
+    const authCtx = useContext(AuthContext);
+
+    useEffect(() => {
+        async function getRefeicoes() {
+            try {
+                const refeicoes = await fetchRefeicoes(authCtx.token);
+                refeicaoCtx.setRefeicoes(refeicoes);
+            } catch (error) {
+                console.log(error);
+            }
+        }
+
+        async function getUsuario() {
+            try {
+                const usuario = await fetchUsuario(authCtx.token);
+                setUsuario(usuario);
+            } catch (error) {
+                console.log(error);
+            }
+        }
+
+        setIsLoading(true);
+        getRefeicoes();
+        getUsuario();
+        setIsLoading(false);
+    }, []);
+
+    if (isLoading) {
+        return <LoadingOverlay />
+    }
+
+    const metaCalorica = usuario.metaCalorica;
+
+    return (
+        <ScrollView style={styles.container}>
+            {/*Calendário aqui*/}
+            {/*Pelo valor selecionado no calendário obter a data*/}
+
+            {/*Buscar os dados do usuario para ter a meta*/}
+            {/*Bucar os dados do diario*/}
+            {/*Buscar dados das de diarios-refeicoes*/}
+
+            {/*Montar componente Card com os dados somados do diario-refeicoes*/}
+            <View style={styles.caloriasContainer}>
+                <CaloriasDiario caloriasMeta={metaCalorica} caloriasConsumidas={1200}/>
             </View>
 
-            <Animatable.View delay={600} animation="fadeInUp" style={styles.containerForm} /* direcionamento */>
-                <Text style={styles.title}>Página em processo de atualização! Agradecemos a compreensão</Text>
+            {/*Incluir botão que leva para a tela de editar refeicoes e lembretes*/}
 
+            <View style={styles.refeicoesContainer}>
+                <RefeicoesList refeicoes={refeicaoCtx.refeicoes}/>
+            </View>
 
-                <TouchableOpacity
-                    style={styles.button}
-                    onPress={() => navigation.navigate('Welcome')}
-                >
-                    <Text style={styles.buttonText}>Ok</Text>
-                </TouchableOpacity>
-            </Animatable.View>
-
-        </View>
+        </ScrollView>
     );
 }
 
@@ -39,47 +80,10 @@ const styles = StyleSheet.create({
         flex: 1,
         backgroundColor: 'white',
     },
-    containerLogo: {
-        flex: 2,
-        justifyContent: 'center',
-        alignItems: 'center'
+    caloriasContainer:{
+        marginVertical: 20,
     },
-    containerForm: {
-        flex: 2,
-        borderTopLeftRadius: 25,
-        borderTopRightRadius: 25,
-        paddingStart: '5%',
-        paddingEnd: '5%'
-    },
-    title: {
-        fontSize: 24,
-        fontWeight: 'bold',
-        marginTop: 28,
-        marginBottom: 12,
-        alignItems: 'center',
-        alignContent: 'center'
-    },
-    text: {
-        color: '#a1a1a1',
-        alignItems: 'center',
-        fontWeight: 'bold',
-        alignContent: 'center'
-    },
-    button: {
-        position: 'absolute',
-        backgroundColor: '#7D9C3E',
-        borderRadius: 50,
-        paddingVertical: 8,
-        width: '60%',
-        alignSelf: 'center',
-        bottom: '15%',
-        alignItems: 'center',
-        justifyContent: 'center'
-    },
-    buttonText: {
-        fontSize: 16,
-        color: 'black',
-        fontWeight: 'bold'
+    refeicoesContainer: {
+        marginBottom: 10,
     }
-
 })
