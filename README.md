@@ -19,7 +19,42 @@ O **Eat Smart** é um aplicativo mobile que simplifica o planejamento de refeiç
 
 ## Instruções de utilização
 
-Assim que a primeira versão do sistema estiver disponível, deverá complementar com as instruções de utilização. Descreva como instalar eventuais dependências e como executar a aplicação.
+| <video src="https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-2-e3-proj-mov-t3-time4-fit/assets/70116762/e2574b8b-f886-4df7-b6b1-2eb5724b3cd4" title="Instruções"> |
+| :---: |
+
+### Pré-requisitos
+
+Certifique-se de ter as seguintes ferramentas instaladas em seu ambiente de desenvolvimento:
+
+- [Node.js](https://nodejs.org/)
+- [npm](https://www.npmjs.com/) ou [Yarn](https://yarnpkg.com/)
+- [Expo CLI](https://docs.expo.dev/get-started/installation/)
+- [JSON Server](https://github.com/typicode/json-server) instalado globalmente.
+
+### Configuração Inicial
+
+1. **Clone o Repositório:**
+```
+git clone https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-2-e3-proj-mov-t3-time4-fit.git
+```
+2. **Acesse o Diretório do Projeto:**
+```
+cd src
+```
+3. **Instale as Dependências:**
+```
+npm install
+```
+4. **Inicie o JSON Server com o Arquivo db.json:**
+```
+json-server --watch db.json --port 3000
+```
+### Inicialização do Aplicativo
+1. **Inicie o Aplicativo React Native:**
+```
+expo start
+```
+2. **Use o Expo Go (para Dispositivos Físicos) ou um Emulador para Visualizar o Aplicativo.**
 
 # Documentação
 
