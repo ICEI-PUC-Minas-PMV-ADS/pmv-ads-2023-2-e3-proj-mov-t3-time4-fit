@@ -8,6 +8,7 @@ import Home from "../screens/Home";
 import Perfil from "../screens/Perfil";
 import Explorar from "../screens/Explorar";
 import ManageRefeicao from "../screens/ManageRefeicao";
+import HomeCalendar from "../screens/HomeCalendar";
 
 const Stack = createNativeStackNavigator();
 const BottomTab = createBottomTabNavigator();
@@ -19,6 +20,7 @@ function BottomTabNavigator() {
                 name="Home"
                 component={Home}
                 options={{
+                    headerShown: false,
                     tabBarLabel: "Diário",
                 }}
             />
@@ -60,6 +62,14 @@ export default function Routes() {
             <Stack.Screen
                 name="ManageRefeicao"
                 component={ManageRefeicao}
+            />
+            <Stack.Screen
+                name="HomeCalendar"
+                component={HomeCalendar}
+                options={{
+                    headerShown: false,
+                    presentation: "modal"
+            }}
             />
         </Stack.Navigator>
     )
