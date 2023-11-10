@@ -7,6 +7,7 @@ import Register from "../screens/Register";
 import Home from "../screens/Home";
 import Perfil from "../screens/Perfil";
 import Explorar from "../screens/Explorar";
+import ManageRefeicao from "../screens/ManageRefeicao";
 
 const Stack = createNativeStackNavigator();
 const BottomTab = createBottomTabNavigator();
@@ -55,6 +56,10 @@ export default function Routes() {
                 name="BottomTabNavigator"
                 component={BottomTabNavigator}
                 options={{headerShown: false}}
+            />
+            <Stack.Screen
+                name="ManageRefeicao"
+                component={ManageRefeicao}
             />
         </Stack.Navigator>
     )
