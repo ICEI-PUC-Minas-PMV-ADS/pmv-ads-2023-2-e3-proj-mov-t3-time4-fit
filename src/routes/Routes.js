@@ -8,6 +8,7 @@ import Home from "../screens/Home";
 import Perfil from "../screens/Perfil";
 import Explorar from "../screens/Explorar";
 import ManageRefeicao from "../screens/ManageRefeicao";
+import ManageRefeicoes from "../screens/ManageRefeicoes";
 
 const Stack = createNativeStackNavigator();
 const BottomTab = createBottomTabNavigator();
@@ -60,6 +61,11 @@ export default function Routes() {
             <Stack.Screen
                 name="ManageRefeicao"
                 component={ManageRefeicao}
+            />
+            <Stack.Screen
+                name="ManageRefeicoes"
+                component={ManageRefeicoes}
+                options={{ title: 'Gerenciar Refeições' }}
             />
         </Stack.Navigator>
     )

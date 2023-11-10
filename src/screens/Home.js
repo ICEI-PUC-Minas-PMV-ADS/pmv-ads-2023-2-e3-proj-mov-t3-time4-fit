@@ -63,7 +63,7 @@ function Home({navigation}) {
     }
 
     function maisOpcoesHandler() {
-        navigation.navigate('ManageRefeicao', {
+        navigation.navigate('ManageRefeicoes', {
             id: 1,
             idUsuario: 1,
             data: getFormattedDate(selectedDate),
@@ -98,7 +98,7 @@ function Home({navigation}) {
 
             <View style={styles.refeicoesContainer}>
                 <RefeicoesList
-                    refeicoes={refeicaoCtx.refeicoes}
+                    refeicoes={refeicaoCtx.refeicoes.sort((a, b) => a.horario.localeCompare(b.horario))}
                     refeicoesDiarias={refeicoesDiarias}
                     data={getFormattedDate(selectedDate)}/>
             </View>
