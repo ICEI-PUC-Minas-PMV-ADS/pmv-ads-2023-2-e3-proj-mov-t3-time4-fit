@@ -1,12 +1,6 @@
 import React from 'react';
-import {
-    View,
-    Text,
-    StyleSheet,
-    TouchableOpacity
-} from 'react-native';
-import { MaterialCommunityIcons } from '@expo/vector-icons';
-import { FontAwesome5 } from '@expo/vector-icons';
+import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
+import {FontAwesome5, MaterialCommunityIcons} from '@expo/vector-icons';
 import * as Animatable from 'react-native-animatable'
 import {useNavigation} from '@react-navigation/native'
 
@@ -19,8 +13,8 @@ export default function Objective() {
             <View style={styles.containerLogo}>
                 <Animatable.Image
                     animation="flipInY"
-                    source={require('../../assets/logo.png')}
-                    style={{ width:'100%'}}
+                    source={require('../assets/logo.png')}
+                    style={{width: '100%'}}
                     resizeMode="contain"
                 />
             </View>
@@ -29,24 +23,27 @@ export default function Objective() {
                 <Text style={styles.title}>Qual o seu objetivo?</Text>
 
                 <TouchableOpacity style={styles.buttonText}
-                                  onPress={ () => navigation.navigate('levelActivity')}
+                                  onPress={() => navigation.navigate('LevelActivity')}
                 >
-                    <Text style={styles.principalText}> <FontAwesome5 name="weight" size={24} color="blue" /> Emagrecer</Text>
+                    <Text style={styles.principalText}> <FontAwesome5 name="weight" size={24}
+                                                                      color="blue"/> Emagrecer</Text>
                     <Text>Perder peso de uma forma saudável</Text>
 
                 </TouchableOpacity>
 
                 <TouchableOpacity style={styles.buttonText}
-                                  onPress={ () => navigation.navigate('levelActivity')}
+                                  onPress={() => navigation.navigate('LevelActivity')}
                 >
-                    <Text style={styles.principalText}> <MaterialCommunityIcons name="weight-lifter" size={24} color="black"/> Ganhar Peso</Text>
+                    <Text style={styles.principalText}> <MaterialCommunityIcons name="weight-lifter" size={24}
+                                                                                color="black"/> Ganhar Peso</Text>
                     <Text>Aumentar massa muscular</Text>
                 </TouchableOpacity>
 
                 <TouchableOpacity style={styles.buttonText}
-                                  onPress={ () => navigation.navigate('levelActivity')}
+                                  onPress={() => navigation.navigate('LevelActivity')}
                 >
-                    <Text style={styles.principalText}> <MaterialCommunityIcons name="food-apple" size={24} color="red"/>Manter Peso</Text>
+                    <Text style={styles.principalText}> <MaterialCommunityIcons name="food-apple" size={24}
+                                                                                color="red"/>Manter Peso</Text>
                     <Text>Manter peso com saúde</Text>
                 </TouchableOpacity>
 
@@ -57,23 +54,23 @@ export default function Objective() {
 }
 
 const styles = StyleSheet.create({
-    container:{
-        flex:1,
+    container: {
+        flex: 1,
         backgroundColor: 'white',
     },
-    containerLogo:{
+    containerLogo: {
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center'
     },
-    containerForm:{
-        flex:2,
+    containerForm: {
+        flex: 2,
         borderTopLeftRadius: 25,
         borderTopRightRadius: 25,
         paddingStart: '5%',
         paddingEnd: '5%'
     },
-    title:{
+    title: {
         fontSize: 24,
         fontWeight: 'bold',
         marginBottom: 20,
@@ -81,15 +78,15 @@ const styles = StyleSheet.create({
         alignContent: 'center',
         textAlign: 'center'
     },
-    text:{
+    text: {
         color: '#a1a1a1',
         alignItems: 'center',
         fontWeight: 'bold',
         alignContent: 'center',
         textAlign: 'center'
     },
-    buttonText:{
-        padding:20,
+    buttonText: {
+        padding: 20,
         borderRadius: 5,
         height: 95,
         marginBottom: 12,
@@ -100,9 +97,9 @@ const styles = StyleSheet.create({
         textAlign: 'center',
         alignContent: 'center'
     },
-    principalText:{
-        fontSize:16,
-        fontWeight:'bold'
+    principalText: {
+        fontSize: 16,
+        fontWeight: 'bold'
     }
 
 })

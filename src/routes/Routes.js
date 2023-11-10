@@ -7,6 +7,8 @@ import Register from "../screens/Register";
 import Home from "../screens/Home";
 import Perfil from "../screens/Perfil";
 import Explorar from "../screens/Explorar";
+import Objective from "../screens/Objective";
+import LevelActivity from "../screens/LevelActivity";
 
 const Stack = createNativeStackNavigator();
 const BottomTab = createBottomTabNavigator();
@@ -49,6 +51,16 @@ export default function Routes() {
             <Stack.Screen
                 name="Register"
                 component={Register}
+                options={{headerShown: false}}
+            />
+            <Stack.Screen
+                name="Objective"
+                component={Objective}
+                options={{headerShown: false}}
+            />
+            <Stack.Screen
+                name="LevelActivity"
+                component={LevelActivity}
                 options={{headerShown: false}}
             />
             <Stack.Screen
