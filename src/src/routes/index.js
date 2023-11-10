@@ -4,32 +4,40 @@ import Welcome from "../pages/Welcome";
 import SignIn from "../pages/SignIn";
 import Register from "../pages/Register";
 import Objective from "../pages/Objective";
+import GerenciadorR from "../pages/GerenciadorR";
+
 
 const Stack = createNativeStackNavigator();
 
-export default function Routes(){
-    return(
+export default function Routes() {
+    return (
         <Stack.Navigator>
             <Stack.Screen
                 name="Welcome"
                 component={Welcome}
-                options={{headerShown: false}}
+                options={{ headerShown: false }}
             />
             <Stack.Screen
                 name="SignIn"
                 component={SignIn}
-                options={{headerShown: false}}
+                options={{ headerShown: false }}
             />
             <Stack.Screen
                 name="Register"
                 component={Register}
-                options={{headerShown: false}}
+                options={{ headerShown: false }}
             />
-                <Stack.Screen
+            <Stack.Screen
                 name="Objective"
                 component={Objective}
-                options={{headerShown: false}}
+                options={{ headerShown: false }}
             />
+            <Stack.Screen
+                name="GerenciadorR"
+                component={GerenciadorR}
+                options={{ headerShown: false }}
+            />
+
         </Stack.Navigator>
     )
 }
