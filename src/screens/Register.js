@@ -4,6 +4,7 @@ import * as Animatable from 'react-native-animatable'
 import {Controller, useForm} from 'react-hook-form'
 import {yupResolver} from '@hookform/resolvers/yup'
 import * as yup from 'yup'
+import {GlobalStyles} from "../constants/styles";
 
 const schema = yup.object({
     nome: yup.string().required("Informe seu nome"),
@@ -123,7 +124,7 @@ export default Register;
 const styles = StyleSheet.create({
     container:{
         flex:1,
-        backgroundColor: 'white'
+        backgroundColor: GlobalStyles.colors.background,
     },
     containerHeader:{
         marginTop: '14%',
@@ -137,7 +138,7 @@ const styles = StyleSheet.create({
         textAlign: 'center'
     },
     button:{
-        backgroundColor: '#7D9C3E',
+        backgroundColor: GlobalStyles.colors.primary,
         width: '40%',
         borderRadius: 100,
         paddingVertical: 8,
@@ -159,17 +160,17 @@ const styles = StyleSheet.create({
     campo:{
         padding:9,
         borderRadius: 20,
-        backgroundColor: '#F3F6F6',
+        backgroundColor: GlobalStyles.colors.input,
         height: 40,
         marginBottom: 12,
         fontSize: 16,
         borderWidth: 1,
-        borderColor: "#7D9C3E"
+        borderColor: GlobalStyles.colors.primary
 
     },
     labelError:{
         alignSelf: 'flex-start',
-        color: '#ff375b',
+        color: GlobalStyles.colors.error,
         marginBottom: 8
     }
 })

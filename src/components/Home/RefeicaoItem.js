@@ -1,6 +1,7 @@
 import {StyleSheet, Text, View} from "react-native";
 import IconButton from "../ui/IconButton";
 import {useNavigation} from "@react-navigation/native";
+import {GlobalStyles} from "../../constants/styles";
 
 function RefeicaoItem({id, idUsuario, nome, horario, data, calorias}) {
     const navigation = useNavigation();
@@ -35,7 +36,7 @@ const styles = StyleSheet.create({
         justifyContent: 'space-between',
         borderWidth: 1,
         borderRadius: 10,
-        borderColor: '#7D9C3E',
+        borderColor: GlobalStyles.colors.primary,
         marginVertical: 5,
         paddingVertical: 10,
         paddingHorizontal: '6%',

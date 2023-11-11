@@ -1,6 +1,12 @@
 import {Calendar} from "react-native-calendars";
 import {getFormattedDate} from "../util/date";
 import {StyleSheet, View} from "react-native";
+import {GlobalStyles} from "../constants/styles";
+import {LocaleConfig} from "react-native-calendars/src/index";
+
+LocaleConfig.locales['pt-BR'] = {
+
+}
 
 function HomeCalendar({navigation, route}) {
     const selectedDate = route.params.current;
@@ -25,7 +31,7 @@ function HomeCalendar({navigation, route}) {
                           [selectedDate]: {
                               selected: true,
                               disableTouchEvent: false,
-                              selectedColor: '#7D9C3E',
+                              selectedColor: GlobalStyles.colors.primary,
                               selectedTextColor: 'white',
                           }
                       }}
@@ -39,7 +45,7 @@ export default HomeCalendar;
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: 'white',
+        backgroundColor: GlobalStyles.colors.background,
         paddingTop: '10%',
     }
 })

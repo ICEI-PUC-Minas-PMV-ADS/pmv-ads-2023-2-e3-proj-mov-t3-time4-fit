@@ -13,6 +13,7 @@ import {getFormattedDate, getFormattedDatePretty} from "../util/date";
 import {UsuarioContext} from "../store/usuario-context";
 import {RefeicoesDiariasContext} from "../store/refeicoes-diarias-context";
 import {Ionicons} from "@expo/vector-icons";
+import {GlobalStyles} from "../constants/styles";
 
 function Home({navigation, route}) {
     const [isLoading, setIsLoading] = useState(true);
@@ -131,7 +132,7 @@ export default Home;
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: 'white',
+        backgroundColor: GlobalStyles.colors.background,
         paddingTop: '10%',
     },
     calendarioOuterContainer: {
@@ -158,7 +159,7 @@ const styles = StyleSheet.create({
         marginHorizontal: '7%',
     },
     textoBotao: {
-        color: '#38A69D',
+        color: GlobalStyles.colors.higlight,
         fontWeight: 'bold',
     },
     refeicoesContainer: {

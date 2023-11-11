@@ -1,5 +1,6 @@
 import {StyleSheet, Text, View} from "react-native";
 import {AnimatedCircularProgress} from 'react-native-circular-progress';
+import {GlobalStyles} from "../../constants/styles";
 
 function CaloriasDiario({caloriasConsumidas, caloriasMeta}) {
     let caloriasConsumidasNumber = parseFloat(caloriasConsumidas);
@@ -24,8 +25,8 @@ function CaloriasDiario({caloriasConsumidas, caloriasMeta}) {
                         size={100}
                         width={5}
                         fill={caloriasConsumidasPercent}
-                        tintColor="#00e0ff"
-                        backgroundColor="#3d5875">
+                        tintColor={GlobalStyles.colors.higlight}
+                        backgroundColor={GlobalStyles.colors.accent}>
                         {() => {
                             return (
                                 <View style={styles.containerCaloria}>
@@ -52,7 +53,7 @@ export default CaloriasDiario;
 
 const styles = StyleSheet.create({
     container: {
-        backgroundColor: "#7D9C3E",
+        backgroundColor: GlobalStyles.colors.primary,
         justifyContent: 'center',
         marginVertical: 10,
         marginHorizontal: '5%',
