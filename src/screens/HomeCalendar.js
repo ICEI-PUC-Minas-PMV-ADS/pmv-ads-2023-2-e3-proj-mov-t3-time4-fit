@@ -24,7 +24,7 @@ function HomeCalendar({navigation, route}) {
                       markedDates={{
                           [selectedDate]: {
                               selected: true,
-                              disableTouchEvent: true,
+                              disableTouchEvent: false,
                               selectedColor: '#7D9C3E',
                               selectedTextColor: 'white',
                           }

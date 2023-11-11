@@ -12,20 +12,7 @@ import {fetchRefeicoesDiarias} from "../gateway/http-refeicoes-diarias";
 import {getFormattedDate, getFormattedDatePretty} from "../util/date";
 import {UsuarioContext} from "../store/usuario-context";
 import {RefeicoesDiariasContext} from "../store/refeicoes-diarias-context";
-import {LocaleConfig} from "react-native-calendars";
 import {Ionicons} from "@expo/vector-icons";
-
-LocaleConfig.locales['pt-br'] = {
-    monthNames: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho',
-        'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'],
-    monthNamesShort: ['Jan.', 'Fev.', 'Mar.', 'Abr.', 'Mai.', 'Jun.',
-        'Jul.', 'Ago.', 'Set.', 'Out.', 'Nov.', 'Dez.'],
-    dayNames: ['Domingo', 'Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta', 'Sábado'],
-    dayNamesShort: ['Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sáb'],
-    today: 'Hoje'
-}
-
-LocaleConfig.defaultLocale = 'pt-br';
 
 function Home({navigation, route}) {
     const [isLoading, setIsLoading] = useState(true);
@@ -105,10 +92,12 @@ function Home({navigation, route}) {
     return (
         <ScrollView style={styles.container}>
 
-            <Pressable onPress={calendarHandler} style={styles.calendarioContainer}>
-                <Text style={styles.textCalendario}>{getFormattedDatePretty(selectedDate)}</Text>
-                <Ionicons name={'calendar-outline'} size={24} color={''}/>
-            </Pressable>
+            <View style={styles.calendarioOuterContainer}>
+                <Pressable onPress={calendarHandler} style={styles.calendarioInnerContainer}>
+                    <Text style={styles.textCalendario}>{getFormattedDatePretty(selectedDate)}&nbsp;</Text>
+                    <Ionicons name={'caret-down'} size={16}/>
+                </Pressable>
+            </View>
 
             <View style={styles.textoContainer}>
                 <Text>Resumo</Text>
@@ -145,14 +134,20 @@ const styles = StyleSheet.create({
         backgroundColor: 'white',
         paddingTop: '10%',
     },
-    calendarioContainer: {
-        flexDirection: 'row',
+    calendarioOuterContainer: {
         justifyContent: 'center',
+        alignItems: 'flex-start',
+        marginLeft: '7%',
+    },
+    calendarioInnerContainer: {
+        flexDirection: 'row',
         alignItems: 'center',
         marginBottom: 30,
     },
     textCalendario: {
         textTransform: 'capitalize',
+        fontSize: 24,
+        fontWeight: 'bold',
     },
     caloriasContainer: {
         marginBottom: 30,

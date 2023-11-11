@@ -1,11 +1,12 @@
 export function getFormattedDate(date) {
-    return date.toISOString().slice(0, 10);
+    const dateAux = new Date(date.getTime() - date.getTimezoneOffset() * 60000);
+    return dateAux.toISOString().slice(0, 10);
 }
 
 export function getFormattedDatePretty(day) {
-    const today = new Date();
-    const dateAux = new Date(day);
-    const date = new Date(dateAux.getTime() + dateAux.getTimezoneOffset() * 60000);
+    let today = new Date();
+    let dateAux = new Date(day);
+    let date = new Date(dateAux.getTime() + dateAux.getTimezoneOffset() * 60000);
 
     if (date.toDateString() === today.toDateString()) {
         return 'Hoje';
