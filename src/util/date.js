@@ -1,3 +1,20 @@
 export function getFormattedDate(date) {
-    return date.toISOString().slice(0, 10);
+    const dateAux = new Date(date.getTime() - date.getTimezoneOffset() * 60000);
+    return dateAux.toISOString().slice(0, 10);
+}
+
+export function getFormattedDatePretty(day) {
+    let today = new Date();
+    let dateAux = new Date(day);
+    let date = new Date(dateAux.getTime() + dateAux.getTimezoneOffset() * 60000);
+
+    if (date.toDateString() === today.toDateString()) {
+        return 'Hoje';
+    }
+
+    const diaMes = date.toLocaleDateString('pt-BR', {day: 'numeric', month: 'short'})
+        .replace(' de ', '/').replace('.', '');
+    const diaSemana = date.toLocaleDateString('pt-BR', {weekday:'short'})
+        .slice(0, 3).replace('.', '');
+    return `${diaSemana}, ${diaMes}`;
 }
