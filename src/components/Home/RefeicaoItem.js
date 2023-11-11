@@ -8,7 +8,7 @@ function RefeicaoItem({id, idUsuario, nome, horario, data, calorias}) {
 
     function addRefeicaoHandler() {
         navigation.navigate('ManageRefeicao', {
-            id: id,
+            idRefeicao: id,
             idUsuario: idUsuario,
             data: data,
         });

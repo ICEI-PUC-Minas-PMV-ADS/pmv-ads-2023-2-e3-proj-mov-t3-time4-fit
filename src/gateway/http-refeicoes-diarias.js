@@ -6,3 +6,7 @@ export async function fetchRefeicoesDiarias(idUsuario, date) {
     const {data: response} = await axios.get(BACKEND_URL + `?idUsuario=${idUsuario}&data=${date}`);
     return response;
 }
+
+export function deleteRefeicaoDiaria(id) {
+    return axios.delete(BACKEND_URL + `/${id}`);
+}

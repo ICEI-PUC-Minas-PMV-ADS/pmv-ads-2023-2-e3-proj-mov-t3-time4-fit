@@ -38,7 +38,7 @@ function BottomTabNavigator() {
 
 export default function Routes() {
     return (
-        <Stack.Navigator initialRouteName={"Welcome"}>
+        <Stack.Navigator initialRouteName={"BottomTabNavigator"}>
             <Stack.Screen
                 name="Welcome"
                 component={Welcome}
@@ -69,7 +69,7 @@ export default function Routes() {
                 options={{
                     headerShown: false,
                     presentation: "modal"
-            }}
+                }}
             />
         </Stack.Navigator>
     )
