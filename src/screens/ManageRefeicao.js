@@ -9,6 +9,7 @@ import {getFormattedDayMonth} from "../util/date";
 import AlimentosList from "../components/ManageRefeicao/AlimentosList";
 import LoadingOverlay from "../components/ui/LoadingOverlay";
 import {deleteRefeicaoDiaria} from "../gateway/http-refeicoes-diarias";
+import IconButton from "../components/ui/IconButton";
 
 function ManageRefeicao({route, navigation}) {
     const [isSubmitting, setIsSubmitting] = useState(false);
@@ -23,7 +24,6 @@ function ManageRefeicao({route, navigation}) {
     const refeicao = refeicaoCtx.refeicoes.find(refeicao => refeicao.id === idRefeicao);
     const refeicoesDiarias = refeicoesDiariasCtx.refeicoesDiarias
         .filter(refeicaoDiaria => refeicaoDiaria.idRefeicao === idRefeicao && refeicaoDiaria.data === data);
-    const caloriasTotais = refeicoesDiarias.reduce((acc, refeicaoDiaria) => acc + refeicaoDiaria.calorias, 0);
 
     useLayoutEffect(() => {
         navigation.setOptions({
@@ -36,6 +36,14 @@ function ManageRefeicao({route, navigation}) {
             },
         })
     }, [navigation]);
+
+    function addAlimentoHandler() {
+        navigation.navigate('SearchAlimento', {
+            idRefeicao: idRefeicao,
+            idUsuario: idUsuario,
+            data: data,
+        });
+    }
 
     async function removeAlimentoHandler(id) {
         setIsSubmitting(true);
@@ -53,7 +61,22 @@ function ManageRefeicao({route, navigation}) {
         return <LoadingOverlay />
     }
 
+    let content = (
+        <View style={styles.fallbackContainer}>
+            <Text style={styles.fallbackText}>Nenhum alimento adicionado</Text>
+        </View>
+    )
+
+    if (refeicoesDiarias.length > 0) {
+        content = (
+            <View style={styles.alimentosContainer}>
+                <AlimentosList refeicoesDiarias={refeicoesDiarias} onDelete={removeAlimentoHandler}/>
+            </View>
+        )
+    }
+
     return (
+        <View style={styles.container}>
         <ScrollView style={styles.container}>
             <View style={styles.headerOuterContainer}>
                 <Text style={styles.textTitle}>{refeicao.nome}</Text>
@@ -69,16 +92,16 @@ function ManageRefeicao({route, navigation}) {
                     </View>
                 </View>
             </View>
-            <View style={styles.alimentosContainer}>
-                <AlimentosList refeicoesDiarias={refeicoesDiarias} onDelete={removeAlimentoHandler}/>
-            </View>
-            <View style={styles.totalOuterContainer}>
-                <View style={styles.totalInnerContainer}>
-                    <Text>Total:&nbsp;&nbsp;</Text>
-                    <Text>{caloriasTotais} kcal</Text>
-                </View>
-            </View>
+            {content}
         </ScrollView>
+            <View style={styles.addButton}>
+                <IconButton icon={'add'}
+                            size={42}
+                            color={GlobalStyles.colors.text50}
+                            style={styles.button}
+                            onPress={addAlimentoHandler}/>
+            </View>
+        </View>
     );
 
 }
@@ -114,21 +137,27 @@ const styles = StyleSheet.create({
         textTransform: 'capitalize'
     },
     alimentosContainer: {
-        marginVertical: 20,
-    },
-    totalOuterContainer: {
-        justifyContent: 'center',
-        alignItems: 'center',
-        marginTop: 40,
-    },
-    totalInnerContainer: {
-        flexDirection: 'row',
-        justifyContent: 'center',
-        alignItems: 'center',
-        paddingVertical: 10,
-        paddingHorizontal: 30,
-        borderWidth: 2,
+        marginHorizontal: '5%',
+        marginVertical: 50,
         borderColor: GlobalStyles.colors.primary,
         borderRadius: 20,
     },
+    addButton: {
+        position: 'absolute',
+        bottom: 60,
+        right: '7%',
+    },
+    button: {
+        borderRadius: 30,
+    },
+    fallbackContainer: {
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+        marginVertical: '60%',
+    },
+    fallbackText: {
+        fontSize: 18,
+        color: GlobalStyles.colors.text800,
+    }
 })

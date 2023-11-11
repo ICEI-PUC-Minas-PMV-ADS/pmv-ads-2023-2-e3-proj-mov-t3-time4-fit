@@ -1,4 +1,4 @@
-import {StyleSheet, View, Text} from "react-native";
+import {StyleSheet, Text, View} from "react-native";
 import IconButton from "../ui/IconButton";
 import {GlobalStyles} from "../../constants/styles";
 
@@ -9,12 +9,17 @@ function AlimentoItem({id, comida, quantidade, unidade, calorias, onDelete}) {
 
     return (
         <View style={styles.container}>
-            <View>
+            <View style={styles.texts}>
                 <Text>{comida}</Text>
                 <Text>{quantidade} {unidade} - {calorias} kcal</Text>
             </View>
-            <View>
-                <IconButton icon={'trash'} size={16} color={GlobalStyles.colors.error} onPress={removeAlimentoHandler}/>
+            <View style={styles.icon}>
+                <IconButton
+                    icon={'trash'}
+                    size={28}
+                    color={GlobalStyles.colors.text50}
+                    style={styles.button}
+                    onPress={removeAlimentoHandler}/>
             </View>
         </View>
     )
@@ -33,4 +38,13 @@ const styles = StyleSheet.create({
         paddingVertical: 10,
         paddingHorizontal: '6%',
     },
+    texts: {
+        justifyContent: 'center',
+    },
+    icon: {
+        justifyContent: 'center',
+    },
+    button: {
+        backgroundColor: GlobalStyles.colors.error,
+    }
 })

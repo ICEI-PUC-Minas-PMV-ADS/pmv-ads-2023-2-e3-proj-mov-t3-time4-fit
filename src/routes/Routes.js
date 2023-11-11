@@ -9,6 +9,8 @@ import Perfil from "../screens/Perfil";
 import Explorar from "../screens/Explorar";
 import ManageRefeicao from "../screens/ManageRefeicao";
 import HomeCalendar from "../screens/HomeCalendar";
+import ManageAlimento from "../screens/ManageAlimento";
+import SearchAlimento from "../screens/SearchAlimento";
 
 const Stack = createNativeStackNavigator();
 const BottomTab = createBottomTabNavigator();
@@ -62,6 +64,14 @@ export default function Routes() {
             <Stack.Screen
                 name="ManageRefeicao"
                 component={ManageRefeicao}
+            />
+            <Stack.Screen
+                name="ManageAlimento"
+                component={ManageAlimento}
+            />
+            <Stack.Screen
+                name="SearchAlimento"
+                component={SearchAlimento}
             />
             <Stack.Screen
                 name="HomeCalendar"
