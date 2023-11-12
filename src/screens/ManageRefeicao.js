@@ -148,7 +148,7 @@ const styles = StyleSheet.create({
         right: '7%',
     },
     button: {
-        borderRadius: 30,
+        // borderRadius: 15,
     },
     fallbackContainer: {
         flex: 1,

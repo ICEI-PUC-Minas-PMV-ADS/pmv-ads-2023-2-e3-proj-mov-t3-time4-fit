@@ -22,7 +22,7 @@ function RefeicaoItem({id, idUsuario, nome, horario, data, calorias}) {
                 {calorias > 0 && <Text>{calorias} kcal</Text>}
             </View>
             <View style={styles.icon}>
-                <IconButton icon={'add'} size={36} color={'white'} onPress={addRefeicaoHandler}/>
+                <IconButton icon={'add'} size={28} color={'white'} onPress={addRefeicaoHandler}/>
             </View>
         </View>
     )
