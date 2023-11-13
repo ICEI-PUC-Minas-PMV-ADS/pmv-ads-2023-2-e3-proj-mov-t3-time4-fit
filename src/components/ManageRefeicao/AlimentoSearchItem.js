@@ -2,28 +2,50 @@ import {StyleSheet, Text, View} from "react-native";
 import IconButton from "../ui/IconButton";
 import {GlobalStyles} from "../../constants/styles";
 import {useNavigation} from "@react-navigation/native";
+import {useContext, useState} from "react";
+import ModalAlimentoItem from "./ModalAlimentoItem";
+import {RefeicoesDiariasContext} from "../../store/refeicoes-diarias-context";
+import {storeRefeicaoDiaria} from "../../gateway/http-refeicoes-diarias";
 
 function AlimentoSearchItem({id, nome, calorias, quantidadeBase, unidade, unidades, idRefeicao, idUsuario, data}) {
+    const [isModalVisible, setIsModalVisible] = useState(false);
+
     const navigation = useNavigation();
+    const refeicoesDiariasCtx = useContext(RefeicoesDiariasContext);
 
     function addAlimentoHandler() {
-        navigation.navigate('ManageAlimento', {
-            id: id,
-            nome: nome,
-            calorias: calorias,
-            quantidadeBase: quantidadeBase,
-            unidade: unidade,
-            unidades: unidades,
+        setIsModalVisible(true);
+    }
+
+    function closeModalHandler() {
+        setIsModalVisible(false);
+    }
+
+    async function saveAlimentoHandler(quantidade) {
+        let caloriasRefeicao = (quantidade / quantidadeBase) * calorias;
+        let unidadeRefeicao = caloriasRefeicao > 1 ? unidades : unidade;
+
+        const refeicaoDiaria = {
             idRefeicao: idRefeicao,
             idUsuario: idUsuario,
             data: data,
-        });
+            comida: nome,
+            quantidade: quantidade,
+            calorias: caloriasRefeicao,
+            unidade: unidadeRefeicao,
+        };
+
+        try {
+            const id = await storeRefeicaoDiaria(refeicaoDiaria);
+            refeicoesDiariasCtx.addRefeicaoDia({...refeicaoDiaria, id: id});
+        } catch (error) {
+            console.log(error);
+        } finally {
+            navigation.goBack();
+        }
     }
 
-    let unidadeUsada = unidade;
-    if (quantidadeBase > 1) {
-        unidadeUsada = unidades
-    }
+    let unidadeUsada = quantidadeBase > 1 ? unidades : unidade;
 
     return (
         <View style={styles.container}>
@@ -39,6 +61,20 @@ function AlimentoSearchItem({id, nome, calorias, quantidadeBase, unidade, unidad
                     style={styles.button}
                     onPress={addAlimentoHandler}/>
             </View>
+            <ModalAlimentoItem
+                isVisible={isModalVisible}
+                onClose={closeModalHandler}
+                onSave={saveAlimentoHandler}
+                id={id}
+                nome={nome}
+                calorias={calorias}
+                quantidadeBase={quantidadeBase}
+                unidade={unidade}
+                unidades={unidades}
+                idRefeicao={idRefeicao}
+                idUsuario={idUsuario}
+                data={data}
+            />
         </View>
     )
 }
