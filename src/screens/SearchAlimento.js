@@ -86,7 +86,6 @@ function SearchAlimento({navigation, route}) {
             <FlatList
                 data={alimentos}
                 renderItem={alimento => {
-                    console.log(alimento);
                     return (
                         <AlimentoSearchItem {...alimento.item} idRefeicao={idRefeicao} idUsuario={idUsuario} data={data} />
                     )

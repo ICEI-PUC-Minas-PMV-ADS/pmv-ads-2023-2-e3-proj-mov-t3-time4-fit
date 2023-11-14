@@ -7,7 +7,8 @@ import ModalAlimentoItem from "./ModalAlimentoItem";
 import {RefeicoesDiariasContext} from "../../store/refeicoes-diarias-context";
 import {storeRefeicaoDiaria} from "../../gateway/http-refeicoes-diarias";
 
-function AlimentoSearchItem({id, nome, calorias, quantidadeBase, unidade, unidades, idRefeicao, idUsuario, data}) {
+function AlimentoSearchItem({id, nome, calorias, quantidadeBase, unidade, unidades,
+                                unidadeAgnostica, idRefeicao, idUsuario, data}) {
     const [isModalVisible, setIsModalVisible] = useState(false);
 
     const navigation = useNavigation();
@@ -21,21 +22,22 @@ function AlimentoSearchItem({id, nome, calorias, quantidadeBase, unidade, unidad
         setIsModalVisible(false);
     }
 
-    async function saveAlimentoHandler(quantidade) {
-        let caloriasRefeicao = (quantidade / quantidadeBase) * calorias;
-        let unidadeRefeicao = caloriasRefeicao > 1 ? unidades : unidade;
-
-        const refeicaoDiaria = {
-            idRefeicao: idRefeicao,
-            idUsuario: idUsuario,
-            data: data,
-            comida: nome,
-            quantidade: quantidade,
-            calorias: caloriasRefeicao,
-            unidade: unidadeRefeicao,
-        };
-
+    async function saveAlimentoHandler(quantidadeString) {
         try {
+            let quantidade = parseFloat(quantidadeString.replace(',', '.'));
+            let caloriasRefeicao = parseFloat(((quantidade / quantidadeBase) * calorias).toFixed(2));
+            let unidadeRefeicao = caloriasRefeicao > 1 ? unidades : unidade;
+
+            const refeicaoDiaria = {
+                idRefeicao: idRefeicao,
+                idUsuario: idUsuario,
+                data: data,
+                comida: nome,
+                quantidade: quantidade,
+                calorias: caloriasRefeicao,
+                unidade: unidadeRefeicao,
+            };
+
             const id = await storeRefeicaoDiaria(refeicaoDiaria);
             refeicoesDiariasCtx.addRefeicaoDia({...refeicaoDiaria, id: id});
         } catch (error) {
@@ -65,15 +67,10 @@ function AlimentoSearchItem({id, nome, calorias, quantidadeBase, unidade, unidad
                 isVisible={isModalVisible}
                 onClose={closeModalHandler}
                 onSave={saveAlimentoHandler}
-                id={id}
                 nome={nome}
                 calorias={calorias}
                 quantidadeBase={quantidadeBase}
-                unidade={unidade}
-                unidades={unidades}
-                idRefeicao={idRefeicao}
-                idUsuario={idUsuario}
-                data={data}
+                unidade={unidadeAgnostica}
             />
         </View>
     )
