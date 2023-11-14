@@ -3,6 +3,14 @@ export function getFormattedDate(date) {
     return dateAux.toISOString().slice(0, 10);
 }
 
+export function getFormattedDayMonth(day) {
+    let dateAux = new Date(day);
+    let date = new Date(dateAux.getTime() + dateAux.getTimezoneOffset() * 60000);
+
+    return date.toLocaleDateString('pt-BR', {day: 'numeric', month: 'short'})
+        .replace(' de ', '/').replace('.', '');
+}
+
 export function getFormattedDatePretty(day) {
     let today = new Date();
     let dateAux = new Date(day);

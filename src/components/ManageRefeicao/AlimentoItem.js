@@ -1,34 +1,31 @@
 import {StyleSheet, Text, View} from "react-native";
 import IconButton from "../ui/IconButton";
-import {useNavigation} from "@react-navigation/native";
 import {GlobalStyles} from "../../constants/styles";
 
-function RefeicaoItem({id, idUsuario, nome, horario, data, calorias}) {
-    const navigation = useNavigation();
-
-    function addRefeicaoHandler() {
-        navigation.navigate('ManageRefeicao', {
-            idRefeicao: id,
-            idUsuario: idUsuario,
-            data: data,
-        });
+function AlimentoItem({id, comida, quantidade, unidade, calorias, onDelete}) {
+    function removeAlimentoHandler() {
+        onDelete(id);
     }
 
     return (
         <View style={styles.container}>
             <View style={styles.texts}>
-                <Text>{nome}</Text>
-                <Text>{horario}</Text>
-                {calorias > 0 && <Text>{calorias} kcal</Text>}
+                <Text>{comida}</Text>
+                <Text>{quantidade} {unidade} - {calorias} kcal</Text>
             </View>
             <View style={styles.icon}>
-                <IconButton icon={'add'} size={28} color={'white'} onPress={addRefeicaoHandler}/>
+                <IconButton
+                    icon={'trash'}
+                    size={28}
+                    color={GlobalStyles.colors.text50}
+                    style={styles.button}
+                    onPress={removeAlimentoHandler}/>
             </View>
         </View>
     )
 }
 
-export default RefeicaoItem;
+export default AlimentoItem;
 
 const styles = StyleSheet.create({
     container: {
@@ -47,4 +44,7 @@ const styles = StyleSheet.create({
     icon: {
         justifyContent: 'center',
     },
+    button: {
+        backgroundColor: GlobalStyles.colors.error,
+    }
 })

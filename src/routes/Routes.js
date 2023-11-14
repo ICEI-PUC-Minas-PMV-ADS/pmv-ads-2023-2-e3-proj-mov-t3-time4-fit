@@ -9,12 +9,14 @@ import Perfil from "../screens/Perfil";
 import Explorar from "../screens/Explorar";
 import ManageRefeicao from "../screens/ManageRefeicao";
 import HomeCalendar from "../screens/HomeCalendar";
+import SearchAlimento from "../screens/SearchAlimento";
 
 const Stack = createNativeStackNavigator();
 const BottomTab = createBottomTabNavigator();
 
 function BottomTabNavigator() {
     return (
+        // TODO: Alterar o initialRoute
         <BottomTab.Navigator initialRouteName={"Home"}>
             <BottomTab.Screen
                 name="Home"
@@ -38,7 +40,7 @@ function BottomTabNavigator() {
 
 export default function Routes() {
     return (
-        <Stack.Navigator initialRouteName={"Welcome"}>
+        <Stack.Navigator initialRouteName={"BottomTabNavigator"}>
             <Stack.Screen
                 name="Welcome"
                 component={Welcome}
@@ -64,12 +66,16 @@ export default function Routes() {
                 component={ManageRefeicao}
             />
             <Stack.Screen
+                name="SearchAlimento"
+                component={SearchAlimento}
+            />
+            <Stack.Screen
                 name="HomeCalendar"
                 component={HomeCalendar}
                 options={{
                     headerShown: false,
                     presentation: "modal"
-            }}
+                }}
             />
         </Stack.Navigator>
     )
