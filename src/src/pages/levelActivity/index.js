@@ -41,7 +41,7 @@ export default function Objective() {
         onPress={ () => navigation.navigate('levelActivity')}
         >
             <Text style={styles.principalText}><Ionicons name="happy-outline" size={24} color="yellow" /> Moderado</Text>
-            <Text>Trabalho pesado e/ou atividades físicas regulares</Text>
+            <Text>Trabalho pesado e/ou faço atividades físicas regulares</Text>
         </TouchableOpacity>
 
         <TouchableOpacity style={styles.buttonText}
