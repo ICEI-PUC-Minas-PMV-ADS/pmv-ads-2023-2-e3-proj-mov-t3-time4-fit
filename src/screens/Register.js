@@ -1,8 +1,7 @@
 import React from 'react';
-import { View, Text, StyleSheet, TextInput, TouchableOpacity } from 'react-native';
-import {useNavigation} from '@react-navigation/native'
+import {StyleSheet, Text, TextInput, TouchableOpacity, View} from 'react-native';
 import * as Animatable from 'react-native-animatable'
-import {useForm, Controller} from 'react-hook-form'
+import {Controller, useForm} from 'react-hook-form'
 import {yupResolver} from '@hookform/resolvers/yup'
 import * as yup from 'yup'
 
@@ -15,8 +14,7 @@ const schema = yup.object({
 
 
 
-export default function Register(){
-    const navigation = useNavigation();
+function Register({navigation}){
 
     const {control, handleSubmit, formState:{errors}} = useForm({
         resolver:yupResolver(schema)
@@ -95,7 +93,7 @@ export default function Register(){
                 {errors.senha && <Text style={styles.labelError}>{errors.senha?.message}</Text>}
 
                
-                <TouchableOpacity onPress={ () => navigation.navigate('Objective')}style={styles.button}>
+                <TouchableOpacity onPress={ () => navigation.navigate('BottomTabNavigator')} style={styles.button}>
                     <Text style={styles.buttonText}>Finalizar Cadastro</Text>    
                 </TouchableOpacity>
                 
@@ -105,8 +103,9 @@ export default function Register(){
     )
 }
 
-const styles = StyleSheet.create({
+export default Register;
 
+const styles = StyleSheet.create({
     container:{
         flex:1,
         backgroundColor: 'white'
