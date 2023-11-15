@@ -10,6 +10,7 @@ import Explorar from "../screens/Explorar";
 import ManageRefeicao from "../screens/ManageRefeicao";
 import HomeCalendar from "../screens/HomeCalendar";
 import SearchAlimento from "../screens/SearchAlimento";
+import HomeVisitor from "../screens/HomeVisitor";
 
 const Stack = createNativeStackNavigator();
 const BottomTab = createBottomTabNavigator();
@@ -29,6 +30,9 @@ function BottomTabNavigator() {
             <BottomTab.Screen
                 name="Explorar"
                 component={Explorar}
+                options={{
+                    headerShown: false,
+                }}
             />
             <BottomTab.Screen
                 name="Perfil"
@@ -76,6 +80,10 @@ export default function Routes() {
                     headerShown: false,
                     presentation: "modal"
                 }}
+            />
+            <Stack.Screen
+                name={"HomeVisitor"}
+                component={HomeVisitor}
             />
         </Stack.Navigator>
     )

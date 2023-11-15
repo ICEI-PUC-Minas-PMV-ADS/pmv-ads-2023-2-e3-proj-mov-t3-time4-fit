@@ -131,6 +131,8 @@ const styles = StyleSheet.create({
         paddingVertical: 25,
         paddingHorizontal: '5%',
         marginBottom: 20,
+        borderBottomStartRadius: 24,
+        borderBottomEndRadius: 24,
     },
     searchContainer: {
         flex: 1

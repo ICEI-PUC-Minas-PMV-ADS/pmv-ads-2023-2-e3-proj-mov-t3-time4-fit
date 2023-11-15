@@ -13,8 +13,10 @@ export async function fetchUsuario(id) {
     return response;
 }
 
-export async function fetchUsuarios() {
-    const {data: response} = await axios.get(BACKEND_URL);
+export async function fetchUsuarios(nomeCompleto, id) {
+    const {data: response} =
+        await axios.get(BACKEND_URL +
+            `?nomeCompleto_like=${nomeCompleto}&_sort=nomeCompleto&publico=true&id_ne=${id}`);
     return response;
 }
 
