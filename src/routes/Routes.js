@@ -17,19 +17,31 @@ import SearchAlimento from "../screens/SearchAlimento";
 import HomeVisitor from "../screens/HomeVisitor";
 import {useCallback, useContext, useEffect, useState} from "react";
 import {AuthContext} from "../store/auth-context";
+import {MaterialCommunityIcons} from "@expo/vector-icons";
+import {GlobalStyles} from "../constants/styles";
 
 const Stack = createNativeStackNavigator();
 const BottomTab = createBottomTabNavigator();
 
 function BottomTabNavigator() {
     return (
-        <BottomTab.Navigator initialRouteName={"Home"}>
+        <BottomTab.Navigator initialRouteName={"Home"}
+                             screenOptions={() => ({
+                                 tabBarStyle: {backgroundColor: GlobalStyles.colors.text50},
+                                 tabBarLabelStyle: {fontSize: 13, fontWeight: 'bold'},
+                                 tabBarActiveTintColor: GlobalStyles.colors.primary,
+                                 tabBarInactiveTintColor: GlobalStyles.colors.text100,
+                             })}
+        >
             <BottomTab.Screen
                 name="Home"
                 component={Home}
                 options={{
                     headerShown: false,
                     tabBarLabel: "Diário",
+                    tabBarIcon: ({color, size}) => (
+                        <MaterialCommunityIcons name="food-apple" color={color} size={size}/>
+                    ),
                 }}
             />
             <BottomTab.Screen
@@ -37,11 +49,20 @@ function BottomTabNavigator() {
                 component={Explorar}
                 options={{
                     headerShown: false,
+                    tabBarIcon: ({color, size}) => (
+                        <MaterialCommunityIcons name="magnify" color={color} size={size}/>
+                    ),
                 }}
             />
             <BottomTab.Screen
                 name="Perfil"
                 component={Perfil}
+                options={{
+                    headerShown: false,
+                    tabBarIcon: ({color, size}) => (
+                        <MaterialCommunityIcons name="account" color={color} size={size}/>
+                    ),
+                }}
             />
         </BottomTab.Navigator>
     )
