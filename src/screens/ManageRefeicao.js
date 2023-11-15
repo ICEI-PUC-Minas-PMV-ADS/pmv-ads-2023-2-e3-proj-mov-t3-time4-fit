@@ -11,6 +11,7 @@ import LoadingOverlay from "../components/ui/LoadingOverlay";
 import {deleteRefeicaoDiaria} from "../gateway/http-refeicoes-diarias";
 import IconButton from "../components/ui/IconButton";
 
+
 function ManageRefeicao({route, navigation}) {
     const [isSubmitting, setIsSubmitting] = useState(false);
 
