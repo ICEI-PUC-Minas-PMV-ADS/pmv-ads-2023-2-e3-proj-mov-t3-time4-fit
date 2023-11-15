@@ -2,6 +2,7 @@ import React from 'react';
 import {StyleSheet, Text, TextInput, TouchableOpacity, View} from 'react-native';
 
 import * as Animatable from 'react-native-animatable'
+import {GlobalStyles} from "../constants/styles";
 
 function SignIn({navigation}) {
     return (
@@ -41,7 +42,7 @@ export default SignIn;
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: 'white'
+        backgroundColor: GlobalStyles.colors.background,
     },
     containerHeader: {
         marginTop: '14%',
@@ -68,13 +69,13 @@ const styles = StyleSheet.create({
     input: {
         padding: 9,
         borderRadius: 20,
-        backgroundColor: '#F3F6F6',
+        backgroundColor: GlobalStyles.colors.input,
         height: 40,
         marginBottom: 12,
         fontSize: 16,
     },
     button: {
-        backgroundColor: '#7D9C3E',
+        backgroundColor: GlobalStyles.colors.primary,
         width: '40%',
         borderRadius: 100,
         paddingVertical: 8,
@@ -84,12 +85,12 @@ const styles = StyleSheet.create({
         alignSelf: 'center'
     },
     buttonText: {
-        color: 'black',
+        color: GlobalStyles.colors.text800,
         fontSize: 18,
         fontWeight: "bold"
     },
     buttonRegister: {
-        backgroundColor: '#F3F6F6',
+        backgroundColor: GlobalStyles.colors.input,
         width: '40%',
         borderRadius: 100,
         paddingVertical: 8,
@@ -97,11 +98,9 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         alignSelf: 'center'
-        //marginTop: 
-        //alignSelf: 
     },
     registerText: {
-        color: '#a1a1a1',
+        color: GlobalStyles.colors.text100,
         fontWeight: "bold"
     }
 })

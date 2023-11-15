@@ -3,9 +3,9 @@ import {createContext, useReducer} from "react";
 export const RefeicoesDiariasContext = createContext({
     refeicoesDiarias: [],
     setRefeicoesDiarias: (refeicoesDiarias) => {},
-    addRefeicaoDia: ({id, idUsuario, data, idRefeicao, comida, quantidade, calorias}) => {},
+    addRefeicaoDia: ({id, idUsuario, data, idRefeicao, comida, quantidade, unidade, calorias}) => {},
     removeRefeicaoDia: (id) => {},
-    updateRefeicaoDia: (id, {idUsuario, data, idRefeicao, comida, quantidade, calorias}) => {},
+    updateRefeicaoDia: (id, {idUsuario, data, idRefeicao, comida, quantidade, unidade, calorias}) => {},
 });
 
 function refeicoesDiariasReducer(state, action) {
