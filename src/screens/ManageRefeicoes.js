@@ -63,6 +63,15 @@ export default function ManageRefeicoes() {
         }
     }
 
+    async function handleUpdate(refeicaoData, id) {
+        try {
+            const id = await storeRefeicao(refeicao);
+            refeicaoCtx.updateRefeicao({...refeicao, id: id});
+        } catch (error) {
+            console.error("Erro ao salvar:", error);
+        }
+    }
+
     return (
         <SafeAreaView style={styles.container}>
             <View style={styles.content}>
@@ -87,6 +96,7 @@ export default function ManageRefeicoes() {
                     handleClose={() => setVisibleModal(false)}
                     handleDelete={handleDelete}
                     valorDefault={itemSelecionado}
+                    handleUpdate={handleUpdate}
                 />
             </Modal>
 
