@@ -25,7 +25,7 @@ function AlimentoSearchItem({id, nome, calorias, quantidadeBase, unidade, unidad
     async function saveAlimentoHandler(quantidadeString) {
         try {
             let quantidade = parseFloat(quantidadeString.replace(',', '.'));
-            let caloriasRefeicao = parseFloat(((quantidade / quantidadeBase) * calorias).toFixed(2));
+            let caloriasRefeicao = parseFloat(((quantidade / quantidadeBase) * calorias).toFixed());
             let unidadeRefeicao = caloriasRefeicao > 1 ? unidades : unidade;
 
             const refeicaoDiaria = {

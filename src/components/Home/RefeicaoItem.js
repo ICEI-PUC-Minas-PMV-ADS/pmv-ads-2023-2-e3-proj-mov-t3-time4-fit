@@ -3,7 +3,7 @@ import IconButton from "../ui/IconButton";
 import {useNavigation} from "@react-navigation/native";
 import {GlobalStyles} from "../../constants/styles";
 
-function RefeicaoItem({id, idUsuario, nome, horario, data, calorias}) {
+function RefeicaoItem({id, idUsuario, nome, horario, data, calorias, hideAddButton = false}) {
     const navigation = useNavigation();
 
     function addRefeicaoHandler() {
@@ -12,6 +12,18 @@ function RefeicaoItem({id, idUsuario, nome, horario, data, calorias}) {
             idUsuario: idUsuario,
             data: data,
         });
+    }
+
+    if (hideAddButton) {
+        return (
+            <View style={styles.container}>
+                <View style={styles.texts}>
+                    <Text>{nome}</Text>
+                    <Text>{horario}</Text>
+                    {calorias > 0 && <Text>{calorias} kcal</Text>}
+                </View>
+            </View>
+        )
     }
 
     return (
