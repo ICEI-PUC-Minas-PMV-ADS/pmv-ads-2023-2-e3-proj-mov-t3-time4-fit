@@ -9,7 +9,7 @@ export const AuthContext = createContext({
 });
 
 function AuthContextProvider({children}) {
-    //se quiser salvar mais dados do usuário, pode usar o objeto abaixo
+    //TODO: alterar para null
     const [authToken, setAuthToken] = useState('1')
 
     function authenticate(token) {

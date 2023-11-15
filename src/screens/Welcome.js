@@ -2,6 +2,7 @@ import React from 'react';
 import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 
 import * as Animatable from 'react-native-animatable'
+import {GlobalStyles} from "../constants/styles";
 
 function Welcome({navigation}) {
     return (
@@ -38,7 +39,7 @@ export default Welcome;
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: 'white',
+        backgroundColor: GlobalStyles.colors.background,
     },
     containerLogo: {
         flex: 2,
@@ -61,14 +62,14 @@ const styles = StyleSheet.create({
         alignContent: 'center'
     },
     text: {
-        color: '#a1a1a1',
+        color: GlobalStyles.colors.text100,
         fontWeight: 'bold',
         alignItems: 'center',
         alignContent: 'center'
     },
     button: {
         position: 'absolute',
-        backgroundColor: '#7D9C3E',
+        backgroundColor: GlobalStyles.colors.primary,
         borderRadius: 50,
         paddingVertical: 8,
         width: '60%',
@@ -79,7 +80,7 @@ const styles = StyleSheet.create({
     },
     buttonText: {
         fontSize: 16,
-        color: 'black',
+        color: GlobalStyles.colors.text800,
         fontWeight: 'bold'
     }
 })

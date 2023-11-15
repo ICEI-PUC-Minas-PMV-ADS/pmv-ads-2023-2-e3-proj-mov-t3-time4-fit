@@ -1,46 +1,48 @@
-import { useContext, useState } from "react"
-import { FlatList, Modal, SafeAreaView, StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import {useContext, useLayoutEffect, useState} from "react"
+import {FlatList, Modal, SafeAreaView, StyleSheet, View} from "react-native";
+import {ModalEditar} from "../components/ManageRefeicoes/ModalEditar";
+import {ModalAdd} from "../components/ManageRefeicoes/ModalAdd";
+import {RefeicaoContext} from "../store/refeicao-context";
+import {AuthContext} from "../store/auth-context";
+import {atualizarRefeicao, deleteRefeicao, storeRefeicao} from "../gateway/http-refeicoes";
+import {deleteRefeicaoDiaria, fetchRefeicoesDiariasPorRefeicao} from "../gateway/http-refeicoes-diarias";
+import {RefeicoesDiariasContext} from "../store/refeicoes-diarias-context";
+import LoadingOverlay from "../components/ui/LoadingOverlay";
+import RefeicaoItem from "../components/ManageRefeicoes/RefeicaoItem";
+import {GlobalStyles} from "../constants/styles";
+import IconButton from "../components/ui/IconButton";
 
-import { AntDesign, Entypo } from '@expo/vector-icons';
-import { ModalEditar } from "../components/ManageRefeicoes/ModalEditar";
-import { ModalAdd } from "../components/ManageRefeicoes/ModalAdd";
-import { RefeicaoContext } from "../store/refeicao-context";
-import { AuthContext } from "../store/auth-context";
-import { deleteRefeicao, storeRefeicao, atualizarRefeicao } from "../gateway/http-refeicoes";
 
-
-export default function ManageRefeicoes() {
+export default function ManageRefeicoes({navigation}) {
     const [itemSelecionado, setItemSelecionado] = useState(null);
+    const [isSubmitting, setIsSubmitting] = useState(false);
+    const [visibleModal, setVisibleModal] = useState(false);
+    const [modalVisible, setModalVisible] = useState(false);
 
     const refeicaoCtx = useContext(RefeicaoContext);
+    const refeicoesDiariasCtx = useContext(RefeicoesDiariasContext);
     const authCtx = useContext(AuthContext);
 
     const refeicoes = refeicaoCtx.refeicoes.sort((a, b) => a.horario.localeCompare(b.horario));
     const idUsuario = authCtx.token;
 
-    const Item = ({ id, nome, horario }) => (
-        <View style={styles.item}>
-            <View>
-                <Text style={styles.itemTitle}>{nome}</Text>
-                <Text style={styles.itemTitle}>{horario}</Text>
-            </View>
-            <TouchableOpacity style={styles.iconButton}
-                onPress={() => {
-                    setVisibleModal(true);
-                    setItemSelecionado({ id, nome, horario });
-                }}>
-                <Entypo name="dots-three-vertical" size={15} color="black" />
-            </TouchableOpacity>
-        </View>
-    );
+    useLayoutEffect(() => {
+        navigation.setOptions({
+            statusBarColor: GlobalStyles.colors.primary,
+            headerTintColor: GlobalStyles.colors.text50,
+            headerShadowVisible: false,
+            headerStyle: {
+                backgroundColor: GlobalStyles.colors.primary,
+            },
+        })
+    }, [navigation]);
 
-    const [visibleModal, setVisibleModal] = useState(false);
-    const [modalVisible, setModalVisible] = useState(false);
     const handleCloseModal = () => {
         setModalVisible(false);
     };
 
     async function handleSalvar(refeicaoData) {
+        setIsSubmitting(true);
         const refeicao = {
             nome: refeicaoData.food,
             horario: refeicaoData.time,
@@ -51,19 +53,39 @@ export default function ManageRefeicoes() {
             refeicaoCtx.addRefeicao({ ...refeicao, id: id });
         } catch (error) {
             console.error("Erro ao salvar:", error);
+        } finally {
+            setIsSubmitting(false);
         }
     }
 
-    async function handleDelete(id) {
+    async function handleDeleteCascade(idRefeicao) {
         try {
-            await deleteRefeicao(id);
-            refeicaoCtx.removeRefeicao(id);
+            const response = await fetchRefeicoesDiariasPorRefeicao(idRefeicao);
+            for (let refeicaoDiaria of response) {
+                await deleteRefeicaoDiaria(refeicaoDiaria.id);
+                refeicoesDiariasCtx.removeRefeicaoDia(refeicaoDiaria.id);
+            }
         } catch (error) {
             console.error("Erro ao deletar:", error);
         }
     }
 
+    async function handleDelete(id) {
+        setIsSubmitting(true);
+        try {
+            await handleDeleteCascade(id);
+            await deleteRefeicao(id);
+            refeicaoCtx.removeRefeicao(id);
+        } catch (error) {
+            console.error("Erro ao deletar:", error);
+        } finally {
+            setIsSubmitting(false);
+        }
+    }
+
     async function handleUpdate(id, refeicaoData) {
+        setIsSubmitting(true);
+
         const refeicao = {
             nome: refeicaoData.nome,
             horario: refeicaoData.horario,
@@ -72,26 +94,40 @@ export default function ManageRefeicoes() {
     
         try {
             await atualizarRefeicao(id, refeicao);
-            refeicaoCtx.updateRefeicao({ ...refeicao, id: id });
+            refeicaoCtx.updateRefeicao(id, { ...refeicao });
             setModalVisible(false);
         } catch (error) {
             console.error("Erro ao atualizar:", error);
+        } finally {
+            setIsSubmitting(false);
         }
     }
+
+    if (isSubmitting) {
+        return <LoadingOverlay />
+    }
+
     return (
         <SafeAreaView style={styles.container}>
             <View style={styles.content}>
                 <FlatList
                     style={styles.flatlist}
                     data={refeicoes}
-                    renderItem={({ item }) => <Item {...item} />}
+                    renderItem={({ item }) => <RefeicaoItem {...item} onPress={() => {
+                        setVisibleModal(true);
+                        setItemSelecionado({...item});
+                    }}/>}
                     keyExtractor={(item) => item.id}
                 />
             </View>
 
-            <TouchableOpacity style={styles.addButton} onPress={() => setModalVisible(true)}>
-                <AntDesign name="plus" size={24} color="#fff" />
-            </TouchableOpacity>
+            <View style={styles.addButton}>
+                <IconButton icon={'add'}
+                            size={42}
+                            color={GlobalStyles.colors.text50}
+                            style={styles.button}
+                            onPress={() => setModalVisible(true)}/>
+            </View>
 
             <Modal
                 transparent={true}
@@ -115,8 +151,6 @@ export default function ManageRefeicoes() {
             </Modal>
 
         </SafeAreaView>
-
-
     );
 }
 
@@ -124,7 +158,7 @@ export default function ManageRefeicoes() {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: "#DCDCDC",
+        backgroundColor: GlobalStyles.colors.background,
     },
     header: {
         paddingTop: 40,
@@ -137,57 +171,22 @@ const styles = StyleSheet.create({
     },
     title: {
         fontSize: 18,
-        color: "#fff",
+        color: GlobalStyles.colors.text50,
         fontWeight: 'bold',
         marginLeft: 15,
     },
     content: {
         flex: 1,
-        backgroundColor: "#DCDCDC",
-        padding: 5,
+        marginTop: 20,
+        marginHorizontal: '5%',
     },
     flatlist: {
         flex: 1,
         paddingTop: 1,
     },
-    item: {
-        backgroundColor: "#FFF",
-        flexDirection: 'row',
-        alignItems: 'center',
-        justifyContent: 'space-between',
-        borderBottomWidth: 1,
-        borderBottomColor: '#ccc',
-        padding: 10,
-        paddingBottom: 15,
-        marginVertical: 3,
-        borderRadius: 5,
-    },
-    itemTitle: {
-        fontSize: 16,
-        paddingTop: 1,
-    },
-    button: {
-        marginRight: 35,
-    },
     addButton: {
         position: 'absolute',
-        bottom: 80,
-        right: 25,
-        backgroundColor: "#7D9C3E",
-        width: 50,
-        height: 50,
-        borderRadius: 25,
-        justifyContent: 'center',
-        alignItems: 'center',
-    },
-    iconButton: {
-        padding: 10,
-    },
-    iconContainer: {
-        position: 'absolute',
-        bottom: 7,
-        left: 10,
-        marginLeft: 5,
-        paddingLeft: 5,
+        bottom: 60,
+        right: '7%',
     },
 });

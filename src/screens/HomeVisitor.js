@@ -1,50 +1,34 @@
-import {useContext, useEffect, useLayoutEffect, useState} from 'react';
+import {useEffect, useLayoutEffect, useState} from 'react';
 import {Pressable, ScrollView, StyleSheet, Text, View} from 'react-native';
-
-import {AuthContext} from "../store/auth-context";
 import CaloriasDiario from "../components/Home/CaloriasDiario";
 import RefeicoesList from "../components/Home/RefeicoesList";
-import {RefeicaoContext} from "../store/refeicao-context";
 import LoadingOverlay from "../components/ui/LoadingOverlay";
 import {fetchRefeicoes} from "../gateway/http-refeicoes";
 import {fetchUsuario} from "../gateway/http-usuarios";
 import {fetchRefeicoesDiarias} from "../gateway/http-refeicoes-diarias";
 import {getFormattedDate, getFormattedDatePretty} from "../util/date";
-import {UsuarioContext} from "../store/usuario-context";
-import {RefeicoesDiariasContext} from "../store/refeicoes-diarias-context";
 import {Ionicons} from "@expo/vector-icons";
 import {GlobalStyles} from "../constants/styles";
 
-function Home({navigation, route}) {
+function HomeVisitor({navigation, route}) {
+    const {idUsuario, nome, metaCalorica} = route.params;
+
     const [isLoading, setIsLoading] = useState(true);
-    const [selectedDate, setSelectedDate] = useState(getFormattedDate(new Date));
+    const [refeicoes, setRefeicoes] = useState([]);
+    const [refeicoesDiarias, setRefeicoesDiarias] = useState([]);
 
-    const refeicaoCtx = useContext(RefeicaoContext);
-    const refeicoesDiariasCtx = useContext(RefeicoesDiariasContext);
-    const usuarioCtx = useContext(UsuarioContext);
-    const authCtx = useContext(AuthContext);
-
-    useEffect(() => {
-        setIsLoading(true);
-        if (route.params?.selectedDate) {
-            setSelectedDate(route.params.selectedDate);
-        }
-    }, [route.params?.selectedDate]);
+    const today = getFormattedDate(new Date);
 
     useLayoutEffect(() => {
-        async function getUsuario() {
-            try {
-                const usuario = await fetchUsuario(authCtx.token);
-                usuarioCtx.fetchUsuario(usuario);
-            } catch (error) {
-                console.log(error);
-            }
-        }
+        navigation.setOptions({
+            title: nome,
+            headerShadowVisible: false,
+        })
 
         async function getRefeicoes() {
             try {
-                const refeicoes = await fetchRefeicoes(authCtx.token);
-                refeicaoCtx.setRefeicoes(refeicoes);
+                const refeicoes = await fetchRefeicoes(idUsuario);
+                setRefeicoes(refeicoes);
             } catch (error) {
                 console.log(error);
             }
@@ -52,8 +36,8 @@ function Home({navigation, route}) {
 
         async function getRefeicoesDiarias() {
             try {
-                const refeicoesDiarias = await fetchRefeicoesDiarias(authCtx.token, selectedDate);
-                refeicoesDiariasCtx.setRefeicoesDiarias(refeicoesDiarias);
+                const refeicoesDiarias = await fetchRefeicoesDiarias(idUsuario, today);
+                setRefeicoesDiarias(refeicoesDiarias);
             } catch (error) {
                 console.log(error);
             }
@@ -61,39 +45,23 @@ function Home({navigation, route}) {
 
         async function fetchData() {
             setIsLoading(true);
-            await Promise.all([getUsuario(), getRefeicoes(), getRefeicoesDiarias()]);
+            await Promise.all([getRefeicoes(), getRefeicoesDiarias()]);
         }
 
         fetchData().then(() => setIsLoading(false));
-    }, [selectedDate]);
+    }, [idUsuario, today, nome, navigation]);
 
     if (isLoading) {
         return <LoadingOverlay/>
     }
 
-    function calendarHandler() {
-        navigation.navigate('HomeCalendar', {
-            current: selectedDate,
-        });
-    }
-
-    function maisOpcoesHandler() {
-        navigation.navigate('ManageRefeicoes');
-    }
-
-    const refeicoesDiarias = refeicoesDiariasCtx.refeicoesDiarias;
-
-    const caloriasMeta = usuarioCtx.usuario.metaCalorica;
     const caloriasConsumidas = refeicoesDiarias.reduce((total, refeicaoDiaria) => total + refeicaoDiaria.calorias, 0);
 
     return (
         <ScrollView style={styles.container}>
 
-            <View style={styles.calendarioOuterContainer}>
-                <Pressable onPress={calendarHandler} style={styles.calendarioInnerContainer}>
-                    <Text style={styles.textCalendario}>{getFormattedDatePretty(selectedDate)}&nbsp;</Text>
-                    <Ionicons name={'caret-down'} size={16}/>
-                </Pressable>
+            <View style={styles.headerContainer}>
+                <Text style={styles.textHeader}>Hoje</Text>
             </View>
 
             <View style={styles.textoContainer}>
@@ -102,27 +70,28 @@ function Home({navigation, route}) {
 
             <View style={styles.caloriasContainer}>
                 <CaloriasDiario
-                    caloriasMeta={caloriasMeta}
+                    caloriasMeta={metaCalorica}
                     caloriasConsumidas={caloriasConsumidas}/>
             </View>
 
             <View style={styles.textoContainer}>
                 <Text>Refeições</Text>
-                <Text style={styles.textoBotao} onPress={maisOpcoesHandler}>Mais opções</Text>
             </View>
 
             <View style={styles.refeicoesContainer}>
                 <RefeicoesList
-                    refeicoes={refeicaoCtx.refeicoes.sort((a, b) => a.horario.localeCompare(b.horario))}
+                    refeicoes={refeicoes}
                     refeicoesDiarias={refeicoesDiarias}
-                    data={selectedDate}/>
+                    data={today}
+                    isVisitor={true}
+                />
             </View>
 
         </ScrollView>
     );
 }
 
-export default Home;
+export default HomeVisitor;
 
 const styles = StyleSheet.create({
     container: {
@@ -130,17 +99,13 @@ const styles = StyleSheet.create({
         backgroundColor: GlobalStyles.colors.background,
         paddingTop: '10%',
     },
-    calendarioOuterContainer: {
+    headerContainer: {
         justifyContent: 'center',
         alignItems: 'flex-start',
         marginLeft: '7%',
-    },
-    calendarioInnerContainer: {
-        flexDirection: 'row',
-        alignItems: 'center',
         marginBottom: 30,
     },
-    textCalendario: {
+    textHeader: {
         textTransform: 'capitalize',
         fontSize: 24,
         fontWeight: 'bold',

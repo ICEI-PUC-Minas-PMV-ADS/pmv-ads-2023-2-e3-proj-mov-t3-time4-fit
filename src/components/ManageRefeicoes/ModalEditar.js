@@ -1,6 +1,6 @@
-import React, { useState } from "react";
-import { StyleSheet, Text, TextInput, TouchableOpacity, View } from "react-native";
-import { MaterialCommunityIcons, SimpleLineIcons } from '@expo/vector-icons';
+import React, {useState} from "react";
+import {Pressable, StyleSheet, Text, TextInput, View} from "react-native";
+import {MaterialCommunityIcons, SimpleLineIcons} from '@expo/vector-icons';
 
 export function ModalEditar({ handleClose, handleDelete, handleUpdate, valorDefault }) {
     const [food, setFood] = useState(valorDefault.nome);
@@ -37,6 +37,7 @@ export function ModalEditar({ handleClose, handleDelete, handleUpdate, valorDefa
         handleUpdate(valorDefault.id, { nome: food, horario: time });
         handleClose();
     };
+
     return (
         <View style={styles.centeredView}>
             <View style={styles.modalView}>
@@ -62,16 +63,16 @@ export function ModalEditar({ handleClose, handleDelete, handleUpdate, valorDefa
                     </View>
                 </View>
                 <View style={styles.buttonArea}>
-                    <TouchableOpacity style={[styles.buttonSave, { marginRight: 'auto' }]} onPress={ExcluirRefeicao}>
+                    <Pressable style={[styles.buttonSave, { marginRight: 'auto' }]} onPress={ExcluirRefeicao}>
                         <Text style={styles.button}>Excluir</Text>
-                    </TouchableOpacity>
+                    </Pressable>
                     <View style={{ flex: 1 }} />
-                    <TouchableOpacity style={[styles.buttonSave, { marginRight: 10 }]} onPress={handleClose}>
+                    <Pressable style={[styles.buttonSave, { marginRight: 10 }]} onPress={handleClose}>
                         <Text style={styles.button}>Cancelar</Text>
-                    </TouchableOpacity>
-                    <TouchableOpacity style={[styles.buttonSave, { marginLeft: 10 }]} onPress={AtualizarRefeicao}>
+                    </Pressable>
+                    <Pressable style={[styles.buttonSave, { marginLeft: 10 }]} onPress={AtualizarRefeicao}>
                         <Text style={styles.button}>Salvar</Text>
-                    </TouchableOpacity>
+                    </Pressable>
                 </View>
             </View>
         </View>
@@ -80,15 +81,11 @@ export function ModalEditar({ handleClose, handleDelete, handleUpdate, valorDefa
 
 
 const styles = StyleSheet.create({
-
     centeredView: {
         backgroundColor: "rgba(24, 24, 24, 0.6)",
         flex: 1,
         alignItems: 'center',
         justifyContent: 'center',
-
-
-
     },
     modalView: {
         margin: 30,
@@ -97,14 +94,12 @@ const styles = StyleSheet.create({
         padding: 30,
         alignItems: "center",
     },
-
     modalText: {
         fontSize: 20,
         fontWeight: "bold",
         color: "#000",
         marginBottom: 25,
     },
-
     input: {
         padding: 1,
         paddingBottom: 5,
