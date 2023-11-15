@@ -78,11 +78,7 @@ function Home({navigation, route}) {
     }
 
     function maisOpcoesHandler() {
-        navigation.navigate('ManageRefeicoes', {
-            id: 1,
-            idUsuario: 1,
-            data: selectedDate,
-        });
+        navigation.navigate('ManageRefeicoes');
     }
 
     const refeicoesDiarias = refeicoesDiariasCtx.refeicoesDiarias;
@@ -110,7 +106,6 @@ function Home({navigation, route}) {
                     caloriasConsumidas={caloriasConsumidas}/>
             </View>
 
-            {/*Incluir botão que leva para a tela de editar refeicoes e lembretes*/}
             <View style={styles.textoContainer}>
                 <Text>Refeições</Text>
                 <Text style={styles.textoBotao} onPress={maisOpcoesHandler}>Mais opções</Text>

@@ -97,6 +97,11 @@ function AuthenticatedStack() {
                 name={"HomeVisitor"}
                 component={HomeVisitor}
             />
+            <Stack.Screen
+                name="ManageRefeicoes"
+                component={ManageRefeicoes}
+                options={{ title: 'Gerenciar Refeições' }}
+            />
         </Stack.Navigator>
     );
 }
