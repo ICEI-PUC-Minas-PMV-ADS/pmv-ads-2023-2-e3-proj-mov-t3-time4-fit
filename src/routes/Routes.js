@@ -12,6 +12,7 @@ import Home from "../screens/Home";
 import Perfil from "../screens/Perfil";
 import Explorar from "../screens/Explorar";
 import ManageRefeicao from "../screens/ManageRefeicao";
+import ManageRefeicoes from "../screens/ManageRefeicoes";
 import HomeCalendar from "../screens/HomeCalendar";
 import SearchAlimento from "../screens/SearchAlimento";
 import HomeVisitor from "../screens/HomeVisitor";
@@ -95,6 +96,11 @@ function AuthenticatedStack() {
             <Stack.Screen
                 name={"HomeVisitor"}
                 component={HomeVisitor}
+            />
+            <Stack.Screen
+                name="ManageRefeicoes"
+                component={ManageRefeicoes}
+                options={{ title: 'Gerenciar Refeições' }}
             />
         </Stack.Navigator>
     );

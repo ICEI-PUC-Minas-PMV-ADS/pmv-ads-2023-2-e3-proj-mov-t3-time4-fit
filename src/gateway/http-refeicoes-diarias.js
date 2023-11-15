@@ -13,6 +13,11 @@ export async function fetchRefeicoesDiarias(idUsuario, date) {
     return response;
 }
 
+export async function fetchRefeicoesDiariasPorRefeicao(idRefeicao) {
+    const {data: response} = await axios.get(BACKEND_URL + `?idRefeicao=${idRefeicao}`);
+    return response;
+}
+
 export function deleteRefeicaoDiaria(id) {
     return axios.delete(BACKEND_URL + `/${id}`);
 }
