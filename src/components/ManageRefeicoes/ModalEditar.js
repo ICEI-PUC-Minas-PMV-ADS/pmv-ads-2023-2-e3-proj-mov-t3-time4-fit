@@ -1,21 +1,20 @@
-import React, {useState} from "react";
-import {StyleSheet, Text, TextInput, TouchableOpacity, View} from "react-native";
-import {MaterialCommunityIcons, SimpleLineIcons} from '@expo/vector-icons';
+import React, { useState } from "react";
+import { StyleSheet, Text, TextInput, TouchableOpacity, View } from "react-native";
+import { MaterialCommunityIcons, SimpleLineIcons } from '@expo/vector-icons';
 
-export function ModalEditar({ handleClose,  handleDelete, handleUpdate, valorDefault }) {
+export function ModalEditar({ handleClose, handleDelete, handleUpdate, valorDefault }) {
     const [food, setFood] = useState(valorDefault.nome);
     const [time, setTime] = useState(valorDefault.horario);
-    const [remove,setRemove] = useState("");
     const timeRegex = /^(0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]$/;
 
     const handleFoodChange = (text) => {
         setFood(text);
     };
-
+    
     const handleTimeChange = (text) => {
         let formattedTime = text;
-
-        if (/^([01]?[0-9]|2[0-3]):[0-5][0-9]$/.test(text)) {
+    
+        if (timeRegex.test(text)) {
             formattedTime = text;
         } else if (/^([01]?[0-9]|2[0-3])$/.test(text)) {
             if (text.length === 3) {
@@ -33,12 +32,16 @@ export function ModalEditar({ handleClose,  handleDelete, handleUpdate, valorDef
         handleClose();
     }
 
-
+    const AtualizarRefeicao = () => {
+        console.log(valorDefault);
+        handleUpdate(valorDefault.id, { nome: food, horario: time });
+        handleClose();
+    };
     return (
         <View style={styles.centeredView}>
             <View style={styles.modalView}>
                 <Text style={styles.modalText}>Editar Horário</Text>
-                <View >
+                <View>
                     <View style={styles.timeInput}>
                         <MaterialCommunityIcons name="food-apple-outline" size={24} color="black" style={styles.foodIcon} />
                         <TextInput
@@ -66,7 +69,7 @@ export function ModalEditar({ handleClose,  handleDelete, handleUpdate, valorDef
                     <TouchableOpacity style={[styles.buttonSave, { marginRight: 10 }]} onPress={handleClose}>
                         <Text style={styles.button}>Cancelar</Text>
                     </TouchableOpacity>
-                    <TouchableOpacity style={[styles.buttonSave, { marginLeft: 10 }]} >
+                    <TouchableOpacity style={[styles.buttonSave, { marginLeft: 10 }]} onPress={AtualizarRefeicao}>
                         <Text style={styles.button}>Salvar</Text>
                     </TouchableOpacity>
                 </View>

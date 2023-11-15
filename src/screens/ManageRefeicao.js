@@ -1,5 +1,6 @@
 import {StyleSheet, Text, View} from "react-native";
 
+
 function ManageRefeicao({route, navigation}) {
     const id = route.params?.id;
     const idUsuario = route.params?.idUsuario;

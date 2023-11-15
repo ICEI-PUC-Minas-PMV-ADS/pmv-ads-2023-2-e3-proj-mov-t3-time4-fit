@@ -1,12 +1,12 @@
-import {useContext, useState} from "react"
-import {FlatList, Modal, SafeAreaView, StyleSheet, Text, TouchableOpacity, View} from "react-native";
+import { useContext, useState } from "react"
+import { FlatList, Modal, SafeAreaView, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 
-import {AntDesign, Entypo} from '@expo/vector-icons';
-import {ModalEditar} from "../components/ManageRefeicoes/ModalEditar";
-import {ModalAdd} from "../components/ManageRefeicoes/ModalAdd";
-import {RefeicaoContext} from "../store/refeicao-context";
-import {AuthContext} from "../store/auth-context";
-import {deleteRefeicao, storeRefeicao} from "../gateway/http-refeicoes";
+import { AntDesign, Entypo } from '@expo/vector-icons';
+import { ModalEditar } from "../components/ManageRefeicoes/ModalEditar";
+import { ModalAdd } from "../components/ManageRefeicoes/ModalAdd";
+import { RefeicaoContext } from "../store/refeicao-context";
+import { AuthContext } from "../store/auth-context";
+import { deleteRefeicao, storeRefeicao, atualizarRefeicao } from "../gateway/http-refeicoes";
 
 
 export default function ManageRefeicoes() {
@@ -18,18 +18,18 @@ export default function ManageRefeicoes() {
     const refeicoes = refeicaoCtx.refeicoes.sort((a, b) => a.horario.localeCompare(b.horario));
     const idUsuario = authCtx.token;
 
-    const Item = ({id, nome, horario}) => (
+    const Item = ({ id, nome, horario }) => (
         <View style={styles.item}>
             <View>
                 <Text style={styles.itemTitle}>{nome}</Text>
                 <Text style={styles.itemTitle}>{horario}</Text>
             </View>
             <TouchableOpacity style={styles.iconButton}
-                              onPress={() => {
-                                  setVisibleModal(true);
-                                  setItemSelecionado({id, nome, horario});
-                              }}>
-                <Entypo name="dots-three-vertical" size={15} color="black"/>
+                onPress={() => {
+                    setVisibleModal(true);
+                    setItemSelecionado({ id, nome, horario });
+                }}>
+                <Entypo name="dots-three-vertical" size={15} color="black" />
             </TouchableOpacity>
         </View>
     );
@@ -48,7 +48,7 @@ export default function ManageRefeicoes() {
         }
         try {
             const id = await storeRefeicao(refeicao);
-            refeicaoCtx.addRefeicao({...refeicao, id: id});
+            refeicaoCtx.addRefeicao({ ...refeicao, id: id });
         } catch (error) {
             console.error("Erro ao salvar:", error);
         }
@@ -63,28 +63,34 @@ export default function ManageRefeicoes() {
         }
     }
 
-    async function handleUpdate(refeicaoData, id) {
+    async function handleUpdate(id, refeicaoData) {
+        const refeicao = {
+            nome: refeicaoData.nome,
+            horario: refeicaoData.horario,
+            idUsuario: idUsuario,
+        };
+    
         try {
-            const id = await storeRefeicao(refeicao);
-            refeicaoCtx.updateRefeicao({...refeicao, id: id});
+            await atualizarRefeicao(id, refeicao);
+            refeicaoCtx.updateRefeicao({ ...refeicao, id: id });
+            setModalVisible(false);
         } catch (error) {
-            console.error("Erro ao salvar:", error);
+            console.error("Erro ao atualizar:", error);
         }
     }
-
     return (
         <SafeAreaView style={styles.container}>
             <View style={styles.content}>
                 <FlatList
                     style={styles.flatlist}
                     data={refeicoes}
-                    renderItem={({item}) => <Item {...item}/>}
+                    renderItem={({ item }) => <Item {...item} />}
                     keyExtractor={(item) => item.id}
                 />
             </View>
 
             <TouchableOpacity style={styles.addButton} onPress={() => setModalVisible(true)}>
-                <AntDesign name="plus" size={24} color="#fff"/>
+                <AntDesign name="plus" size={24} color="#fff" />
             </TouchableOpacity>
 
             <Modal
@@ -105,7 +111,7 @@ export default function ManageRefeicoes() {
                 visible={modalVisible}
                 onRequestClose={() => setModalVisible(false)}
             >
-                <ModalAdd handleSalvar={handleSalvar} handleClose={handleCloseModal}/>
+                <ModalAdd handleSalvar={handleSalvar} handleClose={handleCloseModal} />
             </Modal>
 
         </SafeAreaView>
@@ -113,6 +119,7 @@ export default function ManageRefeicoes() {
 
     );
 }
+
 
 const styles = StyleSheet.create({
     container: {

@@ -16,6 +16,6 @@ export function deleteRefeicao(id) {
     return axios.delete(BACKEND_URL + `/${id}`);
 }
 
-export function updateRefeicao(id, refeicaoData) {
+export function atualizarRefeicao(id, refeicaoData) {
     return axios.put(BACKEND_URL + `/${id}`, refeicaoData);
 }
