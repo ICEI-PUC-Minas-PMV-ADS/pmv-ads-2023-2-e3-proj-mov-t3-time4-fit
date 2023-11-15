@@ -1,5 +1,9 @@
 import {createNativeStackNavigator} from "@react-navigation/native-stack"
 import {createBottomTabNavigator} from "@react-navigation/bottom-tabs";
+import {NavigationContainer} from "@react-navigation/native";
+import {View} from "react-native";
+import AsyncStorage from "@react-native-async-storage/async-storage";
+import * as SplashScreen from "expo-splash-screen";
 
 import Welcome from "../screens/Welcome";
 import SignIn from "../screens/SignIn";
@@ -11,13 +15,14 @@ import ManageRefeicao from "../screens/ManageRefeicao";
 import HomeCalendar from "../screens/HomeCalendar";
 import SearchAlimento from "../screens/SearchAlimento";
 import HomeVisitor from "../screens/HomeVisitor";
+import {useCallback, useContext, useEffect, useState} from "react";
+import {AuthContext} from "../store/auth-context";
 
 const Stack = createNativeStackNavigator();
 const BottomTab = createBottomTabNavigator();
 
 function BottomTabNavigator() {
     return (
-        // TODO: Alterar o initialRoute
         <BottomTab.Navigator initialRouteName={"Home"}>
             <BottomTab.Screen
                 name="Home"
@@ -42,24 +47,9 @@ function BottomTabNavigator() {
     )
 }
 
-export default function Routes() {
+function AuthenticatedStack() {
     return (
         <Stack.Navigator initialRouteName={"BottomTabNavigator"}>
-            <Stack.Screen
-                name="Welcome"
-                component={Welcome}
-                options={{headerShown: false}}
-            />
-            <Stack.Screen
-                name="SignIn"
-                component={SignIn}
-                options={{headerShown: false}}
-            />
-            <Stack.Screen
-                name="Register"
-                component={Register}
-                options={{headerShown: false}}
-            />
             <Stack.Screen
                 name="BottomTabNavigator"
                 component={BottomTabNavigator}
@@ -86,5 +76,70 @@ export default function Routes() {
                 component={HomeVisitor}
             />
         </Stack.Navigator>
+    );
+}
+
+function AuthStack() {
+    return (
+        <Stack.Navigator initialRouteName={"Welcome"}>
+            <Stack.Screen
+                name="Welcome"
+                component={Welcome}
+                options={{headerShown: false}}
+            />
+            <Stack.Screen
+                name="SignIn"
+                component={SignIn}
+                options={{headerShown: false}}
+            />
+            <Stack.Screen
+                name="Register"
+                component={Register}
+                options={{headerShown: false}}
+            />
+        </Stack.Navigator>
+    );
+}
+
+function Navigation() {
+    const authCtx = useContext(AuthContext);
+
+    return (
+        <NavigationContainer>
+            {!authCtx.isAuthenticated && <AuthStack/>}
+            {authCtx.isAuthenticated && <AuthenticatedStack/>}
+        </NavigationContainer>
+    )
+}
+
+export default function Routes() {
+    const [appIsReady, setAppIsReady] = useState(false);
+    const authCtx = useContext(AuthContext);
+
+    useEffect(() => {
+        async function checkAuth() {
+            const token = await AsyncStorage.getItem('token');
+            if (token) {
+                authCtx.authenticate(token);
+            }
+        }
+
+        checkAuth().then(() => setAppIsReady(true));
+    }, []);
+
+    const onLayoutRootView = useCallback(async () => {
+        if (appIsReady) {
+            await SplashScreen.hideAsync();
+        }
+    }, [appIsReady]);
+
+    if (!appIsReady) {
+        return null;
+    }
+
+    return (
+        <View style={{flex: 1}} onLayout={onLayoutRootView}>
+            <Navigation/>
+        </View>
     )
 }

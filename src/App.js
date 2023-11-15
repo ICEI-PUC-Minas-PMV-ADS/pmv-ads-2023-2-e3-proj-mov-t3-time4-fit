@@ -1,7 +1,5 @@
 import React from "react";
 import {StatusBar} from "react-native";
-
-import {NavigationContainer} from '@react-navigation/native'
 import Routes from "./routes/Routes";
 import AuthContextProvider from "./store/auth-context";
 import RefeicaoContextProvider from "./store/refeicao-context";
@@ -17,9 +15,7 @@ export default function App() {
                 <RefeicoesDiariasContextProvider>
                     <UsuarioContextProvider>
                         <AuthContextProvider>
-                            <NavigationContainer>
-                                <Routes/>
-                            </NavigationContainer>
+                            <Routes/>
                         </AuthContextProvider>
                     </UsuarioContextProvider>
                 </RefeicoesDiariasContextProvider>
