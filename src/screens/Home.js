@@ -1,34 +1,129 @@
-import React from 'react';
-import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
+import {useContext, useEffect, useLayoutEffect, useState} from 'react';
+import {Pressable, ScrollView, StyleSheet, Text, View} from 'react-native';
 
-import * as Animatable from 'react-native-animatable'
+import {AuthContext} from "../store/auth-context";
+import CaloriasDiario from "../components/Home/CaloriasDiario";
+import RefeicoesList from "../components/Home/RefeicoesList";
+import {RefeicaoContext} from "../store/refeicao-context";
+import LoadingOverlay from "../components/ui/LoadingOverlay";
+import {fetchRefeicoes} from "../gateway/http-refeicoes";
+import {fetchUsuario} from "../gateway/http-usuarios";
+import {fetchRefeicoesDiarias} from "../gateway/http-refeicoes-diarias";
+import {getFormattedDate, getFormattedDatePretty} from "../util/date";
+import {UsuarioContext} from "../store/usuario-context";
+import {RefeicoesDiariasContext} from "../store/refeicoes-diarias-context";
+import {Ionicons} from "@expo/vector-icons";
+import {GlobalStyles} from "../constants/styles";
 
-function Home({navigation}) {
+function Home({navigation, route}) {
+    const [isLoading, setIsLoading] = useState(true);
+    const [selectedDate, setSelectedDate] = useState(getFormattedDate(new Date));
+
+    const refeicaoCtx = useContext(RefeicaoContext);
+    const refeicoesDiariasCtx = useContext(RefeicoesDiariasContext);
+    const usuarioCtx = useContext(UsuarioContext);
+    const authCtx = useContext(AuthContext);
+
+    useEffect(() => {
+        setIsLoading(true);
+        if (route.params?.selectedDate) {
+            setSelectedDate(route.params.selectedDate);
+        }
+    }, [route.params?.selectedDate]);
+
+    useLayoutEffect(() => {
+        async function getUsuario() {
+            try {
+                const usuario = await fetchUsuario(authCtx.token);
+                usuarioCtx.fetchUsuario(usuario);
+            } catch (error) {
+                console.log(error);
+            }
+        }
+
+        async function getRefeicoes() {
+            try {
+                const refeicoes = await fetchRefeicoes(authCtx.token);
+                refeicaoCtx.setRefeicoes(refeicoes);
+            } catch (error) {
+                console.log(error);
+            }
+        }
+
+        async function getRefeicoesDiarias() {
+            try {
+                const refeicoesDiarias = await fetchRefeicoesDiarias(authCtx.token, selectedDate);
+                refeicoesDiariasCtx.setRefeicoesDiarias(refeicoesDiarias);
+            } catch (error) {
+                console.log(error);
+            }
+        }
+
+        async function fetchData() {
+            setIsLoading(true);
+            await Promise.all([getUsuario(), getRefeicoes(), getRefeicoesDiarias()]);
+        }
+
+        fetchData().then(() => setIsLoading(false));
+    }, [selectedDate]);
+
+    if (isLoading) {
+        return <LoadingOverlay/>
+    }
+
+    function calendarHandler() {
+        navigation.navigate('HomeCalendar', {
+            current: selectedDate,
+        });
+    }
+
+    function maisOpcoesHandler() {
+        navigation.navigate('ManageRefeicao', {
+            id: 1,
+            idUsuario: 1,
+            data: selectedDate,
+        });
+    }
+
+    const refeicoesDiarias = refeicoesDiariasCtx.refeicoesDiarias;
+
+    const caloriasMeta = usuarioCtx.usuario.metaCalorica;
+    const caloriasConsumidas = refeicoesDiarias.reduce((total, refeicaoDiaria) => total + refeicaoDiaria.calorias, 0);
+
     return (
-        <View style={styles.container}>
+        <ScrollView style={styles.container}>
 
-            <View style={styles.containerLogo}>
-                <Animatable.Image
-                    animation="flipInY"
-                    source={require('../assets/logo.png')}
-                    style={{width: '100%'}}
-                    resizeMode="contain"
-                />
+            <View style={styles.calendarioOuterContainer}>
+                <Pressable onPress={calendarHandler} style={styles.calendarioInnerContainer}>
+                    <Text style={styles.textCalendario}>{getFormattedDatePretty(selectedDate)}&nbsp;</Text>
+                    <Ionicons name={'caret-down'} size={16}/>
+                </Pressable>
             </View>
 
-            <Animatable.View delay={600} animation="fadeInUp" style={styles.containerForm} /* direcionamento */>
-                <Text style={styles.title}>Página em processo de atualização! Agradecemos a compreensão</Text>
+            <View style={styles.textoContainer}>
+                <Text>Resumo</Text>
+            </View>
 
+            <View style={styles.caloriasContainer}>
+                <CaloriasDiario
+                    caloriasMeta={caloriasMeta}
+                    caloriasConsumidas={caloriasConsumidas}/>
+            </View>
 
-                <TouchableOpacity
-                    style={styles.button}
-                    onPress={() => navigation.navigate('Welcome')}
-                >
-                    <Text style={styles.buttonText}>Ok</Text>
-                </TouchableOpacity>
-            </Animatable.View>
+            {/*Incluir botão que leva para a tela de editar refeicoes e lembretes*/}
+            <View style={styles.textoContainer}>
+                <Text>Refeições</Text>
+                <Text style={styles.textoBotao} onPress={maisOpcoesHandler}>Mais opções</Text>
+            </View>
 
-        </View>
+            <View style={styles.refeicoesContainer}>
+                <RefeicoesList
+                    refeicoes={refeicaoCtx.refeicoes}
+                    refeicoesDiarias={refeicoesDiarias}
+                    data={selectedDate}/>
+            </View>
+
+        </ScrollView>
     );
 }
 
@@ -37,49 +132,37 @@ export default Home;
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: 'white',
+        backgroundColor: GlobalStyles.colors.background,
+        paddingTop: '10%',
     },
-    containerLogo: {
-        flex: 2,
+    calendarioOuterContainer: {
         justifyContent: 'center',
-        alignItems: 'center'
+        alignItems: 'flex-start',
+        marginLeft: '7%',
     },
-    containerForm: {
-        flex: 2,
-        borderTopLeftRadius: 25,
-        borderTopRightRadius: 25,
-        paddingStart: '5%',
-        paddingEnd: '5%'
+    calendarioInnerContainer: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        marginBottom: 30,
     },
-    title: {
+    textCalendario: {
+        textTransform: 'capitalize',
         fontSize: 24,
         fontWeight: 'bold',
-        marginTop: 28,
-        marginBottom: 12,
-        alignItems: 'center',
-        alignContent: 'center'
     },
-    text: {
-        color: '#a1a1a1',
-        alignItems: 'center',
+    caloriasContainer: {
+        marginBottom: 30,
+    },
+    textoContainer: {
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        marginHorizontal: '7%',
+    },
+    textoBotao: {
+        color: GlobalStyles.colors.higlight,
         fontWeight: 'bold',
-        alignContent: 'center'
     },
-    button: {
-        position: 'absolute',
-        backgroundColor: '#7D9C3E',
-        borderRadius: 50,
-        paddingVertical: 8,
-        width: '60%',
-        alignSelf: 'center',
-        bottom: '15%',
-        alignItems: 'center',
-        justifyContent: 'center'
-    },
-    buttonText: {
-        fontSize: 16,
-        color: 'black',
-        fontWeight: 'bold'
+    refeicoesContainer: {
+        marginBottom: '10%',
     }
-
 })

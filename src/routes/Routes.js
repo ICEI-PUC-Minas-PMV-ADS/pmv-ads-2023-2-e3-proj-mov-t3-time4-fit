@@ -15,17 +15,22 @@ const BottomTab = createBottomTabNavigator();
 
 function BottomTabNavigator() {
     return (
+        // TODO: Alterar o initialRoute
         <BottomTab.Navigator initialRouteName={"Home"}>
             <BottomTab.Screen
                 name="Home"
                 component={Home}
                 options={{
+                    headerShown: false,
                     tabBarLabel: "Diário",
                 }}
             />
             <BottomTab.Screen
                 name="Explorar"
                 component={Explorar}
+                options={{
+                    headerShown: false,
+                }}
             />
             <BottomTab.Screen
                 name="Perfil"
@@ -37,7 +42,7 @@ function BottomTabNavigator() {
 
 export default function Routes() {
     return (
-        <Stack.Navigator initialRouteName={"Welcome"}>
+        <Stack.Navigator initialRouteName={"BottomTabNavigator"}>
             <Stack.Screen
                 name="Welcome"
                 component={Welcome}
@@ -67,6 +72,26 @@ export default function Routes() {
                 name="BottomTabNavigator"
                 component={BottomTabNavigator}
                 options={{headerShown: false}}
+            />
+            <Stack.Screen
+                name="ManageRefeicao"
+                component={ManageRefeicao}
+            />
+            <Stack.Screen
+                name="SearchAlimento"
+                component={SearchAlimento}
+            />
+            <Stack.Screen
+                name="HomeCalendar"
+                component={HomeCalendar}
+                options={{
+                    headerShown: false,
+                    presentation: "modal"
+                }}
+            />
+            <Stack.Screen
+                name={"HomeVisitor"}
+                component={HomeVisitor}
             />
         </Stack.Navigator>
     )

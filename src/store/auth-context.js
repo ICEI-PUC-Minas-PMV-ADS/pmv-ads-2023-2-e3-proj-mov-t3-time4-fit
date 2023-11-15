@@ -10,7 +10,7 @@ export const AuthContext = createContext({
 
 function AuthContextProvider({children}) {
     //se quiser salvar mais dados do usuário, pode usar o objeto abaixo
-    const [authToken, setAuthToken] = useState()
+    const [authToken, setAuthToken] = useState('1')
 
     function authenticate(token) {
         setAuthToken(token);
