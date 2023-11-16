@@ -18,7 +18,6 @@ import ManageRefeicao from "../screens/ManageRefeicao";
 import ManageRefeicoes from "../screens/ManageRefeicoes";
 import HomeCalendar from "../screens/HomeCalendar";
 import SearchAlimento from "../screens/SearchAlimento";
-import HomeCalendar from "../screens/HomeCalendar";
 import HomeVisitor from "../screens/HomeVisitor";
 import Medidas from "../screens/Medidas"
 import {useCallback, useContext, useEffect, useState} from "react";

@@ -94,7 +94,7 @@ function Register({navigation}){
                 {errors.senha && <Text style={styles.labelError}>{errors.senha?.message}</Text>}
 
                
-                <TouchableOpacity onPress={ () => navigation.navigate('BottomTabNavigator')} style={styles.button}>
+                <TouchableOpacity style={styles.button}>
                     <Text style={styles.buttonText}>Finalizar Cadastro</Text>    
                 </TouchableOpacity>
                 
