@@ -9,6 +9,12 @@ import Perfil from "../screens/Perfil";
 import Explorar from "../screens/Explorar";
 import Objective from "../screens/Objective";
 import LevelActivity from "../screens/LevelActivity";
+import DataNascimento from "../screens/DataNascimento";
+import ManageRefeicao from "../screens/ManageRefeicao";
+import SearchAlimento from "../screens/SearchAlimento";
+import HomeCalendar from "../screens/HomeCalendar";
+import HomeVisitor from "../screens/HomeVisitor";
+import Medidas from "../screens/Medidas"
 
 const Stack = createNativeStackNavigator();
 const BottomTab = createBottomTabNavigator();
@@ -18,8 +24,8 @@ function BottomTabNavigator() {
         // TODO: Alterar o initialRoute
         <BottomTab.Navigator initialRouteName={"Home"}>
             <BottomTab.Screen
-                name="Home"
-                component={Home}
+                name="DataNascimento"
+                component={DataNascimento}
                 options={{
                     headerShown: false,
                     tabBarLabel: "Diário",
@@ -69,8 +75,18 @@ export default function Routes() {
                 options={{headerShown: false}}
             />
             <Stack.Screen
+                name="DataNascimento"
+                component={DataNascimento}
+                options={{headerShown: false}}
+            />
+            <Stack.Screen
                 name="BottomTabNavigator"
                 component={BottomTabNavigator}
+                options={{headerShown: false}}
+            />
+            <Stack.Screen
+                name="Medidas"
+                component={Medidas}
                 options={{headerShown: false}}
             />
             <Stack.Screen
