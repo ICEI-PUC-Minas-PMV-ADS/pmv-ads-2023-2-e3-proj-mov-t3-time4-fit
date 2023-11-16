@@ -11,11 +11,15 @@ import Register from "../screens/Register";
 import Home from "../screens/Home";
 import Perfil from "../screens/Perfil";
 import Explorar from "../screens/Explorar";
+import Objective from "../screens/Objective";
+import LevelActivity from "../screens/LevelActivity";
+import DataNascimento from "../screens/DataNascimento";
 import ManageRefeicao from "../screens/ManageRefeicao";
 import ManageRefeicoes from "../screens/ManageRefeicoes";
 import HomeCalendar from "../screens/HomeCalendar";
 import SearchAlimento from "../screens/SearchAlimento";
 import HomeVisitor from "../screens/HomeVisitor";
+import Medidas from "../screens/Medidas"
 import {useCallback, useContext, useEffect, useState} from "react";
 import {AuthContext} from "../store/auth-context";
 import {MaterialCommunityIcons} from "@expo/vector-icons";
@@ -100,7 +104,7 @@ function AuthenticatedStack() {
             <Stack.Screen
                 name="ManageRefeicoes"
                 component={ManageRefeicoes}
-                options={{ title: 'Gerenciar Refeições' }}
+                options={{title: 'Gerenciar Refeições'}}
             />
         </Stack.Navigator>
     );
@@ -122,6 +126,26 @@ function AuthStack() {
             <Stack.Screen
                 name="Register"
                 component={Register}
+                options={{headerShown: false}}
+            />
+            <Stack.Screen
+                name="Objective"
+                component={Objective}
+                options={{headerShown: false}}
+            />
+            <Stack.Screen
+                name="LevelActivity"
+                component={LevelActivity}
+                options={{headerShown: false}}
+            />
+            <Stack.Screen
+                name="DataNascimento"
+                component={DataNascimento}
+                options={{headerShown: false}}
+            />
+            <Stack.Screen
+                name="Medidas"
+                component={Medidas}
                 options={{headerShown: false}}
             />
         </Stack.Navigator>

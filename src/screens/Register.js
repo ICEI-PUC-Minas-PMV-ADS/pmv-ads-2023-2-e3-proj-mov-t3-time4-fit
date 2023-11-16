@@ -11,7 +11,6 @@ const schema = yup.object({
     sobrenome: yup.string().required("Informe seu sobrenome"),
     email: yup.string().email("E-mail inválido!").required("Informe seu e-mail!"),
     senha: yup.string().min(8, "A senha deve conter no mínimo 8 caracteres").required("Informe sua senha"),
-    confirmaSenha: yup.string().min(8, "As senhas não conferem").required("Informe a senha conforme o campo anterior")
 })
 
 
@@ -94,22 +93,8 @@ function Register({navigation}){
                     />
                 {errors.senha && <Text style={styles.labelError}>{errors.senha?.message}</Text>}
 
-                <Controller
-                        control={control}
-                        name='confirmaSenha'
-                        render={({field:{onChange, onBlur, value}}) => (
-                            <TextInput
-                                style={styles.campo}
-                                onChangeText={onChange}
-                                onBlur={onBlur} //chamado quando o text input é tocado ein
-                                value={value} 
-                                placeholder='Confirme a sua senha.'
-                            />
-                        )}
-                    />
-                {errors.confirmaSenha && <Text style={styles.labelError}>{errors.confirmaSenha?.message}</Text>}
                
-                <TouchableOpacity onPress={ () => navigation.navigate('BottomTabNavigator')} style={styles.button}>
+                <TouchableOpacity style={styles.button}>
                     <Text style={styles.buttonText}>Finalizar Cadastro</Text>    
                 </TouchableOpacity>
                 
