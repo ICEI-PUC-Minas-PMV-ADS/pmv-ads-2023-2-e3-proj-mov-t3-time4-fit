@@ -127,7 +127,6 @@ import {
     },
     submitBtn: {
       backgroundColor: "#7D9C3E",
-      paddingVertical: 22,
       alignItems: "center",
       justifyContent: "center",
       borderRadius: 8,

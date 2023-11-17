@@ -1,11 +1,18 @@
-import React from 'react';
-import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
-import {FontAwesome5, MaterialCommunityIcons} from '@expo/vector-icons';
+import React, {useContext} from 'react';
+import {Pressable, StyleSheet, Text, View} from 'react-native';
 import * as Animatable from 'react-native-animatable'
-import {useNavigation} from '@react-navigation/native'
+import {GlobalStyles} from "../constants/styles";
+import {UserChoices} from "../constants/users";
+import {MaterialCommunityIcons} from "@expo/vector-icons";
+import {UsuarioContext} from "../store/usuario-context";
 
-export default function Objective() {
-    const navigation = useNavigation();
+export default function Objective({navigation}) {
+    const usuarioCtx = useContext(UsuarioContext);
+
+    function objectiveHandler(objective) {
+        usuarioCtx.updateUsuario({meta: objective});
+        navigation.navigate('LevelActivity');
+    }
 
     return (
         <View style={styles.container}>
@@ -22,33 +29,22 @@ export default function Objective() {
             <Animatable.View delay={600} animation="fadeInUp" style={styles.containerForm} /* direcionamento */>
                 <Text style={styles.title}>Qual o seu objetivo?</Text>
 
-                <TouchableOpacity style={styles.buttonText}
-                                  onPress={() => navigation.navigate('LevelActivity')}
-                >
-                    <Text style={styles.principalText}> <FontAwesome5 name="weight" size={24}
-                                                                      color="blue"/> Emagrecer</Text>
-                    <Text>Perder peso de uma forma saudável</Text>
-
-                </TouchableOpacity>
-
-                <TouchableOpacity style={styles.buttonText}
-                                  onPress={() => navigation.navigate('LevelActivity')}
-                >
-                    <Text style={styles.principalText}> <MaterialCommunityIcons name="weight-lifter" size={24}
-                                                                                color="black"/> Ganhar Peso</Text>
-                    <Text>Aumentar massa muscular</Text>
-                </TouchableOpacity>
-
-                <TouchableOpacity style={styles.buttonText}
-                                  onPress={() => navigation.navigate('LevelActivity')}
-                >
-                    <Text style={styles.principalText}> <MaterialCommunityIcons name="food-apple" size={24}
-                                                                                color="red"/>Manter Peso</Text>
-                    <Text>Manter peso com saúde</Text>
-                </TouchableOpacity>
-
+                {UserChoices.objective.map((objective, index) => (
+                    <Pressable style={styles.buttonText}
+                               onPress={objectiveHandler.bind(this, objective.value)}
+                               key={index}
+                    >
+                        <Text style={styles.principalText}>
+                            <MaterialCommunityIcons name={objective.icon}
+                                                    size={26}
+                                                    color={objective.color}
+                            />
+                            &nbsp;&nbsp;{objective.value}
+                        </Text>
+                        <Text>{objective.description}</Text>
+                    </Pressable>
+                ))}
             </Animatable.View>
-
         </View>
     );
 }
@@ -56,7 +52,7 @@ export default function Objective() {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: 'white',
+        backgroundColor: GlobalStyles.colors.background,
     },
     containerLogo: {
         flex: 1,
@@ -79,7 +75,7 @@ const styles = StyleSheet.create({
         textAlign: 'center'
     },
     text: {
-        color: '#a1a1a1',
+        color: GlobalStyles.colors.text100,
         alignItems: 'center',
         fontWeight: 'bold',
         alignContent: 'center',
@@ -90,16 +86,18 @@ const styles = StyleSheet.create({
         borderRadius: 5,
         height: 95,
         marginBottom: 12,
-        fontSize: 16,
         borderWidth: 1,
-        borderColor: "#7D9C3E",
+        borderColor: GlobalStyles.colors.primary,
+        justifyContent: 'center',
         alignItems: 'center',
-        textAlign: 'center',
         alignContent: 'center'
     },
     principalText: {
         fontSize: 16,
-        fontWeight: 'bold'
+        fontWeight: 'bold',
+        marginBottom: 5
+    },
+    descriptionText: {
+        textAlign: 'center',
     }
-
 })

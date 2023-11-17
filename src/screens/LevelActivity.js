@@ -1,11 +1,18 @@
-import React from 'react';
-import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
-import {FontAwesome5, Ionicons} from '@expo/vector-icons';
+import React, {useContext} from 'react';
+import {Pressable, StyleSheet, Text, View} from 'react-native';
 import * as Animatable from 'react-native-animatable'
-import {useNavigation} from '@react-navigation/native'
+import {UsuarioContext} from "../store/usuario-context";
+import {GlobalStyles} from "../constants/styles";
+import {UserChoices} from "../constants/users";
+import {FontAwesome5} from "@expo/vector-icons";
 
-export default function LevelActivity() {
-    const navigation = useNavigation();
+export default function LevelActivity({navigation}) {
+    const usuarioCtx = useContext(UsuarioContext);
+
+    function levelActivityHandler(levelActivity) {
+        usuarioCtx.updateUsuario({levelActivity: levelActivity});
+        navigation.navigate('DataNascimento');
+    }
 
     return (
         <View style={styles.container}>
@@ -22,29 +29,21 @@ export default function LevelActivity() {
             <Animatable.View delay={600} animation="fadeInUp" style={styles.containerForm} /* direcionamento */>
                 <Text style={styles.title}>Qual seu nível de atividade física diário?</Text>
 
-                <TouchableOpacity style={styles.buttonText}
-                                  onPress={() => navigation.navigate('Home')}
-                >
-                    <Text style={styles.principalText}> <FontAwesome5 name="meh" size={24} color="yellow"/> Leve</Text>
-                    <Text>Trabalho em pé ou caminhadas leves</Text>
-
-                </TouchableOpacity>
-
-                <TouchableOpacity style={styles.buttonText}
-                                  onPress={() => navigation.navigate('Home')}
-                >
-                    <Text style={styles.principalText}><Ionicons name="happy-outline" size={24}
-                                                                 color="yellow"/> Moderado</Text>
-                    <Text>Trabalho pesado e/ou atividades físicas regulares</Text>
-                </TouchableOpacity>
-
-                <TouchableOpacity style={styles.buttonText}
-                                  onPress={() => navigation.navigate('Home')}
-                >
-                    <Text style={styles.principalText}><FontAwesome5 name="grin-beam-sweat" size={24}
-                                                                     color="yellow"/> Intenso</Text>
-                    <Text>Atividades físicas intensas todos os dias</Text>
-                </TouchableOpacity>
+                {UserChoices.levelActivity.map((activity, index) => (
+                    <Pressable style={styles.buttonText}
+                               onPress={levelActivityHandler.bind(this, activity.value)}
+                               key={index}
+                    >
+                        <Text style={styles.principalText}>
+                            <FontAwesome5 name={activity.icon}
+                                                    size={26}
+                                                    color={activity.color}
+                            />
+                            &nbsp;&nbsp;{activity.value}
+                        </Text>
+                        <Text style={styles.descriptionText}>{activity.description}</Text>
+                    </Pressable>
+                ))}
 
             </Animatable.View>
 
@@ -55,7 +54,7 @@ export default function LevelActivity() {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: 'white',
+        backgroundColor: GlobalStyles.colors.background,
     },
     containerLogo: {
         flex: 1,
@@ -78,7 +77,7 @@ const styles = StyleSheet.create({
         textAlign: 'center'
     },
     text: {
-        color: '#a1a1a1',
+        color: GlobalStyles.colors.text100,
         alignItems: 'center',
         fontWeight: 'bold',
         alignContent: 'center',
@@ -89,16 +88,18 @@ const styles = StyleSheet.create({
         borderRadius: 5,
         height: 95,
         marginBottom: 12,
-        fontSize: 16,
         borderWidth: 1,
-        borderColor: "#7D9C3E",
+        borderColor: GlobalStyles.colors.primary,
+        justifyContent: 'center',
         alignItems: 'center',
-        textAlign: 'center',
         alignContent: 'center'
     },
     principalText: {
         fontSize: 16,
-        fontWeight: 'bold'
+        fontWeight: 'bold',
+        marginBottom: 5
+    },
+    descriptionText: {
+        textAlign: 'center',
     }
-
 })

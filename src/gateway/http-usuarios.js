@@ -20,6 +20,11 @@ export async function fetchUsuarios(nomeCompleto, id) {
     return response;
 }
 
+export async function loginUsuario(email, senha) {
+    const {data: response} = await axios.get(BACKEND_URL + `?email=${email}&senha=${senha}`);
+    return response;
+}
+
 export function updateUsuario(id, usuarioData) {
     return axios.put(BACKEND_URL + `/${id}`, usuarioData);
 }

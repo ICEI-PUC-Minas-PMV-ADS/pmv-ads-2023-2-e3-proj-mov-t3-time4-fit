@@ -23,6 +23,10 @@ function Register({navigation}){
 
     function handleRegister(data){
         console.log(data)
+        // Verificar se não existe um usuário com o mesmo e-mail
+        // Se não existir, cadastrar o usuário
+        // Se existir, exibir um alerta
+        // Mandar para a tela de objetivos
     }
     
     return (
@@ -32,6 +36,7 @@ function Register({navigation}){
             </Animatable.View>
 
             <Animatable.View animation="fadeInUp" style={styles.containerForm}>
+                <Text>Nome</Text>
                 <Controller
                     control={control}
                     name='nome'
@@ -47,6 +52,7 @@ function Register({navigation}){
                 />
                 {errors.nome && <Text style={styles.labelError}>{errors.nome?.message}</Text>}
 
+                <Text>Sobrenome</Text>
                 <Controller
                         control={control}
                         name='sobrenome'
@@ -62,6 +68,7 @@ function Register({navigation}){
                     />
                 {errors.sobrenome && <Text style={styles.labelError}>{errors.sobrenome?.message}</Text>}
 
+                <Text>E-mail</Text>
                 <Controller
                         control={control}
                         name='email'
@@ -78,6 +85,7 @@ function Register({navigation}){
                 {errors.email && <Text style={styles.labelError}>{errors.email?.message}</Text>}
 
 
+                <Text>Senha</Text>
                 <Controller
                         control={control}
                         name='senha'
@@ -86,7 +94,8 @@ function Register({navigation}){
                                 style={styles.campo}
                                 onChangeText={onChange}
                                 onBlur={onBlur} //chamado quando o text input é tocado ein
-                                value={value} 
+                                value={value}
+                                secureTextEntry={true}
                                 placeholder='Digite sua senha.'
                             />
                         )}
@@ -94,8 +103,8 @@ function Register({navigation}){
                 {errors.senha && <Text style={styles.labelError}>{errors.senha?.message}</Text>}
 
                
-                <TouchableOpacity style={styles.button}>
-                    <Text style={styles.buttonText}>Finalizar Cadastro</Text>    
+                <TouchableOpacity style={styles.button} onPress={handleSubmit(handleRegister)}>
+                    <Text style={styles.buttonText}>Cadastrar</Text>
                 </TouchableOpacity>
                 
 

@@ -1,12 +1,30 @@
-import React, {useContext} from 'react';
-import {StyleSheet, Text, TextInput, TouchableOpacity, View} from 'react-native';
+import React, {useContext, useState} from 'react';
+import {Alert, Pressable, StyleSheet, Text, TextInput, View} from 'react-native';
 
 import * as Animatable from 'react-native-animatable'
 import {GlobalStyles} from "../constants/styles";
 import {AuthContext} from "../store/auth-context";
+import {loginUsuario} from "../gateway/http-usuarios";
 
 function SignIn({navigation}) {
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+
     const authCtx = useContext(AuthContext);
+
+    function handleLogin() {
+        try {
+            loginUsuario(email, password).then((response) => {
+                if (response && response[0]) {
+                    authCtx.authenticate(response[0].id.toString());
+                    return;
+                }
+                Alert.alert('Falha no login', 'Usuário ou senha incorretos.');
+            })
+        } catch (error) {
+            console.log(error);
+        }
+    }
 
     return (
         <View style={styles.container}>
@@ -19,21 +37,28 @@ function SignIn({navigation}) {
                 <TextInput
                     placeholder="Digite seu e-mail."
                     style={styles.input}
+                    keyboardType={'email-address'}
+                    value={email}
+                    onChangeText={setEmail}
                 />
 
                 <Text style={styles.title}>Senha</Text>
                 <TextInput
                     placeholder="Digite sua senha."
+                    secureTextEntry={true}
                     style={styles.input}
+                    keyboardType={'default'}
+                    value={password}
+                    onChangeText={setPassword}
                 />
 
-                <TouchableOpacity style={styles.button}>
+                <Pressable style={styles.button} onPress={handleLogin}>
                     <Text style={styles.buttonText}>Acessar</Text>
-                </TouchableOpacity>
+                </Pressable>
 
-                <TouchableOpacity style={styles.buttonRegister} onPress={() => navigation.replace('Register')}>
-                    <Text style={styles.registerText}>Cadastre-se.</Text>
-                </TouchableOpacity>
+                <Pressable style={styles.buttonRegister} onPress={() => navigation.replace('Register')}>
+                    <Text style={styles.registerText}>Cadastre-se</Text>
+                </Pressable>
 
             </Animatable.View>
         </View>
