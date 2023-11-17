@@ -1,7 +1,8 @@
-import {StyleSheet, View, Text, Pressable} from "react-native";
+import {StyleSheet, View, Text, Pressable, Modal} from "react-native";
 import {useContext, useState} from "react";
 import {UsuarioContext} from "../store/usuario-context";
 import {GlobalStyles} from "../constants/styles";
+import {ModalPerfil} from "../components/Perfil/ModalPerfil";
 
 function Perfil({navigation}) {
     const [usuario, setUsuario] = useState(null);
@@ -12,6 +13,17 @@ function Perfil({navigation}) {
         id, nome, atividade, dataNascimento, sexo,
         peso, altura, metaCalorica, metaPeso, meta, publico
     } = usuarioCtx.usuario;
+    
+
+    const [visibleModal, setVisibleModal] = useState(false);
+    const [modalVisible, setModalVisible] = useState(false);
+
+    function converterData(dataNascimento) {
+        var partesData = dataNascimento.split('-');
+        var dataConv = partesData[2] + '/' + partesData[1] + '/' + partesData[0];
+        
+        return dataConv;
+      }
 
     return (
         <View style={styles.container}>
@@ -35,7 +47,7 @@ function Perfil({navigation}) {
                 <View style={styles.infoLineContainer}>
                     <Text style={styles.leftInfo}>Nascimento:</Text>
                     <Pressable>
-                        <Text style={styles.rightInfo}>{dataNascimento}</Text>
+                        <Text style={styles.rightInfo}>{converterData(dataNascimento)}</Text>
                     </Pressable>
                 </View>
                 <View style={styles.infoLineContainer}>
@@ -45,11 +57,56 @@ function Perfil({navigation}) {
                     </Pressable>
                 </View>
                 <View style={styles.infoLineContainer}>
-                    <Text style={styles.leftInfo}>Altura:</Text>
+                    <Text style={styles.leftInfo}>Peso:</Text>
                     <Pressable>
-                        <Text style={styles.rightInfo}>{altura}</Text>
+                        <Text style={styles.rightInfoX}>{peso} kg</Text>
                     </Pressable>
                 </View>
+                <View style={styles.infoLineContainer}>
+                    <Text style={styles.leftInfo}>Altura:</Text>
+                    <Pressable>
+                        <Text style={styles.rightInfoX}>{altura/100} m</Text>
+                    </Pressable>
+                </View>
+                <View style={styles.infoLineContainer}>
+                    <Text style={styles.leftInfo}>Meta Calórica:</Text>
+                    <Pressable>
+                        <Text style={styles.rightInfoX}>{metaCalorica} kcal</Text>
+                    </Pressable>
+                </View>
+                <View style={styles.infoLineContainer}>
+                    <Text style={styles.leftInfo}>Meta Peso:</Text>
+                    <Pressable>
+                        <Text style={styles.rightInfoX}>{metaPeso} kg</Text>
+                    </Pressable>
+                </View>
+                <View style={styles.infoLineContainer}>
+                    <Text style={styles.leftInfo}>Meta:</Text>
+                    <Pressable>
+                        <Text style={styles.rightInfo}>{meta}</Text>
+                    </Pressable>
+                </View>
+                <View style={styles.infoLineContainer}>
+                    <Text style={styles.leftInfoX}>Estilo de perfil:</Text>
+                    <Pressable onPress={() => setModalVisible(true)}>
+                        <Text style={styles.rightInfoX}>{publico? 'Público':'Privado'}</Text>
+                    </Pressable>
+                </View>
+
+                <Modal
+                transparent={true}
+                visible={visibleModal}
+                onRequestClose={() => setVisibleModal(false)}
+            >
+                <ModalPerfil
+                    handleClose={() => setVisibleModal(false)}
+                />
+                </Modal>
+
+
+
+
+
 
 
 
@@ -115,8 +172,23 @@ const styles = StyleSheet.create({
         // fontWeight: 'bold',
         marginBottom: 10,
     },
+    leftInfoX: {
+        fontSize: 20,
+        // fontWeight: 'bold',
+        marginBottom: 10,
+    },
     rightInfo: {
         textTransform: 'capitalize',
+        fontSize: 20,
+        fontWeight: 'bold',
+        marginBottom: 10,
+        paddingVertical: 5,
+        paddingHorizontal: 10,
+        borderWidth: 1,
+        borderColor: GlobalStyles.colors.primary,
+        borderRadius: 20,
+    },
+    rightInfoX: {
         fontSize: 20,
         fontWeight: 'bold',
         marginBottom: 10,
