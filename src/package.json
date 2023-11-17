@@ -19,7 +19,7 @@
     "@react-navigation/native-stack": "^6.9.14",
     "axios": "^1.6.1",
     "date-fns": "^2.30.0",
-    "expo": "^49.0.13",
+    "expo": "^49.0.18",
     "expo-clipboard": "^4.5.0",
     "expo-font": "~11.4.0",
     "expo-splash-screen": "^0.22.0",

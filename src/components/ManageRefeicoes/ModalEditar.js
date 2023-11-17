@@ -116,7 +116,7 @@ const styles = StyleSheet.create({
         borderRadius: 5,
         fontSize: 15,
         fontWeight: 'bold',
-        color: "#7D9C3E",
+        color: "#5ed4e1",
     },
     timeInput: {
         flexDirection: 'row',

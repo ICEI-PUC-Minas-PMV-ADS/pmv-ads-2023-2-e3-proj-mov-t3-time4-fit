@@ -7,7 +7,7 @@ export function ModalAdd({ handleClose, handleSalvar }) {
     const [food, setFood] = useState("");
     const [time, setTime] = useState("");
     
-    const timeRegex = /^(0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]$/;
+    const timeRegex = /^(0[0-9]|1[0-9]|):[0-5][0-9]$/;
 
     const handleFoodChange = (text) => {
         setFood(text);
@@ -123,7 +123,7 @@ const styles = StyleSheet.create({
         borderRadius: 5,
         fontSize: 15,
         fontWeight: 'bold',
-        color: "#7D9C3E",
+        color: "#5ed4e1",
     },
     timeInput: {
         flexDirection: 'row',
