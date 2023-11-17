@@ -53,11 +53,11 @@ function SignIn({navigation}) {
                 />
 
                 <Pressable style={styles.button} onPress={handleLogin}>
-                    <Text style={styles.buttonText}>Acessar</Text>
+                    <Text style={styles.buttonText}>Entrar</Text>
                 </Pressable>
 
                 <Pressable style={styles.buttonRegister} onPress={() => navigation.replace('Register')}>
-                    <Text style={styles.registerText}>Cadastre-se</Text>
+                    <Text style={styles.registerText}>Cadastrar</Text>
                 </Pressable>
 
             </Animatable.View>
@@ -129,6 +129,7 @@ const styles = StyleSheet.create({
     },
     registerText: {
         color: GlobalStyles.colors.text100,
-        fontWeight: "bold"
+        fontWeight: "bold",
+        fontSize: 16
     }
 })

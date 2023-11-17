@@ -1,5 +1,5 @@
 import React from 'react';
-import {StyleSheet, Text, TextInput, TouchableOpacity, View} from 'react-native';
+import {Pressable, StyleSheet, Text, TextInput, View} from 'react-native';
 import * as Animatable from 'react-native-animatable'
 import {Controller, useForm} from 'react-hook-form'
 import {yupResolver} from '@hookform/resolvers/yup'
@@ -103,9 +103,13 @@ function Register({navigation}){
                 {errors.senha && <Text style={styles.labelError}>{errors.senha?.message}</Text>}
 
                
-                <TouchableOpacity style={styles.button} onPress={handleSubmit(handleRegister)}>
+                <Pressable style={styles.button} onPress={handleSubmit(handleRegister)}>
                     <Text style={styles.buttonText}>Cadastrar</Text>
-                </TouchableOpacity>
+                </Pressable>
+
+                <Pressable style={styles.buttonSignIn} onPress={() => navigation.replace('SignIn')}>
+                    <Text style={styles.registerSignIn}>Entrar</Text>
+                </Pressable>
                 
 
             </Animatable.View>
@@ -143,6 +147,7 @@ const styles = StyleSheet.create({
     },
     buttonText:{
         fontWeight:'bold',
+        fontSize: 18,
     },
     containerForm:{
         flex: 1,
@@ -166,6 +171,21 @@ const styles = StyleSheet.create({
         alignSelf: 'flex-start',
         color: GlobalStyles.colors.error,
         marginBottom: 8
+    },
+    buttonSignIn: {
+        backgroundColor: GlobalStyles.colors.input,
+        width: '40%',
+        borderRadius: 100,
+        paddingVertical: 8,
+        marginTop: 19,
+        justifyContent: 'center',
+        alignItems: 'center',
+        alignSelf: 'center'
+    },
+    registerSignIn: {
+        color: GlobalStyles.colors.text100,
+        fontWeight: "bold",
+        fontSize: 16
     }
 })
     
