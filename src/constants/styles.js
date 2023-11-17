@@ -1,6 +1,6 @@
 export const GlobalStyles = {
     colors: {
-        primary: '#00CED1',
+        primary: '#00BFFF',
         accent: '#3d5875',
         text50: '#fff',
         text100: '#a1a1a1',
