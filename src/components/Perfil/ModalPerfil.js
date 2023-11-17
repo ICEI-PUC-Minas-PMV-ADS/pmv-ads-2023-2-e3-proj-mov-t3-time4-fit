@@ -9,11 +9,10 @@ function ModalPerfilEdit({isVisible, onClose, onSave, id, nome, atividade,
     return(
         <Modal visible={isVisible}
         transparent={true}
-        animationType={'fade'}
-        onRequestClose={closeModalHandler}>
+        animationType={'fade'}>
             <View>
                  <Text>
-                    LOLOLO
+                    TESTE MODAL
                 </Text>
             </View>
 

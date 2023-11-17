@@ -3,6 +3,7 @@ import {useContext, useState} from "react";
 import {UsuarioContext} from "../store/usuario-context";
 import {GlobalStyles} from "../constants/styles";
 import {ModalPerfil} from "../components/Perfil/ModalPerfil";
+import {converterData} from "../util/date"
 
 function Perfil({navigation}) {
     const [usuario, setUsuario] = useState(null);
@@ -16,14 +17,8 @@ function Perfil({navigation}) {
     
 
     const [visibleModal, setVisibleModal] = useState(false);
-    const [modalVisible, setModalVisible] = useState(false);
+    const [modalVisible, setModalVisible] = useState(true);
 
-    function converterData(dataNascimento) {
-        var partesData = dataNascimento.split('-');
-        var dataConv = partesData[2] + '/' + partesData[1] + '/' + partesData[0];
-        
-        return dataConv;
-      }
 
     return (
         <View style={styles.container}>
@@ -93,19 +88,9 @@ function Perfil({navigation}) {
                     </Pressable>
                 </View>
 
-                <Modal
-                transparent={true}
-                visible={visibleModal}
-                onRequestClose={() => setVisibleModal(false)}
-            >
                 <ModalPerfil
-                    handleClose={() => setVisibleModal(false)}
+                    isVisible={modalVisible}  
                 />
-                </Modal>
-
-
-
-
 
 
 

@@ -25,4 +25,12 @@ export function getFormattedDatePretty(day) {
     const diaSemana = date.toLocaleDateString('pt-BR', {weekday:'short'})
         .slice(0, 3).replace('.', '');
     return `${diaSemana}, ${diaMes}`;
+
 }
+
+export function converterData(dataNascimento) {
+    var partesData = dataNascimento.split('-');
+    var dataConv = partesData[2] + '/' + partesData[1] + '/' + partesData[0];
+    
+    return dataConv;
+  }
