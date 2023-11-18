@@ -4,6 +4,7 @@ export const UsuarioContext = createContext({
     usuario: {},
     fetchUsuario: (usuarioData) => {},
     updateUsuario: (usuarioData) => {},
+    clearUsuario: () => {},
 });
 
 function UsuarioContextProvider({children}) {
@@ -17,10 +18,15 @@ function UsuarioContextProvider({children}) {
         setUsuario({...usuario, ...usuarioData});
     }
 
+    function clearUsuario() {
+        setUsuario({});
+    }
+
     const value = {
         usuario: usuario,
         fetchUsuario: fetchUsuario,
         updateUsuario: updateUsuario,
+        clearUsuario: clearUsuario,
     };
 
     return (

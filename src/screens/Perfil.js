@@ -4,8 +4,8 @@ import {UsuarioContext} from "../store/usuario-context";
 import {GlobalStyles} from "../constants/styles";
 import ModalPerfilNumerico from "../components/Perfil/ModalPerfilNumerico";
 import ModalPerfilSelect from "../components/Perfil/ModalPerfilSelect";
-import {updateUsuario} from "../gateway/http-usuarios";
 import ModalPerfilBool from "../components/Perfil/ModalPerfilBool";
+import {updateUsuario} from "../gateway/http-usuarios";
 
 function Perfil({navigation}) {
     const usuarioCtx = useContext(UsuarioContext);
@@ -172,7 +172,7 @@ const styles = StyleSheet.create({
     },
     infoContainer: {
         marginHorizontal: '7%',
-        borderWidth: 2,
+        borderWidth: 1,
         borderColor: GlobalStyles.colors.primary,
         borderRadius: 20,
         padding: 20,
@@ -184,18 +184,18 @@ const styles = StyleSheet.create({
     },
     leftInfo: {
         textTransform: 'capitalize',
-        fontSize: 20,
+        fontSize: 18,
         fontWeight: 'bold',
         marginBottom: 10,
     },
     leftInfoX: {
-        fontSize: 20,
+        fontSize: 18,
         fontWeight: 'bold',
         marginBottom: 10,
     },
     rightInfo: {
         textTransform: 'capitalize',
-        fontSize: 20,
+        fontSize: 18,
         fontWeight: 'bold',
         marginBottom: 10,
         paddingVertical: 5,
@@ -207,7 +207,7 @@ const styles = StyleSheet.create({
         borderRadius: 20,
     },
     rightInfoX: {
-        fontSize: 20,
+        fontSize: 18,
         fontWeight: 'bold',
         marginBottom: 10,
         paddingVertical: 5,

@@ -65,7 +65,7 @@ function HomeVisitor({navigation, route}) {
             </View>
 
             <View style={styles.textoContainer}>
-                <Text>Resumo</Text>
+                <Text style={styles.textTitulo}>Resumo</Text>
             </View>
 
             <View style={styles.caloriasContainer}>
@@ -75,7 +75,7 @@ function HomeVisitor({navigation, route}) {
             </View>
 
             <View style={styles.textoContainer}>
-                <Text>Refeições</Text>
+                <Text style={styles.textTitulo}>Refeições</Text>
             </View>
 
             <View style={styles.refeicoesContainer}>
@@ -124,5 +124,9 @@ const styles = StyleSheet.create({
     },
     refeicoesContainer: {
         marginBottom: '10%',
+    },
+    textTitulo: {
+        fontSize: 18,
+        fontWeight: 'bold',
     }
 })

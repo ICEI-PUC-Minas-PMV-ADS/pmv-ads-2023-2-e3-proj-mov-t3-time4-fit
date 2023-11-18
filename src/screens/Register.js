@@ -26,6 +26,7 @@ function Register({navigation}) {
     }) //esta pode ser chamada quando o usuario clicar no botão de finalizar cadastro, utilizada para teste
 
     async function handleRegister(data) {
+        console.log(usuarioCtx.usuario)
         setIsSubmiting(true);
         try {
             const response = await checkUsuarioByEmail(data.email);

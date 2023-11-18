@@ -18,9 +18,9 @@ function RefeicaoItem({id, idUsuario, nome, horario, data, calorias, hideAddButt
         return (
             <View style={styles.container}>
                 <View style={styles.texts}>
-                    <Text>{nome}</Text>
-                    <Text>{horario}</Text>
-                    {calorias > 0 && <Text>{calorias} kcal</Text>}
+                    <Text style={styles.text}>{nome}</Text>
+                    <Text style={styles.text}>{horario}</Text>
+                    {calorias > 0 && <Text style={styles.text}>{calorias} kcal</Text>}
                 </View>
             </View>
         )
@@ -29,8 +29,8 @@ function RefeicaoItem({id, idUsuario, nome, horario, data, calorias, hideAddButt
     return (
         <View style={styles.container}>
             <View style={styles.texts}>
-                <Text>{nome}</Text>
-                <Text>{horario}</Text>
+                <Text style={styles.text}>{nome}</Text>
+                <Text style={styles.text}>{horario}</Text>
                 {calorias > 0 && <Text>{calorias} kcal</Text>}
             </View>
             <View style={styles.icon}>
@@ -55,6 +55,9 @@ const styles = StyleSheet.create({
     },
     texts: {
         justifyContent: 'center',
+    },
+    text: {
+        fontSize: 16,
     },
     icon: {
         justifyContent: 'center',

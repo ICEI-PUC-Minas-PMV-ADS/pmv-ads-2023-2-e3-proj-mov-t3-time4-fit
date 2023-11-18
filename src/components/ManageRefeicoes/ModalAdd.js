@@ -1,6 +1,7 @@
 import React, {useState} from "react";
 import {StyleSheet, Text, TextInput, TouchableOpacity, View} from "react-native";
 import {MaterialCommunityIcons, SimpleLineIcons} from '@expo/vector-icons';
+import {GlobalStyles} from "../../constants/styles";
 
 export function ModalAdd({ handleClose, handleSalvar }) {
     const [food, setFood] = useState("");
@@ -80,14 +81,14 @@ export function ModalAdd({ handleClose, handleSalvar }) {
 
 const styles = StyleSheet.create({
     centeredView: {
-        backgroundColor: "rgba(24, 24, 24, 0.6)",
+        backgroundColor: GlobalStyles.colors.backgroundModal,
         flex: 1,
         alignItems: 'center',
         justifyContent: 'center',
     },
     modalView: {
         margin: 30,
-        backgroundColor: "white",
+        backgroundColor: GlobalStyles.colors.background,
         borderRadius: 3,
         padding: 20,
         alignItems: "center",
@@ -95,7 +96,7 @@ const styles = StyleSheet.create({
     modalText: {
         fontSize: 20,
         fontWeight: "bold",
-        color: "#000",
+        color: GlobalStyles.colors.text800,
         marginBottom: 25,
     },
     input: {
@@ -117,17 +118,17 @@ const styles = StyleSheet.create({
         fontSize: 20,
     },
     button: {
-        backgroundColor: "#fff",
+        backgroundColor: GlobalStyles.colors.background,
         borderRadius: 5,
         fontSize: 15,
         fontWeight: 'bold',
-        color: "#7D9C3E",
+        color: GlobalStyles.colors.primary,
     },
     timeInput: {
         flexDirection: 'row',
         alignItems: 'center',
         borderBottomWidth: 1,
-        borderBottomColor: '#ccc',
+        borderBottomColor: GlobalStyles.colors.text100,
         padding: 1,
         paddingBottom: 5,
         marginVertical: 5,

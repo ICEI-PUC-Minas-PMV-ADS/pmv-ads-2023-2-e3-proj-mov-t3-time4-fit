@@ -39,13 +39,13 @@ function ModalPerfilSelect({isVisible, onClose, onSave, titulo, valor1, valor2, 
                 <View style={styles.modalView}>
                     <Text style={styles.modalText}>{titulo}</Text>
                     <View>
-                        <Pressable onPress={editCampoHandler1}>
+                        <Pressable style={styles.input} onPress={editCampoHandler1}>
                             <Text style={styles.button}>{valor1}</Text>
                         </Pressable>
-                        <Pressable onPress={editCampoHandler2}>
+                        <Pressable style={styles.input} onPress={editCampoHandler2}>
                             <Text style={styles.button}>{valor2}</Text>
                         </Pressable>
-                        <Pressable onPress={editCampoHandler3}>
+                        <Pressable style={styles.input} onPress={editCampoHandler3}>
                             <Text style={styles.button}>{valor3}</Text>
                         </Pressable>
                     </View>
@@ -79,39 +79,12 @@ const styles = StyleSheet.create({
         marginBottom: 10,
     },
     input: {
-        padding: 1,
-        paddingBottom: 5,
-        fontSize: 20,
-        textAlign: 'center',
-        width: 80,
-        borderBottomWidth: 1,
-        borderBottomColor: GlobalStyles.colors.text100,
-    },
-    textUnidade: {
-        fontSize: 15,
-        textAlign: 'center',
-        color: GlobalStyles.colors.text100,
-    },
-    buttonArea: {
-        flexDirection: "row",
         alignItems: 'center',
-        marginTop: 10,
     },
     button: {
         fontSize: 17,
         fontWeight: 'bold',
         color: GlobalStyles.colors.primary,
         marginTop: 10,
-    },
-    textInput: {
-        flexDirection: 'row',
-        alignItems: 'flex-start',
-        padding: 1,
-        paddingBottom: 5,
-        marginVertical: 5,
-    },
-    foodIcon: {
-        marginTop: 2,
-        marginRight: 10,
     },
 });

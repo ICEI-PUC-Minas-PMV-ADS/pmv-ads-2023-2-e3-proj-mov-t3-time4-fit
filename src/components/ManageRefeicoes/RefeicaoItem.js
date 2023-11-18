@@ -11,8 +11,8 @@ function RefeicaoItem({id, nome, horario, onPress}) {
     return (
         <View style={styles.container}>
             <View style={styles.texts}>
-                <Text>{nome}</Text>
-                <Text>{horario}</Text>
+                <Text style={styles.text}>{nome}</Text>
+                <Text style={styles.text}>{horario}</Text>
             </View>
             <View style={styles.icon}>
                 <Entypo
@@ -40,6 +40,9 @@ const styles = StyleSheet.create({
     },
     texts: {
         justifyContent: 'center',
+    },
+    text: {
+        fontSize: 16,
     },
     icon: {
         justifyContent: 'center',

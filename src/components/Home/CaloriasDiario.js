@@ -14,8 +14,8 @@ function CaloriasDiario({caloriasConsumidas, caloriasMeta}) {
             <Text style={styles.title}>CALORIAS</Text>
             <View style={styles.containerCalorias}>
                 <View style={styles.containerCaloria}>
-                    <Text>Consumidas</Text>
-                    <Text>
+                    <Text style={styles.textInfo}>Consumidas</Text>
+                    <Text style={styles.textInfo}>
                         {caloriasConsumidas} kcal
                     </Text>
                 </View>
@@ -30,8 +30,8 @@ function CaloriasDiario({caloriasConsumidas, caloriasMeta}) {
                         {() => {
                             return (
                                 <View style={styles.containerCaloria}>
-                                    <Text>Meta</Text>
-                                    <Text>{caloriasMeta}</Text>
+                                    <Text style={styles.textInfo}>Meta</Text>
+                                    <Text style={styles.textMeta}>{caloriasMeta}</Text>
                                 </View>
                             )
                         }}
@@ -39,8 +39,8 @@ function CaloriasDiario({caloriasConsumidas, caloriasMeta}) {
                 </View>
 
                 <View style={styles.containerCaloria}>
-                    <Text>Restantes</Text>
-                    <Text>
+                    <Text style={styles.textInfo}>Restantes</Text>
+                    <Text style={styles.textInfo}>
                         {caloriasRestantesNumber} kcal
                     </Text>
                 </View>
@@ -60,8 +60,10 @@ const styles = StyleSheet.create({
         padding: '5%',
         borderRadius: 20,
     },
-    title:{
-      textAlign: 'center',
+    title: {
+        fontWeight: 'bold',
+        fontSize: 18,
+        textAlign: 'center',
     },
     containerCalorias: {
         flexDirection: "row",
@@ -73,5 +75,12 @@ const styles = StyleSheet.create({
         flexDirection: "column",
         justifyContent: "center",
         alignItems: "center",
+    },
+    textMeta: {
+        fontSize: 18,
+        fontWeight: 'bold',
+    },
+    textInfo: {
+        fontSize: 16,
     },
 });

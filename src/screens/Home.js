@@ -12,7 +12,7 @@ import {fetchRefeicoesDiarias} from "../gateway/http-refeicoes-diarias";
 import {getFormattedDate, getFormattedDatePretty} from "../util/date";
 import {UsuarioContext} from "../store/usuario-context";
 import {RefeicoesDiariasContext} from "../store/refeicoes-diarias-context";
-import {Ionicons} from "@expo/vector-icons";
+import {Ionicons, MaterialCommunityIcons} from "@expo/vector-icons";
 import {GlobalStyles} from "../constants/styles";
 
 function Home({navigation, route}) {
@@ -77,6 +77,11 @@ function Home({navigation, route}) {
         });
     }
 
+    function logoutHandler() {
+        usuarioCtx.clearUsuario();
+        authCtx.logout();
+    }
+
     function maisOpcoesHandler() {
         navigation.navigate('ManageRefeicoes');
     }
@@ -94,10 +99,14 @@ function Home({navigation, route}) {
                     <Text style={styles.textCalendario}>{getFormattedDatePretty(selectedDate)}&nbsp;</Text>
                     <Ionicons name={'caret-down'} size={16}/>
                 </Pressable>
+
+                <Pressable onPress={logoutHandler} style={styles.calendarioInnerContainer}>
+                    <MaterialCommunityIcons name={'logout-variant'} size={32} color={GlobalStyles.colors.logout}/>
+                </Pressable>
             </View>
 
             <View style={styles.textoContainer}>
-                <Text>Resumo</Text>
+                <Text style={styles.textoTitulo}>Resumo</Text>
             </View>
 
             <View style={styles.caloriasContainer}>
@@ -107,7 +116,7 @@ function Home({navigation, route}) {
             </View>
 
             <View style={styles.textoContainer}>
-                <Text>Refeições</Text>
+                <Text style={styles.textoTitulo}>Refeições</Text>
                 <Text style={styles.textoBotao} onPress={maisOpcoesHandler}>Mais opções</Text>
             </View>
 
@@ -131,9 +140,10 @@ const styles = StyleSheet.create({
         paddingTop: '10%',
     },
     calendarioOuterContainer: {
-        justifyContent: 'center',
-        alignItems: 'flex-start',
-        marginLeft: '7%',
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        marginHorizontal: '7%',
     },
     calendarioInnerContainer: {
         flexDirection: 'row',
@@ -155,9 +165,14 @@ const styles = StyleSheet.create({
     },
     textoBotao: {
         color: GlobalStyles.colors.higlight,
+        fontSize: 18,
         fontWeight: 'bold',
     },
     refeicoesContainer: {
         marginBottom: '10%',
+    },
+    textoTitulo: {
+        fontSize: 18,
+        fontWeight: 'bold'
     }
 })

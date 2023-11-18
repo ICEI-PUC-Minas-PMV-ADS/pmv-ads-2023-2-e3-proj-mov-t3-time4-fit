@@ -10,7 +10,7 @@ import {GlobalStyles} from "./constants/styles";
 export default function App() {
     return (
         <>
-            <StatusBar backgroundColor={GlobalStyles.colors.higlight} barStyle="light-content"/>
+            <StatusBar backgroundColor={GlobalStyles.colors.primary} barStyle="light-content"/>
             <RefeicaoContextProvider>
                 <RefeicoesDiariasContextProvider>
                     <UsuarioContextProvider>

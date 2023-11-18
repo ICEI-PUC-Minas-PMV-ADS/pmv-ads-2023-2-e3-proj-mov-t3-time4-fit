@@ -1,6 +1,6 @@
 export function getMetaCalorica({dataNascimento, peso, altura, sexo, meta, atividade}) {
     let idade = parseInt(getIdade(dataNascimento));
-    let metaPeso = parseFloat(getMetaPeso(peso, meta));
+    let metaPeso = getMetaPeso(peso, meta);
     let metaCalorica = 0;
 
     if (sexo === 'Masculino') {
@@ -27,16 +27,22 @@ export function getMetaCalorica({dataNascimento, peso, altura, sexo, meta, ativi
 }
 
 export function getMetaPeso(peso, meta) {
+    let metaPeso = peso;
+
     switch (meta) {
         case 'Emagrecer':
-            return peso*0.9;
+            metaPeso *= 0.9;
+            break;
         case 'Ganhar Peso':
-            return peso*1.1;
+            metaPeso *= 1.1;
+            break;
         case 'Manter Peso':
-            return peso;
+            break;
         default:
-            return peso;
+            break;
     }
+
+    return parseFloat(metaPeso.toFixed(1));
 }
 
 export function getIdade(dataNascimento) {

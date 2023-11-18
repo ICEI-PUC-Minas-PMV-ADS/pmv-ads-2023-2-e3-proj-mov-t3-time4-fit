@@ -105,7 +105,7 @@ const styles = StyleSheet.create({
         backgroundColor: GlobalStyles.colors.text50,
         paddingVertical: 10,
         paddingHorizontal: 20,
-        fontSize: 20,
+        fontSize: 18,
     },
     closeButton: {
         position: 'absolute',
