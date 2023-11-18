@@ -23,7 +23,7 @@
 |:---:	|:---:	|
 |Requisito Associado | RNF-04  O sistema deve ser compatível com os principais sistemas operacionais (Android e o iOS).  |
 | Referência 	| pendente da imagem |
-| Avaliação | ✅ O aplicativo abriu e funcionou corretamente com os principais sistemas operacionais usados. |
+| Avaliação | ✅  |
 
 
 
