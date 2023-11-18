@@ -2,7 +2,6 @@ import {Pressable, StyleSheet, Text, View} from "react-native";
 import {useContext, useEffect, useState} from "react";
 import {UsuarioContext} from "../store/usuario-context";
 import {GlobalStyles} from "../constants/styles";
-import {getFormattedDateShort} from "../util/date"
 import ModalPerfilNumerico from "../components/Perfil/ModalPerfilNumerico";
 import ModalPerfilSelect from "../components/Perfil/ModalPerfilSelect";
 import {updateUsuario} from "../gateway/http-usuarios";
@@ -74,7 +73,7 @@ function Perfil({navigation}) {
                 <View style={styles.infoLineContainer}>
                     <Text style={styles.leftInfo}>Nascimento:</Text>
                     <Pressable>
-                        <Text style={styles.rightInfo}>{getFormattedDateShort(dataNascimento)}</Text>
+                        <Text style={styles.rightInfo}>{dataNascimento}</Text>
                     </Pressable>
                 </View>
                 <View style={styles.infoLineContainer}>
@@ -173,9 +172,9 @@ const styles = StyleSheet.create({
     },
     infoContainer: {
         marginHorizontal: '7%',
-        // borderWidth: 1,
-        // borderColor: GlobalStyles.colors.primary,
-        // borderRadius: 20,
+        borderWidth: 2,
+        borderColor: GlobalStyles.colors.primary,
+        borderRadius: 20,
         padding: 20,
     },
     infoLineContainer: {
@@ -186,12 +185,12 @@ const styles = StyleSheet.create({
     leftInfo: {
         textTransform: 'capitalize',
         fontSize: 20,
-        // fontWeight: 'bold',
+        fontWeight: 'bold',
         marginBottom: 10,
     },
     leftInfoX: {
         fontSize: 20,
-        // fontWeight: 'bold',
+        fontWeight: 'bold',
         marginBottom: 10,
     },
     rightInfo: {
@@ -203,6 +202,8 @@ const styles = StyleSheet.create({
         paddingHorizontal: 10,
         borderWidth: 1,
         borderColor: GlobalStyles.colors.primary,
+        color: GlobalStyles.colors.text50,
+        backgroundColor: GlobalStyles.colors.primary,
         borderRadius: 20,
     },
     rightInfoX: {
@@ -212,7 +213,9 @@ const styles = StyleSheet.create({
         paddingVertical: 5,
         paddingHorizontal: 10,
         borderWidth: 1,
+        color: GlobalStyles.colors.text50,
         borderColor: GlobalStyles.colors.primary,
+        backgroundColor: GlobalStyles.colors.primary,
         borderRadius: 20,
     }
 })

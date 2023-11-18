@@ -27,8 +27,3 @@ export function getFormattedDatePretty(day) {
     return `${diaSemana}, ${diaMes}`;
 
 }
-
-export function getFormattedDateShort(dataNascimento) {
-    let partesData = dataNascimento.split('-');
-    return partesData[2] + '/' + partesData[1] + '/' + partesData[0];
-}
