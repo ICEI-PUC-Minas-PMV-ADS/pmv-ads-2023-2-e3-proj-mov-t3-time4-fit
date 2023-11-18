@@ -36,7 +36,10 @@ function ModalPerfilNumerico({isVisible, onClose, onSave, titulo, valorBase, uni
             animationType={'fade'}
             onRequestClose={closeModalHandler}
         >
-            <View style={styles.centeredView}>
+            <Pressable
+                style={styles.centeredView}
+                onPress={event => event.target === event.currentTarget && closeModalHandler()}
+            >
                 <View style={styles.modalView}>
                     <Text style={styles.modalText}>{titulo}</Text>
                     <View>
@@ -61,7 +64,7 @@ function ModalPerfilNumerico({isVisible, onClose, onSave, titulo, valorBase, uni
                         </Pressable>
                     </View>
                 </View>
-            </View>
+            </Pressable>
         </Modal>
     );
 }

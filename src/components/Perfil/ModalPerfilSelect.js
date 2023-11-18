@@ -1,5 +1,4 @@
-import {Alert, Modal, Pressable, StyleSheet, Text, TextInput, View} from "react-native";
-import {useEffect, useState} from "react";
+import {Modal, Pressable, StyleSheet, Text, View} from "react-native";
 import {GlobalStyles} from "../../constants/styles";
 
 function ModalPerfilSelect({isVisible, onClose, onSave, titulo, valor1, valor2, valor3 , variavel}) {
@@ -33,7 +32,10 @@ function ModalPerfilSelect({isVisible, onClose, onSave, titulo, valor1, valor2, 
             animationType={'fade'}
             onRequestClose={closeModalHandler}
         >
-            <View style={styles.centeredView}>
+            <Pressable
+                style={styles.centeredView}
+                onPress={event => event.target === event.currentTarget && closeModalHandler()}
+            >
                 <View style={styles.modalView}>
                     <Text style={styles.modalText}>{titulo}</Text>
                     <View>
@@ -48,7 +50,7 @@ function ModalPerfilSelect({isVisible, onClose, onSave, titulo, valor1, valor2, 
                         </Pressable>
                     </View>
                 </View>
-            </View>
+            </Pressable>
         </Modal>
     );
 }
