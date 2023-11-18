@@ -47,15 +47,7 @@ Enumere quais cenários de testes foram selecionados para teste. Neste tópico o
 |Critério de Êxito | - Apresentação das informações sobre o alimento pesquisado pelo usuário com sucesso. |
 
 
-| **Caso de Teste** 	| **CT-06 – Notificações Push**	|
-|:---:	|:---:	|
-|Requisito Associado | RF-06	O aplicativo deve enviar notificações push para lembrar os usuários das refeições. |
-| Objetivo do Teste 	| Visualizar uma notificação push. |
-| Passos 	| - Acessar o dispositivo móvel <br> - Ir na aba de notificações. |
-|Critério de Êxito | - Recebimento da notificação push. |
-
-
-| **Caso de Teste** 	| **CT-07 – Histórico dos planos alimentares**	|
+| **Caso de Teste** 	| **CT-06 – Histórico dos planos alimentares**	|
 |:---:	|:---:	|
 |Requisito Associado | RF-08	Os usuários devem ter acesso a um histórico de planos alimentares anteriores e informações nutricionais. |
 | Objetivo do Teste 	| Acessar o histórico dos planos e registros alimentares. |
@@ -63,11 +55,5 @@ Enumere quais cenários de testes foram selecionados para teste. Neste tópico o
 |Critério de Êxito | - Histórico aberto com sucesso no dia selecionado e informações salvas e mostradas no aplicativo com sucesso.|
 
 
-| **Caso de Teste** 	| **CT-08 – Compartilhação dos planos alimentares**	|
-|:---:	|:---:	|
-|Requisito Associado | RF-09	Os usuários podem compartilhar seus planos alimentares ou conquistas nas redes sociais.  |
-| Objetivo do Teste 	| Compartilhar os planos e registros alimentares na rede social escolhida. |
-| Passos 	| - Acessar a aplicação <br> - Logar com seu usuário e senha cadastrados <br> - Clicar na seção perfil. <br> - Acessar opção compartilhar. <br> Selecionar o(s) dia(s) no qual gostaria de compartilhar seu histórico de alimentação. <br> - Selecionar a rede social na qual gostaria de compartilhar. <br> -Editar a mensagem pré-feita e clicar em postar.
-|Critério de Êxito | - Compartilhamento dos planos alimentares dos dias selecionados com sucesso.|
 
 
