@@ -2,24 +2,19 @@ import {Alert, Modal, Pressable, StyleSheet, Text, TextInput, View} from "react-
 import {useEffect, useState} from "react";
 import {GlobalStyles} from "../../constants/styles";
 
-function ModalPerfilSelect({isVisible, onClose, onSave, titulo, valor1, valor2, valor3 , variavel}) {
+function ModalPerfilBool({isVisible, onClose, onSave, titulo, valor1, valor2, variavel}) {
 
 
     function editCampoHandler1() {
-        onSave(variavel, valor1);
+        onSave(variavel, true);
         onClose();
      }
 
      function editCampoHandler2() {
-        onSave(variavel, valor2);
+        onSave(variavel, false);
         onClose();
      }
 
-     function editCampoHandler3() {
-        onSave(variavel, valor3);
-        onClose();
-     }
-     
 
     function closeModalHandler() {
         onClose();
@@ -43,9 +38,6 @@ function ModalPerfilSelect({isVisible, onClose, onSave, titulo, valor1, valor2, 
                         <Pressable onPress={editCampoHandler2}>
                             <Text style={styles.button}>{valor2}</Text>
                         </Pressable>
-                        <Pressable onPress={editCampoHandler3}>
-                            <Text style={styles.button}>{valor3}</Text>
-                        </Pressable>
                     </View>
                 </View>
             </View>
@@ -53,7 +45,7 @@ function ModalPerfilSelect({isVisible, onClose, onSave, titulo, valor1, valor2, 
     );
 }
 
-export default ModalPerfilSelect;
+export default ModalPerfilBool;
 
 const styles = StyleSheet.create({
     centeredView: {
