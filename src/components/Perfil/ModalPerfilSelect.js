@@ -2,32 +2,29 @@ import {Alert, Modal, Pressable, StyleSheet, Text, TextInput, View} from "react-
 import {useEffect, useState} from "react";
 import {GlobalStyles} from "../../constants/styles";
 
-function ModalPerfilNumerico({isVisible, onClose, onSave, titulo, valorBase, unidade, validador, variavel}) {
-    const [valor, setValor] = useState(valorBase?.toString());
+function ModalPerfilSelect({isVisible, onClose, onSave, titulo, valor1, valor2, valor3 , variavel}) {
 
-    useEffect(() => {
-        setValor(valorBase?.toString());
-    }, [valorBase]);
 
-    function editCampoHandler() {
-        onSave(variavel, valor);
-        setValor(valorBase?.toString());
+    function editCampoHandler1() {
+        onSave(variavel, valor1);
         onClose();
-    }
+     }
+
+     function editCampoHandler2() {
+        onSave(variavel, valor2);
+        onClose();
+     }
+
+     function editCampoHandler3() {
+        onSave(variavel, valor3);
+        onClose();
+     }
+     
 
     function closeModalHandler() {
-        setValor(valorBase?.toString());
         onClose();
     }
 
-    function onChangeText(text) {
-        if (validador.test(text) || text === '') {
-            setValor(text);
-        } else {
-            Alert.alert('Aviso', 'Insira um número válido.');
-        }
-        setValor(text);
-    }
 
     return (
         <Modal
@@ -40,24 +37,14 @@ function ModalPerfilNumerico({isVisible, onClose, onSave, titulo, valorBase, uni
                 <View style={styles.modalView}>
                     <Text style={styles.modalText}>{titulo}</Text>
                     <View>
-                        <View style={styles.textInput}>
-                            <View>
-                                <TextInput
-                                    style={styles.input}
-                                    keyboardType="number-pad"
-                                    value={valor}
-                                    onChangeText={onChangeText}
-                                />
-                                <Text style={styles.textUnidade}>{unidade}</Text>
-                            </View>
-                        </View>
-                    </View>
-                    <View style={styles.buttonArea}>
-                        <Pressable style={styles.buttonCancel} onPress={closeModalHandler}>
-                            <Text style={styles.button}>Cancelar</Text>
+                        <Pressable onPress={editCampoHandler1}>
+                            <Text style={styles.button}>{valor1}</Text>
                         </Pressable>
-                        <Pressable style={styles.buttonSave} onPress={editCampoHandler}>
-                            <Text style={styles.button}>Editar</Text>
+                        <Pressable onPress={editCampoHandler2}>
+                            <Text style={styles.button}>{valor2}</Text>
+                        </Pressable>
+                        <Pressable onPress={editCampoHandler3}>
+                            <Text style={styles.button}>{valor3}</Text>
                         </Pressable>
                     </View>
                 </View>
@@ -66,7 +53,7 @@ function ModalPerfilNumerico({isVisible, onClose, onSave, titulo, valorBase, uni
     );
 }
 
-export default ModalPerfilNumerico;
+export default ModalPerfilSelect;
 
 const styles = StyleSheet.create({
     centeredView: {

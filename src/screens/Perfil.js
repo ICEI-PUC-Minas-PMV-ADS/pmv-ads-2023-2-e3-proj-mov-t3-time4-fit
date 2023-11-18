@@ -4,12 +4,14 @@ import {UsuarioContext} from "../store/usuario-context";
 import {GlobalStyles} from "../constants/styles";
 import {getFormattedDateShort} from "../util/date"
 import ModalPerfilNumerico from "../components/Perfil/ModalPerfilNumerico";
+import ModalPerfilSelect from "../components/Perfil/ModalPerfilSelect";
 import {updateUsuario} from "../gateway/http-usuarios";
 
 function Perfil({navigation}) {
     const usuarioCtx = useContext(UsuarioContext);
 
     const [modalNumericoInfo, setModalNumericoInfo] = useState({});
+    const [modalSelectInfo, setModalSelectInfo] = useState({});
 
     const {
         id, nome, atividade, dataNascimento, sexo,
@@ -17,6 +19,7 @@ function Perfil({navigation}) {
     } = usuarioCtx.usuario;
 
     const [modalNumericoVisible, setModalNumericoVisible] = useState(false);
+    const [modalSelectVisible, setModalSelectVisible] = useState(false);
 
     useEffect(() => {
         console.log(usuarioCtx.usuario);
@@ -26,6 +29,11 @@ function Perfil({navigation}) {
         setModalNumericoInfo({titulo, valorBase, unidade, validador, variavel});
         setModalNumericoVisible(true);
     }
+    function onPressableSelectHandler(titulo, valor1, valor2, valor3, variavel) {
+        setModalSelectInfo({titulo, valor1, valor2, valor3, variavel});
+        setModalSelectVisible(true);
+    }
+
 
     async function editCampoHandler(variavel, valor) {
         const usuario = {...usuarioCtx.usuario, [variavel]: valor};
@@ -40,6 +48,7 @@ function Perfil({navigation}) {
 
     function closeModalHandler() {
         setModalNumericoVisible(false);
+        setModalSelectVisible(false);
     }
 
     return (
@@ -69,25 +78,29 @@ function Perfil({navigation}) {
                 </View>
                 <View style={styles.infoLineContainer}>
                     <Text style={styles.leftInfo}>Atividade:</Text>
-                    <Pressable>
+                    <Pressable
+                    onPress={onPressableSelectHandler.bind(this, 'Qual o nível da sua atividade?', 'Leve', 'Moderada', 'Pesada', 'atividade')}>
                         <Text style={styles.rightInfo}>{atividade}</Text>
                     </Pressable>
                 </View>
                 <View style={styles.infoLineContainer}>
                     <Text style={styles.leftInfo}>Peso:</Text>
-                    <Pressable>
+                    <Pressable
+                        onPress={onPressableNumericoHandler.bind(this, 'Peso:', peso, 'kg', /^\d+$/, 'peso')}>
                         <Text style={styles.rightInfoX}>{peso} kg</Text>
                     </Pressable>
                 </View>
                 <View style={styles.infoLineContainer}>
                     <Text style={styles.leftInfo}>Altura:</Text>
-                    <Pressable>
+                    <Pressable
+                        onPress={onPressableNumericoHandler.bind(this, 'Altura:', altura, 'cm', /^\d+$/, 'altura')}>
                         <Text style={styles.rightInfoX}>{altura/100} m</Text>
                     </Pressable>
                 </View>
                 <View style={styles.infoLineContainer}>
                     <Text style={styles.leftInfo}>Meta Calórica:</Text>
-                    <Pressable>
+                    <Pressable
+                        onPress={onPressableNumericoHandler.bind(this, 'Meta Calórica:', metaCalorica, 'kcal', /^\d+$/, 'metaCalorica')}>
                         <Text style={styles.rightInfoX}>{metaCalorica} kcal</Text>
                     </Pressable>
                 </View>
@@ -100,13 +113,15 @@ function Perfil({navigation}) {
                 </View>
                 <View style={styles.infoLineContainer}>
                     <Text style={styles.leftInfo}>Meta:</Text>
-                    <Pressable>
+                    <Pressable
+                    onPress={onPressableSelectHandler.bind(this, 'Qual sua meta?', 'Emagerecer', 'Manter peso', 'Ganhar peso', 'meta')}>
                         <Text style={styles.rightInfo}>{meta}</Text>
                     </Pressable>
                 </View>
                 <View style={styles.infoLineContainer}>
                     <Text style={styles.leftInfoX}>Estilo de perfil:</Text>
-                    <Pressable>
+                    <Pressable
+                        onPress={onPressableSelectHandler.bind(this, 'Qual o tipo do seu perfil?', 'Público', 'Privado', null, 'publico')}>
                         <Text style={styles.rightInfoX}>{publico? 'Público':'Privado'}</Text>
                     </Pressable>
                 </View>
@@ -116,6 +131,11 @@ function Perfil({navigation}) {
                 onClose={closeModalHandler}
                 onSave={editCampoHandler}
                 {...modalNumericoInfo}/>
+            <ModalPerfilSelect
+                isVisible={modalSelectVisible}
+                onClose={closeModalHandler}
+                onSave={editCampoHandler}
+                {...modalSelectInfo}/>
         </View>
     );
 }
