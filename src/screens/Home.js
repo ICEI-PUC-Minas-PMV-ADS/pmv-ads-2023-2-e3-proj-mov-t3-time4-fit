@@ -68,7 +68,7 @@ function Home({navigation, route}) {
     }, [selectedDate]);
 
     if (isLoading) {
-        return <LoadingOverlay/>
+        return <LoadingOverlay message={'Buscando informações...'}/>
     }
 
     function calendarHandler() {

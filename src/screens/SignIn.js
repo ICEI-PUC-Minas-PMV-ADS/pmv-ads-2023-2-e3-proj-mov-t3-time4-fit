@@ -1,12 +1,30 @@
-import React, {useContext} from 'react';
-import {StyleSheet, Text, TextInput, TouchableOpacity, View} from 'react-native';
+import React, {useContext, useState} from 'react';
+import {Alert, Pressable, StyleSheet, Text, TextInput, View} from 'react-native';
 
 import * as Animatable from 'react-native-animatable'
 import {GlobalStyles} from "../constants/styles";
 import {AuthContext} from "../store/auth-context";
+import {loginUsuario} from "../gateway/http-usuarios";
 
 function SignIn({navigation}) {
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+
     const authCtx = useContext(AuthContext);
+
+    function handleLogin() {
+        try {
+            loginUsuario(email, password).then((response) => {
+                if (response && response[0]) {
+                    authCtx.authenticate(response[0].id.toString());
+                    return;
+                }
+                Alert.alert('Falha no login', 'Usuário ou senha incorretos.');
+            })
+        } catch (error) {
+            console.log(error);
+        }
+    }
 
     return (
         <View style={styles.container}>
@@ -17,23 +35,30 @@ function SignIn({navigation}) {
             <Animatable.View animation="fadeInUp" style={styles.containerForm}>
                 <Text style={styles.title}>E-mail</Text>
                 <TextInput
-                    placeholder="Digite seu e-mail."
+                    placeholder="Digite seu e-mail"
                     style={styles.input}
+                    keyboardType={'email-address'}
+                    value={email}
+                    onChangeText={setEmail}
                 />
 
                 <Text style={styles.title}>Senha</Text>
                 <TextInput
-                    placeholder="Digite sua senha."
+                    placeholder="Digite sua senha"
+                    secureTextEntry={true}
                     style={styles.input}
+                    keyboardType={'default'}
+                    value={password}
+                    onChangeText={setPassword}
                 />
 
-                <TouchableOpacity style={styles.button}>
-                    <Text style={styles.buttonText}>Acessar</Text>
-                </TouchableOpacity>
+                <Pressable style={styles.buttonPrimary} onPress={handleLogin}>
+                    <Text style={styles.buttonPrimaryText}>Entrar</Text>
+                </Pressable>
 
-                <TouchableOpacity style={styles.buttonRegister} onPress={() => navigation.replace('Register')}>
-                    <Text style={styles.registerText}>Cadastre-se.</Text>
-                </TouchableOpacity>
+                <Pressable style={styles.buttonSecondary} onPress={() => navigation.replace('Register')}>
+                    <Text style={styles.buttonSecondaryText}>Cadastrar</Text>
+                </Pressable>
 
             </Animatable.View>
         </View>
@@ -77,7 +102,7 @@ const styles = StyleSheet.create({
         marginBottom: 12,
         fontSize: 16,
     },
-    button: {
+    buttonPrimary: {
         backgroundColor: GlobalStyles.colors.primary,
         width: '40%',
         borderRadius: 100,
@@ -87,12 +112,12 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         alignSelf: 'center'
     },
-    buttonText: {
+    buttonPrimaryText: {
         color: GlobalStyles.colors.text800,
         fontSize: 18,
         fontWeight: "bold"
     },
-    buttonRegister: {
+    buttonSecondary: {
         backgroundColor: GlobalStyles.colors.input,
         width: '40%',
         borderRadius: 100,
@@ -102,8 +127,9 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         alignSelf: 'center'
     },
-    registerText: {
+    buttonSecondaryText: {
         color: GlobalStyles.colors.text100,
-        fontWeight: "bold"
+        fontWeight: "bold",
+        fontSize: 16
     }
 })

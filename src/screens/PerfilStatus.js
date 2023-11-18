@@ -1,17 +1,18 @@
-import React, {useContext} from 'react';
-import {Pressable, StyleSheet, Text, View} from 'react-native';
-import * as Animatable from 'react-native-animatable'
+import {Pressable, StyleSheet, Text, View} from "react-native";
 import {UsuarioContext} from "../store/usuario-context";
-import {GlobalStyles} from "../constants/styles";
+import * as Animatable from "react-native-animatable";
 import {UserChoices} from "../constants/users";
-import {FontAwesome5} from "@expo/vector-icons";
+import {MaterialCommunityIcons} from "@expo/vector-icons";
+import {GlobalStyles} from "../constants/styles";
+import {useContext} from "react";
 
-export default function LevelActivity({navigation}) {
+export default function PerfilStatus({navigation}) {
+
     const usuarioCtx = useContext(UsuarioContext);
 
-    function levelActivityHandler(levelActivity) {
-        usuarioCtx.updateUsuario({atividade: levelActivity});
-        navigation.navigate('DateBirth');
+    function perfilStatusHandler(status) {
+        usuarioCtx.updateUsuario({publico: status});
+        navigation.navigate('SendRegister');
     }
 
     return (
@@ -27,21 +28,21 @@ export default function LevelActivity({navigation}) {
             </View>
 
             <Animatable.View delay={600} animation="fadeInUp" style={styles.containerForm} /* direcionamento */>
-                <Text style={styles.title}>Qual seu nível de atividade física diário?</Text>
+                <Text style={styles.title}>Qual o seu tipo de perfil?</Text>
 
-                {UserChoices.levelActivity.map((activity, index) => (
+                {UserChoices.perfil.map((perfil, index) => (
                     <Pressable style={styles.buttonText}
-                               onPress={levelActivityHandler.bind(this, activity.value)}
+                               onPress={perfilStatusHandler.bind(this, perfil.value)}
                                key={index}
                     >
                         <Text style={styles.principalText}>
-                            <FontAwesome5 name={activity.icon}
+                            <MaterialCommunityIcons name={perfil.icon}
                                                     size={26}
-                                                    color={activity.color}
+                                                    color={perfil.color}
                             />
-                            &nbsp;&nbsp;{activity.value}
+                            &nbsp;&nbsp;{perfil.text}
                         </Text>
-                        <Text style={styles.descriptionText}>{activity.description}</Text>
+                        <Text style={styles.descriptionText}>{perfil.description}</Text>
                     </Pressable>
                 ))}
 

@@ -13,17 +13,21 @@ import Perfil from "../screens/Perfil";
 import Explorar from "../screens/Explorar";
 import Objective from "../screens/Objective";
 import LevelActivity from "../screens/LevelActivity";
-import DataNascimento from "../screens/DataNascimento";
 import ManageRefeicao from "../screens/ManageRefeicao";
 import ManageRefeicoes from "../screens/ManageRefeicoes";
 import HomeCalendar from "../screens/HomeCalendar";
 import SearchAlimento from "../screens/SearchAlimento";
 import HomeVisitor from "../screens/HomeVisitor";
-import Medidas from "../screens/Medidas"
+import Weight from "../screens/Weight"
 import {useCallback, useContext, useEffect, useState} from "react";
 import {AuthContext} from "../store/auth-context";
 import {MaterialCommunityIcons} from "@expo/vector-icons";
 import {GlobalStyles} from "../constants/styles";
+import Gender from "../screens/Gender";
+import DateBirth from "../screens/DateBirth";
+import PerfilStatus from "../screens/PerfilStatus";
+import Height from "../screens/Height";
+import SendRegister from "../screens/SendRegister";
 
 const Stack = createNativeStackNavigator();
 const BottomTab = createBottomTabNavigator();
@@ -139,13 +143,33 @@ function AuthStack() {
                 options={{headerShown: false}}
             />
             <Stack.Screen
-                name="DataNascimento"
-                component={DataNascimento}
+                name="Gender"
+                component={Gender}
                 options={{headerShown: false}}
             />
             <Stack.Screen
-                name="Medidas"
-                component={Medidas}
+                name="DateBirth"
+                component={DateBirth}
+                options={{headerShown: false}}
+            />
+            <Stack.Screen
+                name="Weight"
+                component={Weight}
+                options={{headerShown: false}}
+            />
+            <Stack.Screen
+                name="Height"
+                component={Height}
+                options={{headerShown: false}}
+            />
+            <Stack.Screen
+                name="PerfilStatus"
+                component={PerfilStatus}
+                options={{headerShown: false}}
+            />
+            <Stack.Screen
+                name="SendRegister"
+                component={SendRegister}
                 options={{headerShown: false}}
             />
         </Stack.Navigator>
