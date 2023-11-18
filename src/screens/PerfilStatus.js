@@ -1,45 +1,18 @@
-import {Alert, Pressable, StyleSheet, Text, View} from "react-native";
+import {Pressable, StyleSheet, Text, View} from "react-native";
 import {UsuarioContext} from "../store/usuario-context";
 import * as Animatable from "react-native-animatable";
 import {UserChoices} from "../constants/users";
 import {MaterialCommunityIcons} from "@expo/vector-icons";
 import {GlobalStyles} from "../constants/styles";
-import {useContext, useState} from "react";
-import LoadingOverlay from "../components/ui/LoadingOverlay";
-import {storeUsuario} from "../gateway/http-usuarios";
-import {AuthContext} from "../store/auth-context";
-import {getMetaCalorica} from "../util/calculator";
+import {useContext} from "react";
 
-export default function PerfilStatus() {
-    const [isAuthenticating, setIsAuthenticating] = useState(false);
+export default function PerfilStatus({navigation}) {
 
     const usuarioCtx = useContext(UsuarioContext);
-    const authCtx = useContext(AuthContext);
 
-    const usuario = usuarioCtx.usuario;
-
-    async function perfilStatusHandler(status) {
-        setIsAuthenticating(true);
-
-        let usuarioData = {...usuario, peso: 98, altura: 184};
-
-        const metaCalorica = getMetaCalorica(usuarioData)
-
-        usuarioData = {...usuarioData, metaCalorica: metaCalorica, public: status}
-
-        try {
-            const id = await storeUsuario(usuarioData);
-            // usuarioCtx.updateUsuario({...usuarioData, id: id});
-            // authCtx.authenticate(id);
-        } catch (error) {
-            Alert.alert('Falha no cadastro', 'Tente novamente mais tarde');
-        } finally {
-            setTimeout(() => setIsAuthenticating(false), 1000);
-        }
-    }
-
-    if (isAuthenticating) {
-        return <LoadingOverlay message={'Criando usuário...'}/>
+    function perfilStatusHandler(status) {
+        usuarioCtx.updateUsuario({publico: status});
+        navigation.navigate('SendRegister');
     }
 
     return (

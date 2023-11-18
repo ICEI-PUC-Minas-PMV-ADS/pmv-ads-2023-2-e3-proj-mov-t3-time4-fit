@@ -1,37 +1,30 @@
 import React, {useContext, useState} from 'react';
-import {Alert, Pressable, StyleSheet, Text, TextInput, TouchableOpacity, View} from 'react-native';
+import {Alert, Pressable, StyleSheet, Text, TextInput, View} from 'react-native';
 import * as Animatable from 'react-native-animatable'
 import {UsuarioContext} from "../store/usuario-context";
 import {GlobalStyles} from "../constants/styles";
-import {UserChoices} from "../constants/users";
-import {Ionicons} from "@expo/vector-icons";
-import {isValid, parseISO} from "date-fns";
 
-export default function DateBirth({navigation}) {
-    const [dataNascimento, setDataNascimento] = useState('');
+export default function Weight({navigation}) {
+    const [pesoAtual, setPesoAtual] = useState('');
 
     const usuarioCtx = useContext(UsuarioContext);
-    const dateRegex = /^(0[1-9]|[12]\d|3[01])\/(0[1-9]|1[0-2])\/\d{4}$/;
+    const numeroRegex = /^\d*([.,]?\d?)?$/;
 
-    function dateBirthHandler() {
-        if (dateRegex.test(dataNascimento)) {
-            usuarioCtx.updateUsuario({dataNascimento: dataNascimento});
-            navigation.navigate('Gender');
+    function pesoHandler() {
+        if (numeroRegex.test(pesoAtual)) {
+            const peso = parseFloat(pesoAtual.replace(',', '.'));
+            usuarioCtx.updateUsuario({peso: peso});
+            navigation.navigate('Height');
         } else {
-            Alert.alert('Data inválida!', 'Verifique a data e tente novamente.');
+            Alert.alert('Aviso', 'Insira um número válido.');
         }
     }
 
     function onChangeTextHandler(text) {
-        const cleanedText = text.replace(/[^0-9]/g, '');
-
-        // Insere as barras automaticamente enquanto o usuário digita
-        if (cleanedText.length <= 2) {
-            setDataNascimento(cleanedText);
-        } else if (cleanedText.length <= 4) {
-            setDataNascimento(`${cleanedText.slice(0, 2)}/${cleanedText.slice(2)}`);
+        if (numeroRegex.test(text) || text === '') {
+            setPesoAtual(text);
         } else {
-            setDataNascimento(`${cleanedText.slice(0, 2)}/${cleanedText.slice(2, 4)}/${cleanedText.slice(4, 8)}`);
+            Alert.alert('Aviso', 'Insira um número válido.');
         }
     }
 
@@ -48,22 +41,22 @@ export default function DateBirth({navigation}) {
             </View>
 
             <Animatable.View delay={600} animation="fadeInUp" style={styles.containerForm} /* direcionamento */>
-                <Text style={styles.title}>Qual a sua data de nascimento?</Text>
+                <Text style={styles.title}>Qual seu peso?</Text>
 
                 <View>
                     <TextInput
                         style={styles.input}
-                        placeholder="dd/mm/aaaa"
+                        placeholder="Peso em kg"
                         keyboardType="numeric"
-                        value={dataNascimento}
+                        value={pesoAtual}
                         onChangeText={onChangeTextHandler}
-                        maxLength={10} // Define o tamanho máximo do texto
+                        maxLength={5} // Define o tamanho máximo do texto
                     />
                 </View>
 
                 <Pressable
                     style={styles.buttonText}
-                    onPress={dateBirthHandler}
+                    onPress={pesoHandler}
                 >
                     <Text style={styles.principalText}>Continuar</Text>
                 </Pressable>

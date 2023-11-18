@@ -1,37 +1,29 @@
 import React, {useContext, useState} from 'react';
-import {Alert, Pressable, StyleSheet, Text, TextInput, TouchableOpacity, View} from 'react-native';
+import {Alert, Pressable, StyleSheet, Text, TextInput, View} from 'react-native';
 import * as Animatable from 'react-native-animatable'
 import {UsuarioContext} from "../store/usuario-context";
 import {GlobalStyles} from "../constants/styles";
-import {UserChoices} from "../constants/users";
-import {Ionicons} from "@expo/vector-icons";
-import {isValid, parseISO} from "date-fns";
 
-export default function DateBirth({navigation}) {
-    const [dataNascimento, setDataNascimento] = useState('');
+export default function Height({navigation}) {
+    const [alturaUsuario, setAlturaUsuario] = useState('');
 
     const usuarioCtx = useContext(UsuarioContext);
-    const dateRegex = /^(0[1-9]|[12]\d|3[01])\/(0[1-9]|1[0-2])\/\d{4}$/;
+    const heightRegex = /^\d{1,3}$/;
 
-    function dateBirthHandler() {
-        if (dateRegex.test(dataNascimento)) {
-            usuarioCtx.updateUsuario({dataNascimento: dataNascimento});
-            navigation.navigate('Gender');
+    function alturaHandler() {
+        if (heightRegex.test(alturaUsuario)) {
+            usuarioCtx.updateUsuario({altura: parseInt(alturaUsuario)});
+            navigation.navigate('PerfilStatus');
         } else {
-            Alert.alert('Data inválida!', 'Verifique a data e tente novamente.');
+            Alert.alert('Aviso', 'Insira uma altura válida.');
         }
     }
 
     function onChangeTextHandler(text) {
-        const cleanedText = text.replace(/[^0-9]/g, '');
-
-        // Insere as barras automaticamente enquanto o usuário digita
-        if (cleanedText.length <= 2) {
-            setDataNascimento(cleanedText);
-        } else if (cleanedText.length <= 4) {
-            setDataNascimento(`${cleanedText.slice(0, 2)}/${cleanedText.slice(2)}`);
+        if (heightRegex.test(text) || text === '') {
+            setAlturaUsuario(text);
         } else {
-            setDataNascimento(`${cleanedText.slice(0, 2)}/${cleanedText.slice(2, 4)}/${cleanedText.slice(4, 8)}`);
+            Alert.alert('Aviso', 'Insira uma altura válida.');
         }
     }
 
@@ -48,24 +40,24 @@ export default function DateBirth({navigation}) {
             </View>
 
             <Animatable.View delay={600} animation="fadeInUp" style={styles.containerForm} /* direcionamento */>
-                <Text style={styles.title}>Qual a sua data de nascimento?</Text>
+                <Text style={styles.title}>Qual a sua altura?</Text>
 
                 <View>
                     <TextInput
                         style={styles.input}
-                        placeholder="dd/mm/aaaa"
+                        placeholder="Altura em cm"
                         keyboardType="numeric"
-                        value={dataNascimento}
+                        value={alturaUsuario}
                         onChangeText={onChangeTextHandler}
-                        maxLength={10} // Define o tamanho máximo do texto
+                        maxLength={3} // Define o tamanho máximo do texto
                     />
                 </View>
 
                 <Pressable
                     style={styles.buttonText}
-                    onPress={dateBirthHandler}
+                    onPress={alturaHandler}
                 >
-                    <Text style={styles.principalText}>Continuar</Text>
+                    <Text style={styles.principalText}>Próximo</Text>
                 </Pressable>
 
             </Animatable.View>

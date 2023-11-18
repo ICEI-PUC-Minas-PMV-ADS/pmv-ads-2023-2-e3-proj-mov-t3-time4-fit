@@ -11,7 +11,7 @@ export default function Gender({navigation}) {
 
     function genderHandler(gender) {
         usuarioCtx.updateUsuario({sexo: gender});
-        navigation.navigate('PerfilStatus');
+        navigation.navigate('Weight');
     }
 
     return (

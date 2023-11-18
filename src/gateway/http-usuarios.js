@@ -3,10 +3,9 @@ import axios from "axios";
 const BACKEND_URL = "https://eatsmart.azurewebsites.net/usuarios";
 
 export async function storeUsuario(usuarioData) {
-    console.log(usuarioData);
-    // const {data: response} = await axios.post(BACKEND_URL, usuarioData);
-    // //retorna o id do usuario cadastrado
-    // return response.id;
+    const {data: response} = await axios.post(BACKEND_URL, usuarioData);
+    //retorna o id do usuario cadastrado
+    return response.id;
 }
 
 export async function fetchUsuario(id) {
