@@ -28,7 +28,10 @@ function ModalPerfilBool({isVisible, onClose, onSave, titulo, valor1, valor2, va
             animationType={'fade'}
             onRequestClose={closeModalHandler}
         >
-            <View style={styles.centeredView}>
+            <Pressable
+                style={styles.centeredView}
+                onPress={event => event.target === event.currentTarget && closeModalHandler()}
+            >
                 <View style={styles.modalView}>
                     <Text style={styles.modalText}>{titulo}</Text>
                     <View>
@@ -40,7 +43,7 @@ function ModalPerfilBool({isVisible, onClose, onSave, titulo, valor1, valor2, va
                         </Pressable>
                     </View>
                 </View>
-            </View>
+            </Pressable>
         </Modal>
     );
 }

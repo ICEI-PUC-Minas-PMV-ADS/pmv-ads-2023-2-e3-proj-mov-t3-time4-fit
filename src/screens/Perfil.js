@@ -6,7 +6,7 @@ import {getFormattedDateShort} from "../util/date"
 import ModalPerfilNumerico from "../components/Perfil/ModalPerfilNumerico";
 import ModalPerfilSelect from "../components/Perfil/ModalPerfilSelect";
 import {updateUsuario} from "../gateway/http-usuarios";
-import ModalPerfilBool from "../components/Perfil/ModalPerfilbool";
+import ModalPerfilBool from "../components/Perfil/ModalPerfilBool";
 
 function Perfil({navigation}) {
     const usuarioCtx = useContext(UsuarioContext);
@@ -25,7 +25,6 @@ function Perfil({navigation}) {
     const [modalBooltVisible, setModalBoolVisible] = useState(false);
 
     useEffect(() => {
-        console.log(usuarioCtx.usuario);
     }, [usuarioCtx.usuario]);
 
     function onPressableNumericoHandler(titulo, valorBase, unidade, validador, variavel) {
