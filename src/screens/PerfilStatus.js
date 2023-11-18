@@ -1,17 +1,29 @@
-import React, {useContext} from 'react';
-import {Pressable, StyleSheet, Text, View} from 'react-native';
-import * as Animatable from 'react-native-animatable'
+import {Alert, Pressable, StyleSheet, Text, View} from "react-native";
 import {UsuarioContext} from "../store/usuario-context";
-import {GlobalStyles} from "../constants/styles";
+import * as Animatable from "react-native-animatable";
 import {UserChoices} from "../constants/users";
-import {Ionicons} from "@expo/vector-icons";
+import {MaterialCommunityIcons} from "@expo/vector-icons";
+import {GlobalStyles} from "../constants/styles";
+import {useContext, useState} from "react";
+import LoadingOverlay from "../components/ui/LoadingOverlay";
 
-export default function Gender({navigation}) {
+export default function PerfilStatus() {
+    const [isAuthenticating, setIsAuthenticating] = useState(false);
+
     const usuarioCtx = useContext(UsuarioContext);
 
-    function genderHandler(gender) {
-        usuarioCtx.updateUsuario({sexo: gender});
-        navigation.navigate('PerfilStatus');
+    function perfilStatusHandler(status) {
+        usuarioCtx.updateUsuario({public: status});
+        setIsAuthenticating(true);
+        try {
+
+        } catch (error) {
+            Alert.alert('Falha no cadastro', 'Tente novamente mais tarde');
+        }
+    }
+
+    if (isAuthenticating) {
+        return <LoadingOverlay message={'Criando usuário...'}/>
     }
 
     return (
@@ -27,20 +39,21 @@ export default function Gender({navigation}) {
             </View>
 
             <Animatable.View delay={600} animation="fadeInUp" style={styles.containerForm} /* direcionamento */>
-                <Text style={styles.title}>Qual o seu sexo?</Text>
+                <Text style={styles.title}>Qual o seu tipo de perfil?</Text>
 
-                {UserChoices.gender.map((gender, index) => (
+                {UserChoices.perfil.map((perfil, index) => (
                     <Pressable style={styles.buttonText}
-                               onPress={genderHandler.bind(this, gender.value)}
+                               onPress={perfilStatusHandler.bind(this, perfil.value)}
                                key={index}
                     >
-                            <Ionicons name={gender.icon}
-                                                    size={36}
-                                                    color={gender.color}
-                            />
                         <Text style={styles.principalText}>
-                            &nbsp;&nbsp;{gender.value}
+                            <MaterialCommunityIcons name={perfil.icon}
+                                                    size={26}
+                                                    color={perfil.color}
+                            />
+                            &nbsp;&nbsp;{perfil.value}
                         </Text>
+                        <Text style={styles.descriptionText}>{perfil.description}</Text>
                     </Pressable>
                 ))}
 
@@ -85,18 +98,18 @@ const styles = StyleSheet.create({
     buttonText: {
         padding: 20,
         borderRadius: 20,
-        height: 85,
+        height: 95,
         marginBottom: 12,
         borderWidth: 1,
         borderColor: GlobalStyles.colors.primary,
         justifyContent: 'center',
         alignItems: 'center',
-        alignContent: 'center',
-        flexDirection: 'row',
+        alignContent: 'center'
     },
     principalText: {
         fontSize: 16,
         fontWeight: 'bold',
+        marginBottom: 5
     },
     descriptionText: {
         textAlign: 'center',
