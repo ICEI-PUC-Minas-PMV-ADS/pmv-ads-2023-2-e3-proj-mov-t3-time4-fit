@@ -169,7 +169,7 @@ export default function Routes() {
 
     useEffect(() => {
         async function checkAuth() {
-            const token = await AsyncStorage.getItem('token');
+            const token = await AsyncStorage.getItem('tokenNull');
             if (token) {
                 authCtx.authenticate(token);
             }

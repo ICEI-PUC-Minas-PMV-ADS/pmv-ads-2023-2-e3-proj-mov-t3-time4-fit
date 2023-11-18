@@ -1,41 +1,32 @@
 import {Alert, Modal, Pressable, StyleSheet, Text, TextInput, View} from "react-native";
-import {useState} from "react";
-import {MaterialCommunityIcons} from "@expo/vector-icons";
+import {useEffect, useState} from "react";
 import {GlobalStyles} from "../../constants/styles";
 
-function ModalPerfilEdit({isVisible, onClose, onSave, id, nome, atividade,
-    peso, altura, metaCalorica, metaPeso, meta, publico}) {
-    
-    return(
-        <Modal visible={isVisible}
-        transparent={true}
-        animationType={'fade'}>
-            <View>
-                 <Text>
-                    TESTE MODAL
-                </Text>
-            </View>
+function ModalPerfilNumerico({isVisible, onClose, onSave, titulo, valorBase, unidade, validador, variavel}) {
+    const [valor, setValor] = useState(valorBase?.toString());
 
-        </Modal>
-    )
+    useEffect(() => {
+        setValor(valorBase?.toString());
+    }, [valorBase]);
 
-    /*function saveEditPerfilHandler() {
-        onSave(quantidade);
-        setQuantidade(quantidadeBase.toString());
+    function editCampoHandler() {
+        onSave(variavel, valor);
+        setValor(valorBase?.toString());
         onClose();
     }
 
     function closeModalHandler() {
-        setQuantidade(quantidadeBase.toString());
+        setValor(valorBase?.toString());
         onClose();
     }
 
     function onChangeText(text) {
-        if (numeroValido.test(text) || text === '') {
-            setQuantidade(text);
+        if (validador.test(text) || text === '') {
+            setValor(text);
         } else {
             Alert.alert('Aviso', 'Insira um número válido.');
         }
+        setValor(text);
     }
 
     return (
@@ -47,18 +38,15 @@ function ModalPerfilEdit({isVisible, onClose, onSave, id, nome, atividade,
         >
             <View style={styles.centeredView}>
                 <View style={styles.modalView}>
-                    <Text style={styles.modalText}>{nome}</Text>
+                    <Text style={styles.modalText}>{titulo}</Text>
                     <View>
                         <View style={styles.textInput}>
-                            <MaterialCommunityIcons name="food-apple-outline" size={24} color="black"
-                                                    style={styles.foodIcon}/>
                             <View>
                                 <TextInput
                                     style={styles.input}
-                                    keyboardType="decimal-pad"
-                                    value={quantidade}
+                                    keyboardType="number-pad"
+                                    value={valor}
                                     onChangeText={onChangeText}
-                                    maxLength={5}
                                 />
                                 <Text style={styles.textUnidade}>{unidade}</Text>
                             </View>
@@ -68,8 +56,8 @@ function ModalPerfilEdit({isVisible, onClose, onSave, id, nome, atividade,
                         <Pressable style={styles.buttonCancel} onPress={closeModalHandler}>
                             <Text style={styles.button}>Cancelar</Text>
                         </Pressable>
-                        <Pressable style={styles.buttonSave} onPress={saveEditPerfilHandler}>
-                            <Text style={styles.button}>Adicionar</Text>
+                        <Pressable style={styles.buttonSave} onPress={editCampoHandler}>
+                            <Text style={styles.button}>{titulo}</Text>
                         </Pressable>
                     </View>
                 </View>
@@ -78,7 +66,7 @@ function ModalPerfilEdit({isVisible, onClose, onSave, id, nome, atividade,
     );
 }
 
-export default ModalPerfilEdit;
+export default ModalPerfilNumerico;
 
 const styles = StyleSheet.create({
     centeredView: {
@@ -146,4 +134,4 @@ const styles = StyleSheet.create({
         marginTop: 2,
         marginRight: 10,
     },
-});*/}
+});

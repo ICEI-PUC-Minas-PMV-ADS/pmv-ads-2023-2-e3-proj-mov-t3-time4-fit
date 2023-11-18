@@ -1,24 +1,46 @@
-import {StyleSheet, View, Text, Pressable, Modal} from "react-native";
-import {useContext, useState} from "react";
+import {Pressable, StyleSheet, Text, View} from "react-native";
+import {useContext, useEffect, useState} from "react";
 import {UsuarioContext} from "../store/usuario-context";
 import {GlobalStyles} from "../constants/styles";
-import {ModalPerfil} from "../components/Perfil/ModalPerfil";
-import {converterData} from "../util/date"
+import {getFormattedDateShort} from "../util/date"
+import ModalPerfilNumerico from "../components/Perfil/ModalPerfilNumerico";
+import {updateUsuario} from "../gateway/http-usuarios";
 
 function Perfil({navigation}) {
-    const [usuario, setUsuario] = useState(null);
-
     const usuarioCtx = useContext(UsuarioContext);
+
+    const [modalNumericoInfo, setModalNumericoInfo] = useState({});
 
     const {
         id, nome, atividade, dataNascimento, sexo,
         peso, altura, metaCalorica, metaPeso, meta, publico
     } = usuarioCtx.usuario;
-    
 
-    const [visibleModal, setVisibleModal] = useState(false);
-    const [modalVisible, setModalVisible] = useState(true);
+    const [modalNumericoVisible, setModalNumericoVisible] = useState(false);
 
+    useEffect(() => {
+        console.log(usuarioCtx.usuario);
+    }, [usuarioCtx.usuario]);
+
+    function onPressableNumericoHandler(titulo, valorBase, unidade, validador, variavel) {
+        setModalNumericoInfo({titulo, valorBase, unidade, validador, variavel});
+        setModalNumericoVisible(true);
+    }
+
+    async function editCampoHandler(variavel, valor) {
+        const usuario = {...usuarioCtx.usuario, [variavel]: valor};
+        console.log(usuario)
+        try {
+            usuarioCtx.updateUsuario({[variavel]: valor});
+            await updateUsuario(id, usuario)
+        } catch (error) {
+            console.error(error);
+        }
+    }
+
+    function closeModalHandler() {
+        setModalNumericoVisible(false);
+    }
 
     return (
         <View style={styles.container}>
@@ -34,21 +56,21 @@ function Perfil({navigation}) {
                     </Pressable>
                 </View>
                 <View style={styles.infoLineContainer}>
-                    <Text style={styles.leftInfo}>Atividade:</Text>
-                    <Pressable>
-                        <Text style={styles.rightInfo}>{atividade}</Text>
-                    </Pressable>
-                </View>
-                <View style={styles.infoLineContainer}>
                     <Text style={styles.leftInfo}>Nascimento:</Text>
                     <Pressable>
-                        <Text style={styles.rightInfo}>{converterData(dataNascimento)}</Text>
+                        <Text style={styles.rightInfo}>{getFormattedDateShort(dataNascimento)}</Text>
                     </Pressable>
                 </View>
                 <View style={styles.infoLineContainer}>
                     <Text style={styles.leftInfo}>Sexo:</Text>
                     <Pressable>
                         <Text style={styles.rightInfo}>{sexo}</Text>
+                    </Pressable>
+                </View>
+                <View style={styles.infoLineContainer}>
+                    <Text style={styles.leftInfo}>Atividade:</Text>
+                    <Pressable>
+                        <Text style={styles.rightInfo}>{atividade}</Text>
                     </Pressable>
                 </View>
                 <View style={styles.infoLineContainer}>
@@ -71,7 +93,8 @@ function Perfil({navigation}) {
                 </View>
                 <View style={styles.infoLineContainer}>
                     <Text style={styles.leftInfo}>Meta Peso:</Text>
-                    <Pressable>
+                    <Pressable
+                        onPress={onPressableNumericoHandler.bind(this, 'Meta Peso:', metaPeso, 'kg', /^\d+$/, 'metaPeso')}>
                         <Text style={styles.rightInfoX}>{metaPeso} kg</Text>
                     </Pressable>
                 </View>
@@ -83,40 +106,16 @@ function Perfil({navigation}) {
                 </View>
                 <View style={styles.infoLineContainer}>
                     <Text style={styles.leftInfoX}>Estilo de perfil:</Text>
-                    <Pressable onPress={() => setModalVisible(true)}>
+                    <Pressable>
                         <Text style={styles.rightInfoX}>{publico? 'Público':'Privado'}</Text>
                     </Pressable>
                 </View>
-
-                <ModalPerfil
-                    isVisible={modalVisible}  
-                />
-
-
-
-
-
-                {/*<Text style={styles.leftInfo}>Atividade:</Text>*/}
-                {/*<Text style={styles.leftInfo}>Nascimento:</Text>*/}
-                {/*<Text style={styles.leftInfo}>Sexo:</Text>*/}
-                {/*<Text style={styles.leftInfo}>Altura:</Text>*/}
-                {/*<Text style={styles.leftInfo}>Peso:</Text>*/}
-                {/*<Text style={styles.leftInfo}>Objetivo:</Text>*/}
-                {/*<Text style={styles.leftInfo}>Meta de peso:</Text>*/}
-                {/*<Text style={styles.leftInfo}>Meta calórica:</Text>*/}
-                {/*<Text style={styles.leftInfo}>Perfil:</Text>*/}
-                {/*<View>*/}
-                {/*    <Text style={styles.rightInfo}>{atividade}</Text>*/}
-                {/*    <Text style={styles.rightInfo}>{dataNascimento}</Text>*/}
-                {/*    <Text style={styles.rightInfo}>{sexo}</Text>*/}
-                {/*    <Text style={styles.rightInfo}>{altura}</Text>*/}
-                {/*    <Text style={styles.rightInfo}>{peso}</Text>*/}
-                {/*    <Text style={styles.rightInfo}>{meta}</Text>*/}
-                {/*    <Text style={styles.rightInfo}>{metaPeso}</Text>*/}
-                {/*    <Text style={styles.rightInfo}>{metaCalorica}</Text>*/}
-                {/*    <Text style={styles.rightInfo}>{publico.toString()}</Text>*/}
-                {/*</View>*/}
             </View>
+            <ModalPerfilNumerico
+                isVisible={modalNumericoVisible}
+                onClose={closeModalHandler}
+                onSave={editCampoHandler}
+                {...modalNumericoInfo}/>
         </View>
     );
 }
@@ -150,6 +149,7 @@ const styles = StyleSheet.create({
     infoLineContainer: {
         flexDirection: 'row',
         justifyContent: 'space-between',
+        alignItems: 'center',
     },
     leftInfo: {
         textTransform: 'capitalize',
