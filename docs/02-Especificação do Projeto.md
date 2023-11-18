@@ -28,13 +28,13 @@ Com base na análise das personas forma identificadas as seguintes histórias de
 |EU COMO... `PERSONA`| QUERO/PRECISO ... `FUNCIONALIDADE` |PARA ... `MOTIVO/VALOR`                 |
 |--------------------|------------------------------------|----------------------------------------|
 |Camilla Silva       | Deseja uma plataforma onde consiga encontrar a tabela nutricional de vários alimentos. | Para garantir que sua dieta está sendo seguida corretamente. |
-|Camilla Silva        | Deseja poder compartilhar suas metas e dietas nas redes sociais. | Para que seus amigos possam acompanhar seu progresso.|
+|Camilla Silva        | Deseja poder registra suas metas diarias. | Para que visualizar seu progresso.|
 |Camilla Silva     |Deseja uma plataforma onde consiga realizar cadastro no aplicativo  | Para garantir a precisão das informações do seu dia a dia.|
-|Lucas Pereira     | Deseja ter acesso a planos de refeições simples e saudáveis para cada semana.| Para Facilitar o planejamento de minhas refeições e evitar a tentação de optar por opções não saudáveis por falta de tempo. |
-|Lucas Pereira      | Deseja uma plataforma onde consiga registrar suas refeições de forma rápida e fácil.| Para se manter organizado e evitar fast food. |
+|Lucas Pereira     | Deseja ter acesso aos histórico de alimentações dos dias anteriores. | Para analise do progresso. |
+|Lucas Pereira      | Deseja uma plataforma onde consiga registrar suas refeições de forma rápida e fácil.| Para se manter organizado e evitar atraso no seu dia-a-dia. |
 |Lucas Pereira      | Deseja deixar como favoritos suas metas atingidas no dia. | Para comparação do seu progresso ao longo dos meses. |
-|Maria Izabel       | Deseja uma plataforma onde sejam enviados lembretes personalizados para os pacientes para incentivar a alimentação adequada.| Para garantir que os pacientes estejam seguindo as recomendações. |
-|Maria Izabel    |   Deseja que os pacientes recebam notificações quando atingirem marcos importantes em seus objetivos de saúde. | Para celebrar as conquistas dos pacientes e fornecer motivação adicional para continuar em direção a um estilo de vida mais saudável.|
+|Maria Izabel       | Deseja uma plataforma onde consiga pesquisar alimentos e suas calorias de maneira rápida e fácil. | Para manter o foco. |
+|Maria Izabel    |   Deseja uma plataforma onde os pacientes consigam verificar o progresso de outros usúarios.| Para que eles se sintam motivados. |
 |Maria Izabel       |Deseja que seus pacientes tenham acesso a um contador de calorias que me mostre o valor nutricional de refeições. | Para tomar decisões informadas sobre porções e ingredientes, mantendo o controle de minha ingestão calórica.  |
 
 ## Modelagem do Processo de Negócio 
