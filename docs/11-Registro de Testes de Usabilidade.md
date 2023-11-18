@@ -12,7 +12,7 @@
 
 | **Caso de Teste** 	| **CT-02 – Compatibilidade**	|
 |:---:	|:---:	|
-|Requisito Associado | RNF-05  O sistema deve ser compatível com os principais sistemas operacionais (Android e o iOS).  |
+|Requisito Associado | RNF-05 - A aplicação deve ser compatível com os principais sistemas operacionais (Android e o iOS).  |
 | Referência 	| pendente da imagem |
 | Avaliação | ✅  |
 
