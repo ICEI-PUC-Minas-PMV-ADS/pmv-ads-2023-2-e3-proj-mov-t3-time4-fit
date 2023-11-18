@@ -22,7 +22,8 @@ export function getFormattedDatePretty(day) {
 
     const diaMes = date.toLocaleDateString('pt-BR', {day: 'numeric', month: 'short'})
         .replace(' de ', '/').replace('.', '');
-    const diaSemana = date.toLocaleDateString('pt-BR', {weekday:'short'})
+    const diaSemana = date.toLocaleDateString('pt-BR', {weekday: 'short'})
         .slice(0, 3).replace('.', '');
     return `${diaSemana}, ${diaMes}`;
+
 }
