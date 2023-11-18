@@ -7,15 +7,15 @@ import {UserChoices} from "../constants/users";
 import {Ionicons} from "@expo/vector-icons";
 import {isValid, parseISO} from "date-fns";
 
-export default function Medidas({navigation}) {
-    const [pesoAtual, setPesoAtual] = useState('');
+export default function Altura({navigation}) {
+    const [alturaUsuario, setAlturaUsuario] = useState('');
 
     const usuarioCtx = useContext(UsuarioContext);
     const dateRegex = /^(0[1-9]|[12]\d|3[01])\/(0[1-9]|1[0-2])\/\d{4}$/;
 
-    function pesoHandler() {
-        if (dateRegex.test(pesoAtual)) {
-            usuarioCtx.updateUsuario({pesoAtual: pesoAtual});
+    function alturaHandler() {
+        if (dateRegex.test(alturaUsuario)) {
+            usuarioCtx.updateUsuario({alturaUsuario: alturaUsuario});
             navigation.navigate('Gender');
         } else {
             Alert.alert('Verifique o valor inserido', 'E tente novamente.');
@@ -27,9 +27,9 @@ export default function Medidas({navigation}) {
 
         // Insere as barras automaticamente enquanto o usuário digita
         if (cleanedText.length <= 2) {
-            setPesoAtual(cleanedText);
+            setAlturaUsuario(cleanedText);
         } else {
-            setPesoAtual(`${cleanedText.slice(0, 3)},${cleanedText.slice(3, 5)}`);
+            setAlturaUsuario(`${cleanedText.slice(0, 3)},${cleanedText.slice(3, 5)}`);
         } 
     }
 
@@ -46,22 +46,22 @@ export default function Medidas({navigation}) {
             </View>
 
             <Animatable.View delay={600} animation="fadeInUp" style={styles.containerForm} /* direcionamento */>
-                <Text style={styles.title}>Qual seu peso?</Text>
+                <Text style={styles.title}>Qual a sua altura?</Text>
 
                 <View>
                     <TextInput
                         style={styles.input}
-                        placeholder="Peso em kg"
+                        placeholder="Altura em cm"
                         keyboardType="numeric"
-                        value={pesoAtual}
+                        value={alturaUsuario}
                         onChangeText={onChangeTextHandler}
-                        maxLength={6} // Define o tamanho máximo do texto
+                        maxLength={3} // Define o tamanho máximo do texto
                     />
                 </View>
 
                 <Pressable
                     style={styles.buttonText}
-                    onPress={pesoHandler}
+                    onPress={alturaHandler}
                 >
                     <Text style={styles.principalText}>Próximo</Text>
                 </Pressable>

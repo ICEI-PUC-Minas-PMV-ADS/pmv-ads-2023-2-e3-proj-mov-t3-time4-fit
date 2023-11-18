@@ -25,6 +25,7 @@ import {MaterialCommunityIcons} from "@expo/vector-icons";
 import {GlobalStyles} from "../constants/styles";
 import Gender from "../screens/Gender";
 import DateBirth from "../screens/DateBirth";
+import Altura from "../screens/Altura"
 
 const Stack = createNativeStackNavigator();
 const BottomTab = createBottomTabNavigator();
@@ -154,7 +155,16 @@ function AuthStack() {
                 component={Medidas}
                 options={{headerShown: false}}
             />
+            <Stack.Screen
+                name="Altura"
+                component={Altura}
+                options={{headerShown: false}}
+            />
         </Stack.Navigator>
+
+        
+        
+
     );
 }
 
