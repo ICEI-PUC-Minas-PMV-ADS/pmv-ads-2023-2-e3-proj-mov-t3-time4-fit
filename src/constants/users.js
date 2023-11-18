@@ -55,13 +55,15 @@ export const UserChoices = {
     ],
     perfil: [
         {
-            value: 'Público',
+            text: 'Público',
+            value: true,
             icon: 'account',
             color: GlobalStyles.colors.text800,
             description: 'Seu perfil será visível para todos os usuários',
         },
         {
-            value: 'Privado',
+            text: 'Privado',
+            value: false,
             icon: 'account-lock',
             color: GlobalStyles.colors.text800,
             description: 'Seu perfil será visível apenas para você',

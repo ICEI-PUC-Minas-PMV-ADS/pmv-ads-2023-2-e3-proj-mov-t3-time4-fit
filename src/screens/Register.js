@@ -33,7 +33,8 @@ function Register({navigation}) {
                 Alert.alert('Falha no cadastro', 'E-mail já cadastrado');
                 return;
             }
-            usuarioCtx.updateUsuario(data);
+            const nomeCompleto = data.nome + ' ' + data.sobrenome;
+            usuarioCtx.updateUsuario({...data, nomeCompleto: nomeCompleto});
             navigation.navigate('Objective');
         } catch (error) {
             Alert.alert('Erro ao verificar e-mail', 'Tente novamente mais tarde');

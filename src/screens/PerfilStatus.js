@@ -6,19 +6,35 @@ import {MaterialCommunityIcons} from "@expo/vector-icons";
 import {GlobalStyles} from "../constants/styles";
 import {useContext, useState} from "react";
 import LoadingOverlay from "../components/ui/LoadingOverlay";
+import {storeUsuario} from "../gateway/http-usuarios";
+import {AuthContext} from "../store/auth-context";
+import {getMetaCalorica} from "../util/calculator";
 
 export default function PerfilStatus() {
     const [isAuthenticating, setIsAuthenticating] = useState(false);
 
     const usuarioCtx = useContext(UsuarioContext);
+    const authCtx = useContext(AuthContext);
 
-    function perfilStatusHandler(status) {
-        usuarioCtx.updateUsuario({public: status});
+    const usuario = usuarioCtx.usuario;
+
+    async function perfilStatusHandler(status) {
         setIsAuthenticating(true);
-        try {
 
+        let usuarioData = {...usuario, peso: 98, altura: 184};
+
+        const metaCalorica = getMetaCalorica(usuarioData)
+
+        usuarioData = {...usuarioData, metaCalorica: metaCalorica, public: status}
+
+        try {
+            const id = await storeUsuario(usuarioData);
+            // usuarioCtx.updateUsuario({...usuarioData, id: id});
+            // authCtx.authenticate(id);
         } catch (error) {
             Alert.alert('Falha no cadastro', 'Tente novamente mais tarde');
+        } finally {
+            setTimeout(() => setIsAuthenticating(false), 1000);
         }
     }
 
@@ -51,7 +67,7 @@ export default function PerfilStatus() {
                                                     size={26}
                                                     color={perfil.color}
                             />
-                            &nbsp;&nbsp;{perfil.value}
+                            &nbsp;&nbsp;{perfil.text}
                         </Text>
                         <Text style={styles.descriptionText}>{perfil.description}</Text>
                     </Pressable>
