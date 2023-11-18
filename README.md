@@ -45,10 +45,7 @@ cd src
 ```
 npm install
 ```
-4. **Inicie o JSON Server com o Arquivo db.json:**
-```
-json-server --watch db.json --port 3000
-```
+
 ### Inicialização do Aplicativo
 1. **Inicie o Aplicativo React Native:**
 ```
