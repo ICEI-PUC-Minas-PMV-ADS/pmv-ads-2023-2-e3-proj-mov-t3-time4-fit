@@ -4,14 +4,14 @@ import * as Animatable from 'react-native-animatable'
 import {UsuarioContext} from "../store/usuario-context";
 import {GlobalStyles} from "../constants/styles";
 import {UserChoices} from "../constants/users";
-import {FontAwesome5} from "@expo/vector-icons";
+import {Ionicons} from "@expo/vector-icons";
 
-export default function LevelActivity({navigation}) {
+export default function Gender({navigation}) {
     const usuarioCtx = useContext(UsuarioContext);
 
-    function levelActivityHandler(levelActivity) {
-        usuarioCtx.updateUsuario({atividade: levelActivity});
-        navigation.navigate('DateBirth');
+    function genderHandler(gender) {
+        usuarioCtx.updateUsuario({sexo: gender});
+        navigation.navigate('DataNascimento');
     }
 
     return (
@@ -27,21 +27,20 @@ export default function LevelActivity({navigation}) {
             </View>
 
             <Animatable.View delay={600} animation="fadeInUp" style={styles.containerForm} /* direcionamento */>
-                <Text style={styles.title}>Qual seu nível de atividade física diário?</Text>
+                <Text style={styles.title}>Qual o seu sexo?</Text>
 
-                {UserChoices.levelActivity.map((activity, index) => (
+                {UserChoices.gender.map((gender, index) => (
                     <Pressable style={styles.buttonText}
-                               onPress={levelActivityHandler.bind(this, activity.value)}
+                               onPress={genderHandler.bind(this, gender.value)}
                                key={index}
                     >
-                        <Text style={styles.principalText}>
-                            <FontAwesome5 name={activity.icon}
-                                                    size={26}
-                                                    color={activity.color}
+                            <Ionicons name={gender.icon}
+                                                    size={36}
+                                                    color={gender.color}
                             />
-                            &nbsp;&nbsp;{activity.value}
+                        <Text style={styles.principalText}>
+                            &nbsp;&nbsp;{gender.value}
                         </Text>
-                        <Text style={styles.descriptionText}>{activity.description}</Text>
                     </Pressable>
                 ))}
 
@@ -92,12 +91,12 @@ const styles = StyleSheet.create({
         borderColor: GlobalStyles.colors.primary,
         justifyContent: 'center',
         alignItems: 'center',
-        alignContent: 'center'
+        alignContent: 'center',
+        flexDirection: 'row',
     },
     principalText: {
         fontSize: 16,
         fontWeight: 'bold',
-        marginBottom: 5
     },
     descriptionText: {
         textAlign: 'center',

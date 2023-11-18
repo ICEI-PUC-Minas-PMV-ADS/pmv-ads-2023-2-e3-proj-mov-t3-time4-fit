@@ -41,5 +41,16 @@ export const UserChoices = {
             color: GlobalStyles.colors.primary,
         }
     ],
-    gender: ['Masculino', 'Feminino'],
+    gender: [
+        {
+            value: 'Masculino',
+            icon: 'man',
+            color: GlobalStyles.colors.text800,
+        },
+        {
+            value: 'Feminino',
+            icon: 'woman',
+            color: GlobalStyles.colors.text800,
+        }
+    ],
 }

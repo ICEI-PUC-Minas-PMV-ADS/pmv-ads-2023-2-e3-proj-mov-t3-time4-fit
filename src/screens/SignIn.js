@@ -35,7 +35,7 @@ function SignIn({navigation}) {
             <Animatable.View animation="fadeInUp" style={styles.containerForm}>
                 <Text style={styles.title}>E-mail</Text>
                 <TextInput
-                    placeholder="Digite seu e-mail."
+                    placeholder="Digite seu e-mail"
                     style={styles.input}
                     keyboardType={'email-address'}
                     value={email}
@@ -44,7 +44,7 @@ function SignIn({navigation}) {
 
                 <Text style={styles.title}>Senha</Text>
                 <TextInput
-                    placeholder="Digite sua senha."
+                    placeholder="Digite sua senha"
                     secureTextEntry={true}
                     style={styles.input}
                     keyboardType={'default'}
@@ -52,12 +52,12 @@ function SignIn({navigation}) {
                     onChangeText={setPassword}
                 />
 
-                <Pressable style={styles.button} onPress={handleLogin}>
-                    <Text style={styles.buttonText}>Entrar</Text>
+                <Pressable style={styles.buttonPrimary} onPress={handleLogin}>
+                    <Text style={styles.buttonPrimaryText}>Entrar</Text>
                 </Pressable>
 
-                <Pressable style={styles.buttonRegister} onPress={() => navigation.replace('Register')}>
-                    <Text style={styles.registerText}>Cadastrar</Text>
+                <Pressable style={styles.buttonSecondary} onPress={() => navigation.replace('Register')}>
+                    <Text style={styles.buttonSecondaryText}>Cadastrar</Text>
                 </Pressable>
 
             </Animatable.View>
@@ -102,7 +102,7 @@ const styles = StyleSheet.create({
         marginBottom: 12,
         fontSize: 16,
     },
-    button: {
+    buttonPrimary: {
         backgroundColor: GlobalStyles.colors.primary,
         width: '40%',
         borderRadius: 100,
@@ -112,12 +112,12 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         alignSelf: 'center'
     },
-    buttonText: {
+    buttonPrimaryText: {
         color: GlobalStyles.colors.text800,
         fontSize: 18,
         fontWeight: "bold"
     },
-    buttonRegister: {
+    buttonSecondary: {
         backgroundColor: GlobalStyles.colors.input,
         width: '40%',
         borderRadius: 100,
@@ -127,7 +127,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         alignSelf: 'center'
     },
-    registerText: {
+    buttonSecondaryText: {
         color: GlobalStyles.colors.text100,
         fontWeight: "bold",
         fontSize: 16

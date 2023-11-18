@@ -25,6 +25,11 @@ export async function loginUsuario(email, senha) {
     return response;
 }
 
+export async function checkUsuarioByEmail(email) {
+    const {data: response} = await axios.get(BACKEND_URL + `?email=${email}`);
+    return response;
+}
+
 export function updateUsuario(id, usuarioData) {
     return axios.put(BACKEND_URL + `/${id}`, usuarioData);
 }

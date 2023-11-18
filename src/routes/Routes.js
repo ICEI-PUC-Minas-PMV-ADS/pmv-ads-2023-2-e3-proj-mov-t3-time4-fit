@@ -24,6 +24,8 @@ import {useCallback, useContext, useEffect, useState} from "react";
 import {AuthContext} from "../store/auth-context";
 import {MaterialCommunityIcons} from "@expo/vector-icons";
 import {GlobalStyles} from "../constants/styles";
+import Gender from "../screens/Gender";
+import DateBirth from "../screens/DateBirth";
 
 const Stack = createNativeStackNavigator();
 const BottomTab = createBottomTabNavigator();
@@ -136,6 +138,16 @@ function AuthStack() {
             <Stack.Screen
                 name="LevelActivity"
                 component={LevelActivity}
+                options={{headerShown: false}}
+            />
+            <Stack.Screen
+                name="Gender"
+                component={Gender}
+                options={{headerShown: false}}
+            />
+            <Stack.Screen
+                name="DateBirth"
+                component={DateBirth}
                 options={{headerShown: false}}
             />
             <Stack.Screen
