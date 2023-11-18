@@ -11,7 +11,7 @@ export default function Gender({navigation}) {
 
     function genderHandler(gender) {
         usuarioCtx.updateUsuario({sexo: gender});
-        navigation.navigate('DataNascimento');
+        navigation.navigate('Medidas');
     }
 
     return (
@@ -84,8 +84,8 @@ const styles = StyleSheet.create({
     },
     buttonText: {
         padding: 20,
-        borderRadius: 5,
-        height: 95,
+        borderRadius: 20,
+        height: 85,
         marginBottom: 12,
         borderWidth: 1,
         borderColor: GlobalStyles.colors.primary,

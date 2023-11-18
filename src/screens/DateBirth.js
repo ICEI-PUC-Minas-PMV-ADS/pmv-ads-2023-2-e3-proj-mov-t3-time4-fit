@@ -65,7 +65,7 @@ export default function DateBirth({navigation}) {
                     style={styles.buttonText}
                     onPress={dateBirthHandler}
                 >
-                    <Text style={styles.principalText}>Próximo</Text>
+                    <Text style={styles.principalText}>Continuar</Text>
                 </Pressable>
 
             </Animatable.View>
@@ -106,7 +106,7 @@ const styles = StyleSheet.create({
         color: GlobalStyles.colors.text800,
         borderColor: GlobalStyles.colors.text100,
         borderBottomWidth: 1,
-        marginVertical: 24,
+        marginVertical: 42,
         textAlign: 'center',
     },
     buttonText: {
@@ -115,8 +115,10 @@ const styles = StyleSheet.create({
         justifyContent: "center",
         borderRadius: 50,
         paddingVertical: 12,
-        marginHorizontal: '25%',
-        marginVertical: 32,
+        position: 'absolute',
+        alignSelf: 'center',
+        bottom: 30,
+        width: '80%',
     },
     principalText: {
         fontSize: 18,

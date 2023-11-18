@@ -13,7 +13,6 @@ import Perfil from "../screens/Perfil";
 import Explorar from "../screens/Explorar";
 import Objective from "../screens/Objective";
 import LevelActivity from "../screens/LevelActivity";
-import DataNascimento from "../screens/DataNascimento";
 import ManageRefeicao from "../screens/ManageRefeicao";
 import ManageRefeicoes from "../screens/ManageRefeicoes";
 import HomeCalendar from "../screens/HomeCalendar";
@@ -148,11 +147,6 @@ function AuthStack() {
             <Stack.Screen
                 name="DateBirth"
                 component={DateBirth}
-                options={{headerShown: false}}
-            />
-            <Stack.Screen
-                name="DataNascimento"
-                component={DataNascimento}
                 options={{headerShown: false}}
             />
             <Stack.Screen

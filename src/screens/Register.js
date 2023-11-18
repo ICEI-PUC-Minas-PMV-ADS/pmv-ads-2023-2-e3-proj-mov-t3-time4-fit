@@ -65,6 +65,7 @@ function Register({navigation}) {
                             onBlur={onBlur} //chamado quando o text input é tocado ein
                             value={value}
                             placeholder='Seu nome'
+                            autoCapitalize={'words'}
                         />
                     )}
                 />
@@ -81,6 +82,7 @@ function Register({navigation}) {
                             onBlur={onBlur} //chamado quando o text input é tocado ein
                             value={value}
                             placeholder='Seu sobrenome'
+                            autoCapitalize={'words'}
                         />
                     )}
                 />
