@@ -1,10 +1,13 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import {StyleSheet, Text, TextInput, TouchableOpacity, View} from 'react-native';
 
 import * as Animatable from 'react-native-animatable'
 import {GlobalStyles} from "../constants/styles";
+import {AuthContext} from "../store/auth-context";
 
 function SignIn({navigation}) {
+    const authCtx = useContext(AuthContext);
+
     return (
         <View style={styles.container}>
             <Animatable.View animation="fadeInLeft" delay={500} style={styles.containerHeader}/* BLOCO DOS CAMPOS */>
@@ -24,7 +27,7 @@ function SignIn({navigation}) {
                     style={styles.input}
                 />
 
-                <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('BottomTabNavigator')}>
+                <TouchableOpacity style={styles.button}>
                     <Text style={styles.buttonText}>Acessar</Text>
                 </TouchableOpacity>
 

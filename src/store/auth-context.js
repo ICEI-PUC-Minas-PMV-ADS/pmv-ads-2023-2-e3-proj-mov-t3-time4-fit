@@ -9,8 +9,7 @@ export const AuthContext = createContext({
 });
 
 function AuthContextProvider({children}) {
-    //TODO: alterar para null
-    const [authToken, setAuthToken] = useState('1')
+    const [authToken, setAuthToken] = useState(null)
 
     function authenticate(token) {
         setAuthToken(token);
