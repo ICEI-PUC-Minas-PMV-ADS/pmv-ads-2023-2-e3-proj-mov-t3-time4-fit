@@ -2,7 +2,7 @@
 
 | **Caso de Teste** 	| **CT-01 – Acesso ao Aplicativo**	|
 |:---:	|:---:	|
-|Requisito Associado | RNF-01 - Os usuários devem poder fazer cadastro e login usando suas credenciais.|
+|Requisito Associado | RNF-01 - A aplicação deve ser de fácil acesso.|
 | Referência | pendente da imagem  |
 | Avaliação | ✅  |
 
