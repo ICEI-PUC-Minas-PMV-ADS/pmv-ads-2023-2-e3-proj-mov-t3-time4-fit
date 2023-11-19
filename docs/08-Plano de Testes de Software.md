@@ -56,7 +56,7 @@ Enumere quais cenários de testes foram selecionados para teste. Neste tópico o
 
 | **Caso de Teste** 	| **CT-07 – Histórico dos planos alimentares**	|
 |:---:	|:---:	|
-|Requisito Associado | RF-06	Os usuários devem ter acesso a um histórico de planos alimentares anteriores e informações nutricionais. |
+|Requisito Associado | RF-07	Os usuários devem ter acesso a um histórico de planos alimentares anteriores e informações nutricionais. |
 | Objetivo do Teste 	| Acessar o histórico dos planos e registros alimentares. |
 | Passos 	| - Acessar a aplicação <br> - Logar com seu usuário e senha cadastrados <br> - Clicar na seção perfil. <br> - Acessar opção histórico. <br> Selecionar o dia no qual gostaria de ver seu histórico de alimentação.|
 |Critério de Êxito | - Histórico aberto com sucesso no dia selecionado e informações salvas e mostradas no aplicativo com sucesso.|
