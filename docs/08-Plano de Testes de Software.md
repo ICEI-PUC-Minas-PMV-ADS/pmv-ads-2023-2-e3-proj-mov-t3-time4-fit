@@ -47,7 +47,7 @@ Enumere quais cenários de testes foram selecionados para teste. Neste tópico o
 |Critério de Êxito | - Apresentação das informações sobre o alimento pesquisado pelo usuário com sucesso. |
 
 
-| **Caso de Teste** 	| **CT-06 – Meta de consumo calorico**	|
+| **Caso de Teste** 	| **CT-06 – Meta de consumo calórico**	|
 |:---:	|:---:	|
 |Requisito Associado | RF-06		Os usuários podem definir metas de consumo calórico diário. |
 | Objetivo do Teste 	| Acessar o aplicativo e definir uma meta de consumo  calórico diário. |
