@@ -1,49 +1,47 @@
 # Registro de Testes de Software
 
-Relatório com as evidências dos testes de software realizados no sistema pela equipe, baseado em um plano de testes pré-definido.
-
 ## Avaliação
 
 | **Caso de Teste** 	| **CT-01 – Cadastro e login usando credenciais.** 	|
 |:---:	|:---:	|
-| Vídeo | <video src="https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-2-e3-proj-mov-t3-time4-fit/assets/70116762/86fe764a-0122-4d1c-8395-c7e3f5f3ad54" title="CT-01"> |
+| Vídeo | <video src="https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-2-e3-proj-mov-t3-time4-fit/assets/93801572/8eae9beb-87d8-4e3d-9f79-bdfac9daf3bd" title="CT-01- Login e Cadastro"> |
 |	Requisito Associado 	| RF-01 - Os usuários devem poder fazer cadastro e login usando suas credenciais. |
 | Avaliação 	|✅ Cadastro de perfil realizado com sucesso. Login realizado com sucesso. |
 |  	|  	|
 
 | **Caso de Teste** 	| **CT-02 – Criação e salvamento de planos alimentares, incluindo refeições, alimentos consumidos e quantidades.** 	|
 |:---:	|:---:	|
-| Vídeo | <video src="https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-2-e3-proj-mov-t3-time4-fit/assets/93801572/e40e0121-7c78-402d-b2ac-1a577313e18c" title="CT-02"> |
+| Vídeo | <video src="https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-2-e3-proj-mov-t3-time4-fit/assets/93801572/4d945624-6c3c-4424-8a55-f7a925267427" title="CT-02"> |
 |	Requisito Associado 	| RF-02 -Os usuários devem ser capazes de criar e salvar seus planos alimentares, incluindo refeições, alimentos consumidos e quantidades. |
-| Avaliação 	|✅ |
+| Avaliação 	|✅ Criações e salvamentos de planos alimentares funiconam corretamente.  |
 |  	|  	|
 
 | **Caso de Teste** 	| **CT-03 – Verificação do cálculo das calorias consumidas no dia pelo usuário.** 	|
 |:---:	|:---:	|
-| Vídeo |  |
+| Vídeo | <video src="https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-2-e3-proj-mov-t3-time4-fit/assets/93801572/e751ae9d-8005-4242-8b79-97a83efd94d5" title="CT-03"> |
 |	Requisito Associado 	| RF-03 O aplicativo deve calcular e exibir a contagem total de calorias para o dia com base nos alimentos registrados. |
 | Avaliação 	|✅ Contagem de calorias funciona corretamente. |
 |  	|  	|
 
 | **Caso de Teste** 	| **CT-04 –  Pesquisa e visualização os planos alimentares de outros usuários.** 	|
 |:---:	|:---:	|
-| Vídeo | <video src="https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-2-e3-proj-mov-t3-time4-fit/assets/93801572/62404370-6407-4dfe-b77e-49c5a390f171" title="CT-04"> |
+| Vídeo | <video src="https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-2-e3-proj-mov-t3-time4-fit/assets/93801572/df966b81-451d-4579-aa14-f4e159ab4a85" title="CT-04"> |
 |	Requisito Associado 	| RF-04 - 	Os usuários devem poder pesquisar e visualizar os planos alimentares de outros usuários. |
-| Avaliação 	|✅ Pesquisa de plano alimetares de outros usuario funciona corretamente.  |
+| Avaliação 	|✅ Pesquisa de planos alimetares de outros usuario funcionam corretamente.  |
 |  	|  	|
   
 | **Caso de Teste** 	| **CT-05 – Pesquisa e visualização de alimentos e suas calorias** 	|
 |:---:	|:---:	|
-| Vídeo | <video src="https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-2-e3-proj-mov-t3-time4-fit/assets/93801572/ad5498e3-9eec-46fe-a57c-857e80d99300" title="CT-05">|
+| Vídeo | <video src="https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-2-e3-proj-mov-t3-time4-fit/assets/93801572/f6c9988c-6496-4dd7-a726-f1e465b59e79" title="CT-05">|
 |	Requisito Associado 	| RF-05 -Os usuários devem poder pesquisar alimentos e suas calorias. |
 | Avaliação 	|✅ Pesquisas de alimentos funcionam corretamente.  |
 |  	|  	|
   
 | **Caso de Teste** 	| **CT-06 – Histórico dos planos alimentares** 	|
 |:---:	|:---:	|
-| Vídeo | <video src="https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-2-e3-proj-mov-t3-time4-fit/assets/93801572/51994fc0-66d8-47d9-b3c2-896442b11ea9" title="CT-07"> |
+| Vídeo | <video src="https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-2-e3-proj-mov-t3-time4-fit/assets/93801572/cb8810de-9213-4809-bd5b-f23ab9f09656" title="CT-06"> |
 |	Requisito Associado 	| RF-06 Os usuários devem ter acesso a um histórico de planos alimentares anteriores e informações nutricionais. |
-| Avaliação |✅ Acesso ao histórico funicona corretamente. |
+| Avaliação |✅ Acesso ao histórico funciona corretamente. |
 |  	|  	|
 
 ## Relatório
