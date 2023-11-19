@@ -100,6 +100,7 @@ function Register({navigation}) {
                             onBlur={onBlur} //chamado quando o text input é tocado ein
                             value={value}
                             placeholder='Digite seu e-mail'
+                            autoCapitalize={'none'}
                         />
                     )}
                 />
@@ -118,6 +119,7 @@ function Register({navigation}) {
                             value={value}
                             secureTextEntry={true}
                             placeholder='Digite sua senha'
+                            autoCapitalize={'none'}
                         />
                     )}
                 />
