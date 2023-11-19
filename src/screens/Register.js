@@ -26,7 +26,6 @@ function Register({navigation}) {
     }) //esta pode ser chamada quando o usuario clicar no botão de finalizar cadastro, utilizada para teste
 
     async function handleRegister(data) {
-        console.log(usuarioCtx.usuario)
         setIsSubmiting(true);
         try {
             const response = await checkUsuarioByEmail(data.email);
@@ -38,7 +37,7 @@ function Register({navigation}) {
             usuarioCtx.updateUsuario({...data, nomeCompleto: nomeCompleto});
             navigation.navigate('Objective');
         } catch (error) {
-            Alert.alert('Erro ao verificar e-mail', 'Tente novamente mais tarde');
+            Alert.alert('Falha no cadastro', 'Tente novamente mais tarde');
         } finally {
             setTimeout(() => setIsSubmiting(false), 1000);
         }

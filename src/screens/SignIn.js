@@ -5,25 +5,34 @@ import * as Animatable from 'react-native-animatable'
 import {GlobalStyles} from "../constants/styles";
 import {AuthContext} from "../store/auth-context";
 import {loginUsuario} from "../gateway/http-usuarios";
+import LoadingOverlay from "../components/ui/LoadingOverlay";
 
 function SignIn({navigation}) {
+    const [isSubmiting, setIsSubmiting] = useState(false);
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
     const authCtx = useContext(AuthContext);
 
     function handleLogin() {
+        setIsSubmiting(true);
         try {
             loginUsuario(email, password).then((response) => {
                 if (response && response[0]) {
                     authCtx.authenticate(response[0].id.toString());
                     return;
                 }
-                Alert.alert('Falha no login', 'Usuário ou senha incorretos.');
+                Alert.alert('Falha no login', 'Usuário ou senha incorretos');
             })
         } catch (error) {
-            console.log(error);
+            Alert.alert('Falha no login', 'Tente novamente mais tarde');
+        } finally {
+            setTimeout(() => setIsSubmiting(false), 1000);
         }
+    }
+
+    if (isSubmiting) {
+        return <LoadingOverlay message={'Verificando informações...'}/>
     }
 
     return (

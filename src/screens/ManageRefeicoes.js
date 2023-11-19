@@ -1,5 +1,5 @@
 import {useContext, useLayoutEffect, useState} from "react"
-import {FlatList, Modal, SafeAreaView, StyleSheet, View} from "react-native";
+import {FlatList, Modal, StyleSheet, View} from "react-native";
 import {ModalEditar} from "../components/ManageRefeicoes/ModalEditar";
 import {ModalAdd} from "../components/ManageRefeicoes/ModalAdd";
 import {RefeicaoContext} from "../store/refeicao-context";
@@ -108,7 +108,7 @@ export default function ManageRefeicoes({navigation}) {
     }
 
     return (
-        <SafeAreaView style={styles.container}>
+        <View style={styles.container}>
             <View style={styles.content}>
                 <FlatList
                     style={styles.flatlist}
@@ -150,7 +150,7 @@ export default function ManageRefeicoes({navigation}) {
                 <ModalAdd handleSalvar={handleSalvar} handleClose={handleCloseModal} />
             </Modal>
 
-        </SafeAreaView>
+        </View>
     );
 }
 
