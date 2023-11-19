@@ -49,6 +49,7 @@ function SignIn({navigation}) {
                     keyboardType={'email-address'}
                     value={email}
                     onChangeText={setEmail}
+                    autoCapitalize={'none'}
                 />
 
                 <Text style={styles.title}>Senha</Text>
@@ -59,6 +60,7 @@ function SignIn({navigation}) {
                     keyboardType={'default'}
                     value={password}
                     onChangeText={setPassword}
+                    autoCapitalize={'none'}
                 />
 
                 <Pressable style={styles.buttonPrimary} onPress={handleLogin}>
