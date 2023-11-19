@@ -47,12 +47,20 @@ Enumere quais cenários de testes foram selecionados para teste. Neste tópico o
 |Critério de Êxito | - Apresentação das informações sobre o alimento pesquisado pelo usuário com sucesso. |
 
 
-| **Caso de Teste** 	| **CT-06 – Histórico dos planos alimentares**	|
+| **Caso de Teste** 	| **CT-06 – Meta de consumo calorico**	|
+|:---:	|:---:	|
+|Requisito Associado | RF-06		Os usuários podem definir metas de consumo calórico diário. |
+| Objetivo do Teste 	| Acessar o aplicativo e definir uma meta de consumo  calórico diário. |
+| Passos 	| - Acessar a aplicação <br> - Logar com seu usuário e senha cadastrados caso não tenha cadastro, a definição da meta de consumo calorica será realziada durante o cadastro no app. <br> - Clicar na seção perfil. <br> - Acessar opção "Perfil" e selecionar "Meta  calórica. <br> Selecionar a meta que deseja.|
+|Critério de Êxito | - Meta definida com sucesso.|
+
+| **Caso de Teste** 	| **CT-07 – Histórico dos planos alimentares**	|
 |:---:	|:---:	|
 |Requisito Associado | RF-06	Os usuários devem ter acesso a um histórico de planos alimentares anteriores e informações nutricionais. |
 | Objetivo do Teste 	| Acessar o histórico dos planos e registros alimentares. |
 | Passos 	| - Acessar a aplicação <br> - Logar com seu usuário e senha cadastrados <br> - Clicar na seção perfil. <br> - Acessar opção histórico. <br> Selecionar o dia no qual gostaria de ver seu histórico de alimentação.|
 |Critério de Êxito | - Histórico aberto com sucesso no dia selecionado e informações salvas e mostradas no aplicativo com sucesso.|
+
 
 
 
