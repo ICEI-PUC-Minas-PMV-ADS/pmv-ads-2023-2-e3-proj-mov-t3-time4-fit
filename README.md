@@ -71,6 +71,10 @@ expo start
 <li><a href="docs/13-Referências.md"> Referências</a></li>
 </ol>
 
+# Solução
+
+<li><a href="app/README.md"> Aplicativo</a></li>
+
 # Código
 
 <li><a href="src/README.md"> Código Fonte</a></li>
