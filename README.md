@@ -17,6 +17,14 @@ O **Eat Smart** é um aplicativo mobile que simplifica o planejamento de refeiç
 | [<img src="https://github.com/mateuscurcino.png" width=115><br><sub>Mateus Curcino de Lima</sub>](https://github.com/mateuscurcino) |
 | :---: |
 
+
+## Apresentação do Projeto
+
+<video src="https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-2-e3-proj-mov-t3-time4-fit/assets/93801572/68207259-148b-497b-a29f-a3d5c501803d" title="Video de Apresentação">  |
+
+| :---: |
+
+
 ## Instruções de utilização
 
 | <video src="https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-2-e3-proj-mov-t3-time4-fit/assets/70116762/e2574b8b-f886-4df7-b6b1-2eb5724b3cd4" title="Instruções"> |
