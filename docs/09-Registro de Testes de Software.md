@@ -37,10 +37,17 @@
 | Avaliação 	|✅ Pesquisas de alimentos funcionam corretamente.  |
 |  	|  	|
   
-| **Caso de Teste** 	| **CT-06 – Histórico dos planos alimentares** 	|
+| **Caso de Teste** 	| **CT-06 – Meta de consumo calorico** 	|
 |:---:	|:---:	|
-| Vídeo | <video src="https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-2-e3-proj-mov-t3-time4-fit/assets/93801572/cb8810de-9213-4809-bd5b-f23ab9f09656" title="CT-06"> |
+| Vídeo | <video src="https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-2-e3-proj-mov-t3-time4-fit/assets/93801572/11ac4160-aff1-42a9-a8fb-320fc4bb7881" title="CT-06"> |
 |	Requisito Associado 	| RF-06 Os usuários devem ter acesso a um histórico de planos alimentares anteriores e informações nutricionais. |
+| Avaliação |✅ Acesso ao histórico funciona corretamente. |
+|  	|  	|
+
+| **Caso de Teste** 	| **CT-07 – Histórico dos planos alimentares** 	|
+|:---:	|:---:	|
+| Vídeo | <video src="https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-2-e3-proj-mov-t3-time4-fit/assets/93801572/cb8810de-9213-4809-bd5b-f23ab9f09656" title="CT-07"> |
+|	Requisito Associado 	| RF-07 Os usuários devem ter acesso a um histórico de planos alimentares anteriores e informações nutricionais. |
 | Avaliação |✅ Acesso ao histórico funciona corretamente. |
 |  	|  	|
 
@@ -84,13 +91,21 @@ Diante dos resultados obtidos, podemos afirmar que os testes foram concluídos c
 |:---:	|:---:	|
 |Requisito Associado | RF-05 - Os usuários devem poder pesquisar alimentos e suas calorias. |
 | Objetivo do Teste 	| Verificar se o usuário consegue realizar a pesquisa dos alimentos e suas calorias de uma maneira mais simplificada. |
-| Contexto de usuário	| Relacionado à necessidade da Maria Izabel, que consiga pesquisar alimentos e suas calorias de maneira rápida e fácil.  |
+| Contexto de usuário	| Relacionado à necessidade da Maria Izabel, que deseja pesquisar alimentos e suas calorias de maneira rápida e fácil.  |
 |Critério de Êxito | - O usuário conseguiu realizar a pesquisa do alimentos deseja e visualizar as calorias com sucesso. |
 |  	|  	|
 
-| **Caso de Teste** 	| **CT-06 – Acesso ao histórico**	|
+| **Caso de Teste** 	| **CT-06 – Meta de consumo calórico**	|
 |:---:	|:---:	|
-|Requisito Associado | RF-06 - Os usuários devem ter acesso a um histórico de planos alimentares anteriores e informações nutricionais. |
+|Requisito Associado | RF-06 - Os usuários podem definir metas de consumo calórico diário. |
+| Objetivo do Teste 	| Verificar se o usuário conseguirá salvar a meta de consumo calorico. |
+| Contexto de usuário	| Relacionado à necessidade da Camilla Silva, que deseja poder registra suas metas diarias.  |
+|Critério de Êxito | - O usuário conseguiu salvar meta de consumo com sucesso. |
+|  	|  	|
+
+| **Caso de Teste** 	| **CT-07 – Acesso ao histórico**	|
+|:---:	|:---:	|
+|Requisito Associado | RF-07 - Os usuários devem ter acesso a um histórico de planos alimentares anteriores e informações nutricionais. |
 | Objetivo do Teste 	| Verificar se o usuário conseguirá acessar o histórico de refeições anteriores. |
 | Contexto de usuário	| Relacionado à necessidade do Lucas Pereira, acesso aos histórico de alimentações dos dias anteriores, como forma de motivação do seu progresso.  |
 |Critério de Êxito | - O usuário conseguiu acessar o histórico com sucesso. |
