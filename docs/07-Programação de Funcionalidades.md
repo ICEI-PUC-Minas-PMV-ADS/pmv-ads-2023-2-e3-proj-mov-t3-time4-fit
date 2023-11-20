@@ -8,4 +8,4 @@ Implementação do sistema descritas por meio dos requisitos funcionais e/ou nã
 |RF-002| Os usuários devem ser capazes de criar e salvar seus planos alimentares, incluindo refeições, alimentos consumidos e quantidades | SearchAlimento.js / ManageRefeicoes.js / ModalAdd.js / ModalEditar.js |
 |RF-003| O aplicativo deve calcular e exibir a contagem total de calorias para o dia com base nos alimentos registrados |  calculator.js |
 |RF-004| Os usuários devem poder pesquisar e visualizar os planos alimentares de outros usuários | Explorar.js |
-|RF-007| Os usuários devem ter acesso a um histórico de planos alimentares anteriores e informações nutricionais | HomeCalendar.js / date.js | 
+|RF-005| Os usuários devem ter acesso a um histórico de planos alimentares anteriores e informações nutricionais | HomeCalendar.js / date.js | 
