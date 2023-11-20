@@ -11,10 +11,12 @@
 
 | **Caso de Teste** 	| **CT-02 – Criação e salvamento de planos alimentares, incluindo refeições, alimentos consumidos e quantidades.** 	|
 |:---:	|:---:	|
-| Vídeo | <video src="https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-2-e3-proj-mov-t3-time4-fit/assets/93801572/4d945624-6c3c-4424-8a55-f7a925267427" title="CT-02"> |
+| Vídeo | <video src="https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-2-e3-proj-mov-t3-time4-fit/assets/93801572/4d945624-6c3c-4424-8a55-f7a925267427" title="CT-02">  |
+| Vídeo | <video src="https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-2-e3-proj-mov-t3-time4-fit/assets/93801572/2cbeb524-ae76-4346-a598-6188a5f347b5" >  |
 |	Requisito Associado 	| RF-02 -Os usuários devem ser capazes de criar e salvar seus planos alimentares, incluindo refeições, alimentos consumidos e quantidades. |
 | Avaliação 	|✅ Criações e salvamentos de planos alimentares funiconam corretamente.  |
 |  	|  	|
+
 
 | **Caso de Teste** 	| **CT-03 – Verificação do cálculo das calorias consumidas no dia pelo usuário.** 	|
 |:---:	|:---:	|
