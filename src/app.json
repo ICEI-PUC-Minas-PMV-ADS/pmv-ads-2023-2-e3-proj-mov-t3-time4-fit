@@ -1,13 +1,13 @@
 {
   "expo": {
-    "name": "EatSmart",
+    "name": "Eat Smart",
     "slug": "EatSmart",
-    "version": "1.0.2",
+    "version": "1.0.3",
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
+    "icon": "./assets/logo-eatsmart.png",
     "userInterfaceStyle": "light",
     "splash": {
-      "image": "./assets/splash.png",
+      "image": "./assets/eatsmart.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
@@ -18,9 +18,9 @@
       "supportsTablet": true
     },
     "android": {
-      "versionCode": 3,
+      "versionCode": 4,
       "adaptiveIcon": {
-        "foregroundImage": "./assets/adaptive-icon.png",
+        "foregroundImage": "./assets/logo-eatsmart.png",
         "backgroundColor": "#ffffff"
       },
       "package": "com.eatsmart"
