@@ -1,11 +1,8 @@
 import React, {useContext, useState} from 'react';
-import {Alert, Pressable, StyleSheet, Text, TextInput, TouchableOpacity, View} from 'react-native';
+import {Alert, Pressable, StyleSheet, Text, TextInput, View} from 'react-native';
 import * as Animatable from 'react-native-animatable'
 import {UsuarioContext} from "../store/usuario-context";
 import {GlobalStyles} from "../constants/styles";
-import {UserChoices} from "../constants/users";
-import {Ionicons} from "@expo/vector-icons";
-import {isValid, parseISO} from "date-fns";
 
 export default function DateBirth({navigation}) {
     const [dataNascimento, setDataNascimento] = useState('');
