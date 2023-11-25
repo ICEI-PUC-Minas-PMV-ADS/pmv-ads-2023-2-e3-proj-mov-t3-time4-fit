@@ -15,7 +15,7 @@ Nesse contexto, o objetivo deste projeto é simplificar e tornar mais acessível
 
 ## Objetivos
 
-O desenvolvimento do aplicativo de saúde e bem-estar tem o potencial de abordar esse problema de maneira abrangente. Por meio de uma interface simples e envolvente, ele transformará o monitoramento de escolhas alimentares, ingestão de água e atividade física em tarefas mais gerenciáveis e empolgantes.
+O desenvolvimento do aplicativo de saúde e bem-estar tem o potencial de abordar esse problema de maneira abrangente. Por meio de uma interface simples e envolvente, ele transformará o monitoramento de escolhas alimentares e atividade física em tarefas mais gerenciáveis e empolgantes.
 
 ## Justificativa
 
