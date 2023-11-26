@@ -2,7 +2,7 @@
   "expo": {
     "name": "Eat Smart",
     "slug": "EatSmart",
-    "version": "1.0.3",
+    "version": "1.0.4",
     "orientation": "portrait",
     "icon": "./assets/logo-eatsmart.png",
     "userInterfaceStyle": "light",
@@ -18,7 +18,7 @@
       "supportsTablet": true
     },
     "android": {
-      "versionCode": 4,
+      "versionCode": 5,
       "adaptiveIcon": {
         "foregroundImage": "./assets/logo-eatsmart.png",
         "backgroundColor": "#ffffff"
