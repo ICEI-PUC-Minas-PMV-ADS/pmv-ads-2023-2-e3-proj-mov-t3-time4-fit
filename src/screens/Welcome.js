@@ -11,8 +11,8 @@ function Welcome({navigation}) {
             <View style={styles.containerLogo}>
                 <Animatable.Image
                     animation="flipInY"
-                    source={require('../assets/logo.png')}
-                    style={{width: '100%'}}
+                    source={require('../assets/eatsmart.png')}
+                    style={{width: '40%'}}
                     resizeMode="contain"
                 />
             </View>
