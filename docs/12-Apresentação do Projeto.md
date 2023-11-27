@@ -3,6 +3,8 @@
 ## Título do Projeto
 * Eat   Smart
 
+## Vídeo
+
 | 	|   Apresentações    |
 |:---:  | :---: |
 |  Projeto  | <video src="https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-2-e3-proj-mov-t3-time4-fit/assets/93801572/8071bedf-958b-4eb6-ab25-2f2d2f699d7b"> |
