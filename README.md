@@ -20,8 +20,7 @@ O **Eat Smart** é um aplicativo mobile que simplifica o planejamento de refeiç
 
 ## Apresentação do Projeto
 
-<video src="https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-2-e3-proj-mov-t3-time4-fit/assets/93801572/68207259-148b-497b-a29f-a3d5c501803d" title="Video de Apresentação">  |
-
+| <video src="https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-2-e3-proj-mov-t3-time4-fit/assets/93801572/68207259-148b-497b-a29f-a3d5c501803d" title="Video de Apresentação"> |
 | :---: |
 
 
